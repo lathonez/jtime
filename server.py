@@ -47,7 +47,8 @@ class jtime:
 
 		return render.jtime(
 			as_rtn['tickets'],
-			as_rtn['projects']
+			as_rtn['projects'],
+			as_rtn['summary']
 		)
 
 class Server():
