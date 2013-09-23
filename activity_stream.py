@@ -302,6 +302,7 @@ class ActivityStream():
 				p = {
 					'project': ticket['project'],
 					'time': ticket['time'],
+					'tenrox_time': self._round_tenrox_time(ticket['time']),
 					'tenrox_code': self._get_tenrox_code(ticket['project']),
 					'tenrox_comment': self._get_tenrox_comment(ticket)
 				}
@@ -309,9 +310,28 @@ class ActivityStream():
 			else:
 				p = exists
 				p['time'] += ticket['time']
+				p['tenrox_time'] += self._round_tenrox_time(ticket['time'])
 				p['tenrox_comment'] += self._get_tenrox_comment(ticket)
 
 		return projects
+
+	# Round a datetime.timedelta object into tenrox time (4.25 instead of 04:15)
+	#
+	# time: timedelta obj
+	#
+	# return: rounded tenrox time (double)
+	def _round_tenrox_time(self,time):
+
+		if time is None:
+			return 0.0
+
+		spl = str(time).rsplit(':')
+
+		hour = int(spl[0])
+		minute = int(spl[1])
+		second = int(spl[2])
+
+		return 1.5
 
 	#
 	# Public functions
