@@ -271,6 +271,17 @@ class ActivityStream():
 
 		return total_time
 
+	# format a tenrox comment based on a ticket dict
+	#
+	# ticket: the ticket dict
+	#
+	# return: the tenrox comment ([LBR-12345|01:30:45])
+	def _get_tenrox_comment(self,ticket):
+
+		comment = '[{0}|{1}]'
+
+		return comment.format(ticket['ticket_id'],ticket['time'])
+
 	# Build a summary per project from a list of ticket dicts
 	#
 	# tickets: ticket dicts
@@ -291,12 +302,14 @@ class ActivityStream():
 				p = {
 					'project': ticket['project'],
 					'time': ticket['time'],
-					'tenrox_code': self._get_tenrox_code(ticket['project'])
+					'tenrox_code': self._get_tenrox_code(ticket['project']),
+					'tenrox_comment': self._get_tenrox_comment(ticket)
 				}
 				projects.append(p)
 			else:
 				p = exists
 				p['time'] += ticket['time']
+				p['tenrox_comment'] += self._get_tenrox_comment(ticket)
 
 		return projects
 
