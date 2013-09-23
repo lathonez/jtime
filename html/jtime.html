@@ -5,7 +5,6 @@ $def with (tickets, projects)
 		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css" />
 		<link rel="stylesheet" type="text/css" href="/static/jTime/css/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="/static/jTime/css/jTime.css" />
-
 		<script type="text/javascript" language="Javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script type="text/javascript" language="Javascript" src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
 		<script type="text/javascript" language="Javascript" src="/static/jTime/js/jTime.js"></script>
@@ -35,6 +34,7 @@ $def with (tickets, projects)
 								<td>$project['project']</td>
 								<td>$project['tenrox_code']</td>
 								<td>$project['time']</td>
+								<td><div id="$project['project']_tenrox_comment" class="hidden">$project['tenrox_comment']</div></td>
 							</tr>
 						</tbody>
 					</table>
