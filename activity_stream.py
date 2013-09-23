@@ -144,6 +144,9 @@ class ActivityStream():
 		else:
 			print fn,total_time,'accounted for'
 
+		# sort the results
+		tickets = sorted(tickets, key=lambda k: k['ticket_id'])
+
 		return tickets
 
 	# work out the (published) time difference between two rss entries
