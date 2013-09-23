@@ -110,7 +110,7 @@ class ActivityStream():
 				else:
 					raise e
 
-			exists = self._get_ticket(tickets,t['ticket_id'])
+			exists = self._get_from_dict(tickets,'ticket_id',t['ticket_id'])
 
 			# if we've not seen this ticket yet, add it
 			if exists is None:
@@ -225,34 +225,16 @@ class ActivityStream():
 
 		return code
 
-	# TODO - combine these functions into a generic one (find me this tickt based on this var)
-
-	# get a ticket dict in a list of tickets based on ticket_id
+	# retrieve a dict from a list of dicts based on a key value pair
 	#
-	# tickets: list of ticket dicts
-	# ticket_id: ticket_id we're looking for
+	# l: list of dicts
+	# k: key to search
+	# v: value of k
 	#
-	# returns ticket dict if found, else None
-	def _get_ticket(self,tickets,ticket_id):
+	# returns dict if found, else none
+	def _get_from_dict(self,l,k,v):
 
-		i = iter(ticket for ticket in tickets if ticket['ticket_id'] == ticket_id)
-
-		try:
-			return next(i)
-		except StopIteration:
-			return None
-		finally:
-			del i
-
-	# get a project dict in a list of projects based on project_name
-	#
-	# projects: list of project dicts
-	# project_name: project name we're looking for (LBR)
-	#
-	# returns project dict if found, else None
-	def _get_project(self,projects,project_name):
-
-		i = iter(project for project in projects if project['project'] == project_name)
+		i = iter(d for d in l if d[k] == v)
 
 		try:
 			return next(i)
@@ -302,7 +284,8 @@ class ActivityStream():
 		projects = []
 
 		for ticket in tickets:
-			exists = self._get_project(projects,ticket['project'])
+
+			exists = self._get_from_dict(projects,'project',ticket['project'])
 
 			if exists is None:
 				p = {
