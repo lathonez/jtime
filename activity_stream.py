@@ -302,7 +302,6 @@ class ActivityStream():
 				p = {
 					'project': ticket['project'],
 					'time': ticket['time'],
-					'tenrox_time': self._round_tenrox_time(ticket['time']),
 					'tenrox_code': self._get_tenrox_code(ticket['project']),
 					'tenrox_comment': self._get_tenrox_comment(ticket)
 				}
@@ -310,8 +309,11 @@ class ActivityStream():
 			else:
 				p = exists
 				p['time'] += ticket['time']
-				p['tenrox_time'] += self._round_tenrox_time(ticket['time'])
 				p['tenrox_comment'] += self._get_tenrox_comment(ticket)
+
+		# round up the tenrox time in each project
+		for project in projects:
+			project['tenrox_time'] = self._round_tenrox_time(project['time'])
 
 		return projects
 
@@ -323,7 +325,7 @@ class ActivityStream():
 	def _round_tenrox_time(self,time):
 
 		if time is None:
-			return 0.0
+			return 0.25
 
 		spl = str(time).rsplit(':')
 
@@ -331,7 +333,35 @@ class ActivityStream():
 		minute = int(spl[1])
 		second = int(spl[2])
 
-		return 1.5
+		# first round the minutes up or down as appropriate
+		if second > 30:
+			minute += 1
+
+		minute = self._round_tenrox_minutes(minute)
+		
+		# round up the hour if necessary
+		if minute == 1.0:
+			hour += 1
+			minute = 0.0
+
+		return hour + minute
+
+	# Round (convert) standard clock minutes into tenrox values
+	#
+	# minutes: amount of minutes we're rounding
+	#
+	# return: tenrox minutes (15 minutes = 0.25)
+	def _round_tenrox_minutes(self,minutes):
+
+		# we always have at least 0.25
+		if minutes <= 22:
+			return 0.25
+		elif minutes <= 37:
+			return 0.5
+		elif minutes <= 52:
+			return 0.75
+
+		return 1.0
 
 	#
 	# Public functions
