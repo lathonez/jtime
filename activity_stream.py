@@ -363,6 +363,29 @@ class ActivityStream():
 
 		return 1.0
 
+	# Sum the total time from a list of projects
+	#
+	# projects: list of project dicts
+	#
+	# return {total_time: '07:30:59', total_tenrox_time: '7.5'}
+	def _get_total_summary(self, projects):
+
+		time = None
+		tenrox_time = 0.0
+
+		for project in projects:
+			if time is None:
+				time = project['time']
+			elif project['time'] is not None:
+				time += project['time']
+
+			tenrox_time += project['tenrox_time']
+
+		return {
+			'time': time,
+			'tenrox_time': tenrox_time
+		}
+
 	#
 	# Public functions
 	#
@@ -376,17 +399,20 @@ class ActivityStream():
 	#
 	# returns: {
 	#     'tickets': tickets,
-	#     'projects': projects
+	#     'projects': projects,
+	#     'summary': {total_time: '07:30:59', total_tenrox_time: '7.5'}
 	# }
 	def do_activity_stream(self, username, password, day, month):
 
 		stream   = self._get_stream(username,password)
 		tickets  = self._parse_stream(stream,day,month)
 		projects = self._get_project_summary(tickets)
+		summary  = self._get_total_summary(projects)
 
 		return {
 			'tickets': tickets,
-			'projects': projects
+			'projects': projects,
+			'summary': summary
 		}
 
 

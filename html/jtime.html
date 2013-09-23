@@ -1,4 +1,4 @@
-$def with (tickets, projects)
+$def with (tickets, projects, summary)
 <html>
 	<head>
 		<title>jTime</title>
@@ -40,6 +40,22 @@ $def with (tickets, projects)
 							</tr>
 						</tbody>
 					</table>
+					<h3>Overall Summary</h3>
+					<table class="pure-table-striped">
+						<thead>
+							<tr>
+								<th>Time</th>
+								<th>Tenrox Time</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>$summary['time']</td>
+								<td>$summary['tenrox_time']</td>
+							</tr>
+						</tbody>
+					</table>
+
 				</div>
 				<div class="pure-u-1-4">
 					<h3>Time per ticket</h3>
