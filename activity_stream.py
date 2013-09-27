@@ -1,4 +1,4 @@
-from utils        import HTTPUtils
+from shared.utils import HTTPUtils
 from time         import mktime
 from datetime     import datetime
 import feedparser, re, ConfigParser
@@ -10,6 +10,7 @@ class ActivityStream():
 
 		self.config = config
 		self.http_utils = HTTPUtils(self.config)
+		self.debug = self.config.getboolean('app','debug')
 
 	# get the activity stream for a given user
 	#
@@ -76,6 +77,9 @@ class ActivityStream():
 
 		# find relevant entries
 		for entry in stream.entries:
+
+			if self.debug:
+				print entry,'\n\n'
 
 			e_day = int(entry.published_parsed.tm_mday)
 			e_month = int(entry.published_parsed.tm_mon)
