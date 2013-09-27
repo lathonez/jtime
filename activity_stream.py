@@ -45,7 +45,7 @@ class ActivityStream():
 		except Exception as e:
 
 			# check for failed login
-			if str(e).index('HTTP error code: 401'):
+			if str(e).find('HTTP error code: 401'):
 				raise ActivityStreamError('BAD_USER')
 			else:
 				raise e
