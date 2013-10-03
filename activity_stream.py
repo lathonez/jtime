@@ -1,6 +1,6 @@
 from shared.utils import HTTPUtils
 from time         import mktime
-from datetime     import datetime
+from datetime     import *
 import feedparser, re, ConfigParser
 
 # Class to obtain and parse an activity stream from Jira
@@ -18,14 +18,24 @@ class ActivityStream():
 	# password: Jira password
 	#
 	# return: feedparsed activiy stream
-	def _get_stream(self, username, password):
+	def _get_stream(self, username, password, date):
 
-		url      = self.config.get('app','base_url')
-		auth     = self.config.get('app','auth_type')
-		results  = self.config.get('app','results')
-		streams  = 'user+IS+{0}'.format(username)
+		# get the weird jira seconds to work with
+		from_secs = self._get_jira_seconds(date)
+		to_secs   = self._get_jira_seconds(date+timedelta(days=1))
 
-		print 'get_stream: Attemptint to get stream for user',username
+		url     = self.config.get('app','base_url')
+		auth    = self.config.get('app','auth_type')
+		results = self.config.get('app','results')
+
+		print username,password
+
+		# the stream filters are passed through as two streams variables
+		time_stream = 'update-date+BETWEEN+{0}+{1}'.format(from_secs,to_secs)
+		user_stream = 'user+IS+{0}'.format(username)
+		streams = '{0}&streams={1}'.format(user_stream,time_stream)
+
+		print 'get_stream: Attempting to get stream for user',username
 
 		request_params = {
 			'maxResults': results,
@@ -63,34 +73,18 @@ class ActivityStream():
 	#  - sum the time up for each ticket
 	#
 	# stream: feedparsed activity stream
-	# day:    day of the month (e.g. 26)
-	# month:  month of the year (e.g. 09)
 	#
 	# return: list of ticket dicts
-	def _parse_stream(self, stream, day, month):
+	def _parse_stream(self, stream):
 
 		fn      = '_parse_stream:'
-		day     = int(day)
-		month   = int(month)
-		entries = []
+		entries = stream.entries
 		tickets = []
-
-		# find relevant entries
-		for entry in stream.entries:
-
-			if self.debug:
-				print entry,'\n\n'
-
-			e_day = int(entry.published_parsed.tm_mday)
-			e_month = int(entry.published_parsed.tm_mon)
-
-			if day == e_day and month == e_month:
-				entries.append(entry)
 
 		if not len(entries):
 			raise ActivityStreamError('NO_ACTIVITIES')
 
-		print fn,len(entries),'events found'
+		print fn,len(stream.entries),'events found in stream'
 
 		# debug available time
 		start = entries[0]
@@ -393,6 +387,15 @@ class ActivityStream():
 			'tenrox_time': tenrox_time
 		}
 
+	# Get time in seconds since the epoch to a specific date * 1000
+	#
+	# date: datetime object
+	#
+	# returns (see above)
+	def _get_jira_seconds(self, date):
+
+		return int(round(float(date.strftime('%s.%f'))*1000,0))
+
 	#
 	# Public functions
 	#
@@ -401,18 +404,17 @@ class ActivityStream():
 	#
 	# username: Jira username
 	# password: Jira password
-	# day:      Day of the month (e.g. 26)
-	# month:    Month of the year (e.g. 09)
+	# date:     datetime obj
 	#
 	# returns: {
 	#     'tickets': tickets,
 	#     'projects': projects,
 	#     'summary': {total_time: '07:30:59', total_tenrox_time: '7.5'}
 	# }
-	def do_activity_stream(self, username, password, day, month):
+	def do_activity_stream(self, username, password, date):
 
-		stream   = self._get_stream(username,password)
-		tickets  = self._parse_stream(stream,day,month)
+		stream   = self._get_stream(username,password,date)
+		tickets  = self._parse_stream(stream)
 		projects = self._get_project_summary(tickets)
 		summary  = self._get_total_summary(projects)
 
