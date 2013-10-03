@@ -1,5 +1,6 @@
 from activity_stream import *
 from ConfigParser    import SafeConfigParser
+from datetime        import datetime
 import web, sys
 
 # globals
@@ -32,12 +33,12 @@ class jtime:
 		act = ActivityStream(config)
 
 		try:
-			date_spl = data.date.rsplit('/')
+			d = data.date.rsplit('/')
+			date = datetime(int(d[2]),int(d[1]),int(d[0]))
 			as_rtn = act.do_activity_stream(
 				data.username,
 				data.password,
-				date_spl[0],
-				date_spl[1]
+				date
 			)
 		except ActivityStreamError as e:
 			print e.message
