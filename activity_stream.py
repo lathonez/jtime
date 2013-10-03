@@ -179,7 +179,7 @@ class ActivityStream():
 		return {
 			'project': project,
 			'ticket_id': ticket_id,
-			'time': None
+			'time': timedelta()
 		}
 
 	# parse the rss title detail into useful info
@@ -254,18 +254,14 @@ class ActivityStream():
 	# returns datetime object containing the total time (convenience)
 	def _get_total_time(self,tickets,debug=False):
 
-		total_time = None
+		total_time = timedelta()
 
 		for ticket in tickets:
 
 			if debug:
 				print ticket['ticket_id'], ticket['time']
 
-			if ticket['time'] is not None:
-				if total_time is None:
-					total_time = ticket['time']
-				else:
-					total_time += ticket['time']
+				total_time += ticket['time']
 
 		if debug:
 			print 'total_time:',total_time
@@ -325,9 +321,6 @@ class ActivityStream():
 	# return: rounded tenrox time (double)
 	def _round_tenrox_time(self,time):
 
-		if time is None:
-			return 0.25
-
 		spl = str(time).rsplit(':')
 
 		hour = int(spl[0])
@@ -371,15 +364,11 @@ class ActivityStream():
 	# return {total_time: '07:30:59', total_tenrox_time: '7.5'}
 	def _get_total_summary(self, projects):
 
-		time = None
+		time = timedelta()
 		tenrox_time = 0.0
 
 		for project in projects:
-			if time is None:
-				time = project['time']
-			elif project['time'] is not None:
-				time += project['time']
-
+			time += project['time']
 			tenrox_time += project['tenrox_time']
 
 		return {

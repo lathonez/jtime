@@ -45,6 +45,7 @@ class jtime:
 			if e.code == 'BAD_USER' or e.code == 'NO_ACTIVITIES':
 				web.seeother('/?msg=' + e.code)
 				return
+			raise e
 
 		return render.jtime(
 			as_rtn['tickets'],
