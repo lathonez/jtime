@@ -261,7 +261,7 @@ class ActivityStream():
 			if debug:
 				print ticket['ticket_id'], ticket['time']
 
-				total_time += ticket['time']
+			total_time += ticket['time']
 
 		if debug:
 			print 'total_time:',total_time
