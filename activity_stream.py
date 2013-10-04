@@ -28,8 +28,6 @@ class ActivityStream():
 		auth    = self.config.get('app','auth_type')
 		results = self.config.get('app','results')
 
-		print username,password
-
 		# the stream filters are passed through as two streams variables
 		time_stream = 'update-date+BETWEEN+{0}+{1}'.format(from_secs,to_secs)
 		user_stream = 'user+IS+{0}'.format(username)
