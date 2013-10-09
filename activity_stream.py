@@ -191,7 +191,7 @@ class ActivityStream():
 	def _parse_title_detail(self, title_detail):
 
 		jira_link = 'https://jira.openbet.com/browse/'
-		rexp      = '([A-Z][A-Z][A-Z]?)-([1-9][0-9]*)'
+		rexp      = '([A-Z][A-Z][A-Z]*)-([1-9][0-9]*)'
 		idx       = title_detail.find(jira_link) + len(jira_link)
 		jira_id   = title_detail[idx:idx+9]
 		match     = re.search(rexp,jira_id)
