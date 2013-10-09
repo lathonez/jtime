@@ -95,6 +95,9 @@ class ActivityStream():
 
 		for entry in entries:
 
+			if self.debug:
+				print entry
+
 			try:
 				# temp ticket to test with
 				t = self._build_ticket_dict(entry)
@@ -134,7 +137,7 @@ class ActivityStream():
 			prev_ticket = t
 
 		# sanity check time
-		total_time = self._get_total_time(tickets,False)
+		total_time = self._get_total_time(tickets)
 		if total_time != avail:
 			raise ActivityStreamError('BAD_TIME','total_time: {0}, avail: {1}'.format(total_time,avail))
 		else:
@@ -250,18 +253,18 @@ class ActivityStream():
 	#  - total time when completed
 	#
 	# returns datetime object containing the total time (convenience)
-	def _get_total_time(self,tickets,debug=False):
+	def _get_total_time(self,tickets):
 
 		total_time = timedelta()
 
 		for ticket in tickets:
 
-			if debug:
+			if self.debug:
 				print ticket['ticket_id'], ticket['time']
 
 			total_time += ticket['time']
 
-		if debug:
+		if self.debug:
 			print 'total_time:',total_time
 
 		return total_time
