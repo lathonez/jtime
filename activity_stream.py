@@ -11,6 +11,8 @@ class ActivityStream():
 		self.config = config
 		self.http_utils = HTTPUtils(self.config)
 		self.debug = self.config.getboolean('app','debug')
+		self.debug_stream = self.config.getboolean('app','debug_stream')
+		self.relevant_terms = self.config.get('app','relevant_terms').rsplit('|')
 
 	# get the activity stream for a given user
 	#
@@ -95,8 +97,12 @@ class ActivityStream():
 
 		for entry in entries:
 
-			if self.debug:
+			if self.debug_stream:
 				print entry
+
+			# only process stuff we care about
+			if not self._check_entry_relevant(entry):
+				continue
 
 			try:
 				# temp ticket to test with
@@ -385,6 +391,31 @@ class ActivityStream():
 	def _get_jira_seconds(self, date):
 
 		return int(round(float(date.strftime('%s.%f'))*1000,0))
+
+
+	# check to see whether we want to be counting this entry in our timesheet
+	#
+	# entry - entry object from stream.entries
+	#
+	# returns - True if we should be counting the entry, else false
+	def _check_entry_relevant(self, entry):
+
+		fn = '_check_entry_relevant:'
+
+		# no tags implies a ticket field change (priority, team, IM, etc), we keep these
+		if 'tags' not in entry:
+			return True
+
+		t = entry['tags'][0]
+		term = t['term']
+
+		if term in self.relevant_terms:
+			return True
+
+		if self.debug:
+			print fn,'not relevant - ',entry['title']
+
+		return False
 
 	#
 	# Public functions
