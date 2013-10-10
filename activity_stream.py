@@ -110,7 +110,7 @@ class ActivityStream():
 			except ActivityStreamError as e:
 				# we've got a random event like 'linked two tickets', ignore
 				if e.code == 'NO_TICKET_ID':
-					print fn,'skipping entry @',entry.published
+					print fn,'skipping entry @',entry['published']
 					continue
 				else:
 					raise e
@@ -179,7 +179,7 @@ class ActivityStream():
 	# }
 	def _build_ticket_dict(self,entry):
 
-		td          = self._parse_title_detail(entry.title_detail.value)
+		td          = self._parse_title_detail(entry['title_detail']['value'])
 		project     = td['project']
 		ticket_id   = project + '-' + td['ticket_id']
 
