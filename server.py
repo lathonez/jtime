@@ -6,6 +6,7 @@ import web, sys
 # globals
 render = None
 config = None
+act    = None
 
 class index:
 
@@ -28,9 +29,9 @@ class jtime:
 
 	def POST(self):
 
-		data = web.input()
+		global config, act
 
-		act = ActivityStream(config)
+		data = web.input()
 
 		try:
 			d = data.date.rsplit('/')
@@ -57,7 +58,7 @@ class Server():
 
 	def __init__ (self):
 
-		global config, render
+		global config, render, act
 
 		# read the conf
 		config = SafeConfigParser()
@@ -71,6 +72,9 @@ class Server():
 		self._set_urls()
 
 		render = web.template.render('html/')
+
+		# spin up an instance of activity stream
+		act = ActivityStream(config)
 
 	def _set_urls(self):
 
