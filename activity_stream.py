@@ -86,11 +86,9 @@ class ActivityStream():
 
 		print fn,len(stream.entries),'events found in stream'
 
-		# debug available time
-		start = entries[0]
-		end   = entries[len(entries)-1]
-		avail = self._get_time_difference(start,end)
-		print fn,'Time Available:',avail
+		# placeholders to sanity check the available time
+		first_entry = None
+		last_entry  = None
 
 		prev_entry  = None
 		prev_ticket = None
@@ -103,6 +101,12 @@ class ActivityStream():
 			# only process stuff we care about
 			if not self._check_entry_relevant(entry):
 				continue
+
+			# we use relevant placeholders only to check the total time
+			if first_entry is None:
+				first_entry = entry
+
+			last_entry = entry
 
 			try:
 				# temp ticket to test with
@@ -143,6 +147,9 @@ class ActivityStream():
 			prev_ticket = t
 
 		# sanity check time
+		avail = self._get_time_difference(first_entry,last_entry)
+		print fn,'Time Available:',avail
+
 		total_time = self._get_total_time(tickets)
 		if total_time != avail:
 			raise ActivityStreamError('BAD_TIME','total_time: {0}, avail: {1}'.format(total_time,avail))
@@ -413,7 +420,7 @@ class ActivityStream():
 			return True
 
 		if self.debug:
-			print fn,'not relevant - ',entry['title']
+			print fn,'not relevant - ',entry['title'].encode('utf-8')
 
 		return False
 

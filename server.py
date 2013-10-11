@@ -49,6 +49,7 @@ class jtime:
 			raise e
 
 		return render.jtime(
+			data.date,
 			as_rtn['tickets'],
 			as_rtn['projects'],
 			as_rtn['summary']
