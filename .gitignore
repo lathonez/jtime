@@ -1,2 +1,8 @@
 shared
+<<<<<<< HEAD
 activity_stream.pyc
+=======
+*.pyc
+*.swp
+password.cfg
+>>>>>>> ae9f4d1dba717215518b57050066ce4526e06a55
