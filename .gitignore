@@ -1,2 +1,3 @@
 shared
-activity_stream.pyc
+*.pyc
+*.swp
