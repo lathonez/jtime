@@ -64,6 +64,7 @@ class Server():
 		# read the conf
 		config = SafeConfigParser()
 		config.read('activity_stream.cfg')
+		config.read('password.cfg')
 
 		# grab the port and spoof command args
 		port = config.get('app','port')
