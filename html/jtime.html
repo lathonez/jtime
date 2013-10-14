@@ -18,7 +18,8 @@ $def with (date, tickets, projects, summary)
 		<script type="text/javascript" language="Javascript">
 			var projects = [],
 			    tenrox_date = '$date',
-			    url = '/elevenRox';
+			    url = '/elevenRox',
+			    er;
 
 			$for project in projects
 			projects.push(
@@ -32,7 +33,7 @@ $def with (date, tickets, projects, summary)
 			);
 
 			function upload() {
-				var er = new ElevenRox(projects, tenrox_date, 'shazleto', 'open11bet', url);
+				er = new ElevenRox(projects, tenrox_date, 'shazleto', 'open11bet', url);
 				er.upload();
 			}
 		</script>
