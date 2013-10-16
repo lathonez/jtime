@@ -35,5 +35,7 @@ Project.prototype._init = function(
 	this.timeentry      = null;
 	this.request        = null;
 	this.request_sent   = false;
+	this.request_failed = false;
+	this.response       = null;
 }
 

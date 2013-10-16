@@ -112,13 +112,32 @@ ElevenRox.prototype._get_time_cb = function (_resp) {
  *
  * This is called 'recursively', first from _get_time_cb,
  * then as a result of each further request sent herein
+ *
+ * _resp - response from tenrox (if recursing)
+ * _project - project response applies to (if recursing)
  */
-ElevenRox.prototype._set_time_cb = function(_resp) {
+ElevenRox.prototype._set_time_cb = function(_resp,_project) {
 
 	var fn = 'ElevenRox._set_time_cb: ',
 	    sent = 0,
 	    not_sending = 0,
+	    failed = 0,
+	    obj = this,
 	    p;
+
+	// base handling if it's not our first time in
+	if (_resp !== undefined) {
+
+		// keep track of the response for each project
+		_project.response = _resp;
+
+		if (!this._resp_landing(_resp)) {
+			console.log(fn + 'failed to set time for ' + _project.project);
+			_project.request_failed = true;
+		} else {
+			console.log(fn + 'successfully set time for ' + _project.project);
+		}
+	}
 
 	for (var i = 0; i < this.projects.length; i++) {
 
@@ -129,6 +148,12 @@ ElevenRox.prototype._set_time_cb = function(_resp) {
 			not_sending++;
 			continue;
 		}
+		// keep a failed counter (we've already sent this)
+		if (p.request_failed) {
+			sent++;
+			failed++;
+			continue;
+		}
 		// we only care about stuff we've not sent yet
 		if (p.request_sent) {
 			sent++;
@@ -137,9 +162,7 @@ ElevenRox.prototype._set_time_cb = function(_resp) {
 
 		p.request_sent = true;
 
-		// TODO - can we pass the project object through here to only mark sent
-		// when it has been successfully sent?
-		this._send(p.request, function(_resp) {obj._set_time_cb(_resp)})
+		this._send(p.request, function(_resp) {obj._set_time_cb(_resp,p)})
 
 		// only send one project (for now..)
 		break;
@@ -147,9 +170,9 @@ ElevenRox.prototype._set_time_cb = function(_resp) {
 
 	// confirm if we've sent everything we need to send
 	if ((sent + not_sending) == this.projects.length) {
-		console.log(fn + 'complete -');
 		console.log(fn + 'not sent: ' + not_sending);
 		console.log(fn + 'sent: ' + sent);
+		console.log(fn + 'faled: ' + failed);
 	}
 };
 
@@ -221,22 +244,23 @@ ElevenRox.prototype._build_set_request = function(_project) {
 
     request.method = "set_time"
     request.params = {}
-	request.params.assignment_id = _project.assignment.assignment_id;
+	request.params.assignment_id = _project.assignment.id;
 	request.params.entry_id      = 0;
 	request.params.entry_date    = this.tenrox_date;
 	request.params.time          = this._convert_to_seconds(_project.tenrox_time);
-	request.params.comment       = _project.comment;
+	request.params.comment       = _project.tenrox_comment;
 	request.params.comment_id    = 0;
 
 	// overwrite some stuff if we've already got an entry
+	// this is safer than additive (in terms of time), should this be run multiple times
 	if (_project.timeentry) {
-		request.params.entry_id   = _project.timeentry.entry_id;
-		request.params.time      += _project.timeentry.time;
+		request.params.entry_id   = _project.timeentry.id;
+		request.params.time       = _project.timeentry.time;
 
-		// ammend existing comment if one exists
+		// use existing comment id (don't create a tab).
 		comment = _project.timeentry.get_comment();
-		request.params.comment_id = comment.comment_id;
-		request.params.comment   += comment.comment;
+		request.params.comment_id = comment.uid;
+		request.params.comment    = comment.d;
 	}
 
 	return request;
