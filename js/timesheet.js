@@ -51,11 +51,17 @@ Timesheet.prototype._build_assignments = function(assignments) {
  */
 Timesheet.prototype.get_assignment = function(tenrox_code) {
 
-	for assignment in this.assignments {
-		if (assignment.assignment_name.search(tenrox_code) > 1) {
-			return assignment;
+	var a;
+
+	for (var i = 0; i < this.assignments.lenght; i++) {
+
+		var a = this.assignments[i];
+
+		if (a.assignment_name.search(tenrox_code) > 1) {
+			return a;
 		}
 	}
 
 	return null;
 };
+

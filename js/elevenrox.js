@@ -99,7 +99,7 @@ ElevenRox.prototype._get_time_cb = function (_resp) {
 		return;
 	}
 
-	this.ts = new Timesheet(_resp.result.timesheet);
+	this.timesheet = new Timesheet(_resp.result.timesheet);
 
 	console.log(fn + 'timesheet retrieved successfully!');
 
@@ -115,28 +115,31 @@ ElevenRox.prototype._get_time_cb = function (_resp) {
  */
 ElevenRox.prototype._set_time_cb = function(_resp) {
 
-	var fn = 'ElevenRox._set_time_cb',
+	var fn = 'ElevenRox._set_time_cb: ',
 	    sent = 0,
-	    not_sending = 0;
+	    not_sending = 0,
+	    p;
 
-	for project in this.projects {
+	for (var i = 0; i < this.projects.length; i++) {
+
+		p = this.projects[i];
 
 		// we weren't able to find a matching assignment for this project
-		if (!this.project.request) {
+		if (!p.request) {
 			not_sending++;
 			continue;
 		}
 		// we only care about stuff we've not sent yet
-		if (this.project.request_sent) {
+		if (p.request_sent) {
 			sent++;
 			continue;
 		}
 
-		project.request_sent = true;
+		p.request_sent = true;
 
 		// TODO - can we pass the project object through here to only mark sent
 		// when it has been successfully sent?
-		this._send(project.request, function(_resp) {obj._set_time_cb(_resp)})
+		this._send(p.request, function(_resp) {obj._set_time_cb(_resp)})
 
 		// only send one project (for now..)
 		break;
@@ -189,21 +192,24 @@ ElevenRox.prototype._resp_landing = function (_resp) {
  */
 ElevenRox.prototype._build_set_requests = function() {
 
-	var fn = 'ElevenRox._build_set_requests: ';
+	var fn = 'ElevenRox._build_set_requests: ',
+	    p;
 
 	// for each project, we need to find the appropriate assignment or timeentry (if available)
-	for project in this.projects {
+	for (var i = 0; i < this.projects.length; i++) {
 
-		project.assignment = this.timesheet.get_assignment(p.tenrox_code);
+		p = this.projects[i];
 
-		if (!project.assignment) {
+		p.assignment = this.timesheet.get_assignment(p.tenrox_code);
+
+		if (!p.assignment) {
 			console.log(fn + 'assignment not found for ' + p.tenrox_code);
 			continue;
 		}
 
-		project.timeentry = project.assignment.get_timeentry(this.tenrox_date);
-		project.request   = this._build_set_request(project);
-	});
+		p.timeentry = p.assignment.get_timeentry(this.tenrox_date);
+		p.request   = this._build_set_request(p);
+	}
 };
 
 /*
@@ -246,11 +252,11 @@ ElevenRox.prototype._send = function (_req, _callback) {
 
 	// add tokens to request
 	if (this.token) {
-		request.params.token = this.token;
+		_req.params.token = this.token;
 	}
 
 	if (this.timesheet_token) {
-		request.params.timesheet_token = this.timesheet_token;
+		_req.params.timesheet_token = this.timesheet_token;
 	}
 
 	// make the request

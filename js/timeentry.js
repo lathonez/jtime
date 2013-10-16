@@ -47,7 +47,7 @@ Timeentry.prototype._init = function(
  *
  * Returns null if no comment exists
  */
-Timeentry.prototype._get_comment() {
+Timeentry.prototype._get_comment = function() {
 
 	if (!this.comments.length) {
 		return null;

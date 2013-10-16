@@ -73,7 +73,12 @@ Assignment.prototype._build_timeentries = function(timeentries) {
  */
 Assignment.prototype.get_timeentry = function(tenrox_date) {
 
-	for entry in this.timeentries {
+	var entry;
+
+	for (var i = 0; i < this.timeentries.length; i++) {
+
+		entry = this.timeentries[i];
+
 		if (entry.date == tenrox_date) {
 			return entry;
 		}
