@@ -67,3 +67,18 @@ Assignment.prototype._build_timeentries = function(timeentries) {
 
 	return ts;
 };
+
+/*
+ * Return the timeentry for this assignment on the date specified, or null if one doesn't exist
+ */
+Assignment.prototype.get_timeentry = function(tenrox_date) {
+
+	for entry in this.timeentries {
+		if (entry.date == tenrox_date) {
+			return entry;
+		}
+	}
+
+	return null;
+};
+

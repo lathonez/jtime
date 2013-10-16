@@ -45,3 +45,17 @@ Timesheet.prototype._build_assignments = function(assignments) {
 	return as;
 };
 
+/*
+ * Return an assignment based on a tenrox_code, or null
+ * if one doesn't exist for this timesheet
+ */
+Timesheet.prototype.get_assignment = function(tenrox_code) {
+
+	for assignment in this.assignments {
+		if (assignment.assignment_name.search(tenrox_code) > 1) {
+			return assignment;
+		}
+	}
+
+	return null;
+};

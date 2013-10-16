@@ -28,7 +28,7 @@ Timeentry.prototype._init = function(
 	bun,
 	entry_date,
 	time,
-	notes,
+	comments,
 	task_id
 ) {
 	this.id              = id;
@@ -38,6 +38,20 @@ Timeentry.prototype._init = function(
 	this.bun             = bun;
 	this.entry_date      = entry_date;
 	this.time            = time;
-	this.notes           = notes;
+	this.comments        = comments;
 	this.task_id         = task_id;
+};
+
+/*
+ * Currently we only support one comment
+ *
+ * Returns null if no comment exists
+ */
+Timeentry.prototype._get_comment() {
+
+	if (!this.comments.length) {
+		return null;
+	}
+
+	return this.comments[0];
 };
