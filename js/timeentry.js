@@ -38,7 +38,7 @@ Timeentry.prototype._init = function(
 	this.buid            = buid;
 	this.bun             = bun;
 	this.time            = time;
-	this.comments        = comments;
+	this.comments        = (comments === undefined ? [] : comments);
 	this.task_id         = task_id;
 };
 

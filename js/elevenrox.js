@@ -136,6 +136,8 @@ ElevenRox.prototype._set_time_cb = function(_resp,_project) {
 			_project.request_failed = true;
 		} else {
 			console.log(fn + 'successfully set time for ' + _project.project);
+			// update the local data model to reflect the update
+			this.timesheet.set(_resp.result.timesheet);
 		}
 	}
 
@@ -144,6 +146,7 @@ ElevenRox.prototype._set_time_cb = function(_resp,_project) {
 		p = this.projects[i];
 
 		// we weren't able to find a matching assignment for this project
+		// or the time for the project was already full
 		if (!p.request) {
 			not_sending++;
 			continue;
@@ -231,7 +234,7 @@ ElevenRox.prototype._build_set_requests = function() {
 		}
 
 		p.timeentry = p.assignment.get_timeentry(this.tenrox_date);
-		p.request   = this._build_set_request(p);
+		p = this._build_set_request(p);
 	}
 };
 
@@ -240,7 +243,8 @@ ElevenRox.prototype._build_set_requests = function() {
  */
 ElevenRox.prototype._build_set_request = function(_project) {
 
-	var request = {};
+	var request = {},
+	    fn = 'ElevenRox._build_set_request: ';
 
     request.method = "set_time"
     request.params = {}
@@ -255,15 +259,27 @@ ElevenRox.prototype._build_set_request = function(_project) {
 	// this is safer than additive (in terms of time), should this be run multiple times
 	if (_project.timeentry) {
 		request.params.entry_id   = _project.timeentry.id;
-		request.params.time       = _project.timeentry.time;
 
+		// we want to increase the time to _project.tenrox_time only
+		// allowing us to keep a handle on it (not let increments get out of control)
+		if (_project.timeentry.time >= request.params.time) {
+			console.log(fn + 'already got ' + _project.timeentry.time + ' seconds for ' + _project.project);
+			_project.time_full = true;
+			// don't assign the request, we won't be making one
+			return _project;
+		}
 		// use existing comment id (don't create a tab).
 		comment = _project.timeentry.get_comment();
-		request.params.comment_id = comment.uid;
-		request.params.comment    = comment.d;
+
+		if (comment) {
+			request.params.comment_id = comment.uid;
+			request.params.comment    = comment.d;
+		}
 	}
 
-	return request;
+	_project.request = request;
+
+	return _project;
 };
 
 /*

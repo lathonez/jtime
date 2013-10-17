@@ -65,3 +65,9 @@ Timesheet.prototype.get_assignment = function(tenrox_code) {
 	return null;
 };
 
+/*
+ * Update a timesheet (slice) from the JSON received as a result of a set_time request
+ */
+Timesheet.prototype.set = function(t) {
+
+};

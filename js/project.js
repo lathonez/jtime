@@ -37,5 +37,9 @@ Project.prototype._init = function(
 	this.request_sent   = false;
 	this.request_failed = false;
 	this.response       = null;
+
+	// we've already got the amount of time we're looking for
+	// for this project in the timesheet
+	this.time_full = false;
 }
 
