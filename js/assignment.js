@@ -40,7 +40,7 @@ Assignment.prototype._init = function(
 	worktype_name
 ) {
 	this.id            = id;
-	this.attribue_id   = attribute_id;
+	this.attribute_id  = attribute_id;
 	this.name          = name;
 	this.has_time      = has_time;
 	this.timeentries   = this._build_timeentries(timeentries);

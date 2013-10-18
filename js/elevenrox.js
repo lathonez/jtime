@@ -246,14 +246,14 @@ ElevenRox.prototype._build_set_request = function(_project) {
 	var request = {},
 	    fn = 'ElevenRox._build_set_request: ';
 
-    request.method = "set_time"
-    request.params = {}
-	request.params.assignment_id = _project.assignment.id;
-	request.params.entry_id      = 0;
-	request.params.entry_date    = this.tenrox_date;
-	request.params.time          = this._convert_to_seconds(_project.tenrox_time);
-	request.params.comment       = _project.tenrox_comment;
-	request.params.comment_id    = 0;
+	request.method = "set_time"
+	request.params = {}
+	request.params.assignment_attribute_id = _project.assignment.attribute_id;
+	request.params.entry_id   = 0;
+	request.params.entry_date = this.tenrox_date;
+	request.params.time       = this._convert_to_seconds(_project.tenrox_time);
+	request.params.comment    = _project.tenrox_comment;
+	request.params.comment_id = 0;
 
 	// overwrite some stuff if we've already got an entry
 	// this is safer than additive (in terms of time), should this be run multiple times
