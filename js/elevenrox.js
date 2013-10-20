@@ -44,13 +44,13 @@ ElevenRox.prototype.upload = function () {
 
 	console.log(fn + 'uploading..');
 
-	this._login(function() {obj._get_time();});
+	this.login(function() {obj._get_time();});
 };
 
 /*
  * _fn - what should we do next?
  */
-ElevenRox.prototype._login = function (_fn) {
+ElevenRox.prototype.login = function (_fn) {
 
 	var fn = 'ElevenRox._login: ',
 	    request = {},
@@ -58,6 +58,7 @@ ElevenRox.prototype._login = function (_fn) {
 
 	if (this.token) {
 		console.log(fn + 'already logged in to tenrox');
+		_fn();
 		return;
 	}
 
@@ -76,21 +77,25 @@ ElevenRox.prototype._login_cb = function (_resp, _fn) {
 
 	var fn = 'ElevenRox._login_cb: ';
 
-	if (!this._resp_landing(_resp)){
-
+	if (!this._resp_landing(_resp)) {
 		console.log(fn + 'login failed!');
-		return;
+	} else {
+		console.log(fn + 'login successful!');
 	}
-
-	console.log(fn + 'login successful!');
 
 	_fn();
 };
 
 ElevenRox.prototype._get_time = function () {
 
-	var request = {},
+	var fn = 'Elevenrox._get_time: ',
+	    request = {},
 	    obj = this;
+
+	if (!this.token) {
+		console.log(fn + 'not logged in, call _login first');
+		return;
+	}
 
 	request.method = "get_time";
 	request.params = {};

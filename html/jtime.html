@@ -1,4 +1,4 @@
-$def with (date,tickets,projects,summary,tenrox_username,tenrox_password,tenrox_token,tenrox_url)
+$def with (date,tickets,projects,summary,tenrox_username,tenrox_password,tenrox_token,elevenrox_url)
 <html>
 	<head>
 		<title>jTime</title>
@@ -21,7 +21,7 @@ $def with (date,tickets,projects,summary,tenrox_username,tenrox_password,tenrox_
 			    tenrox_user   = '$tenrox_username',
 			    tenrox_pass   = '$tenrox_password',
 			    tenrox_token  = ('$tenrox_token' == '' ? null : '$tenrox_token'),
-			    elevenrox_url = '$tenrox_url',
+			    elevenrox_url = '$elevenrox_url',
 			    er;
 
 			$for project in projects

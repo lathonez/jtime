@@ -23,7 +23,10 @@ class index:
 		if msg is not None:
 			msg = ActivityStreamError.ERROR_CODES[msg]
 
-		return render.index(msg)
+		return render.index(
+			config.get('app','elevenrox_url'),
+			msg
+		)
 
 class jtime:
 

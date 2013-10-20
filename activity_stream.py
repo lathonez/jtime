@@ -56,7 +56,7 @@ class ActivityStream():
 
 			# check for failed login
 			if str(e).find('HTTP error code: 401'):
-				raise ActivityStreamError('BAD_USER')
+				raise ActivityStreamError('BAD_J_USER')
 			else:
 				raise e
 
@@ -458,7 +458,8 @@ class ActivityStreamError(Exception):
 
 	ERROR_CODES = {
 		'DEFAULT': 'An error has occurred with the ActivityStream',
-		'BAD_USER': 'Invalid username or password',
+		'BAD_J_USER': 'Invalid Jira username or password',
+		'BAD_T_USER': 'Invalid Tenrox username or password',
 		'NO_ACTIVITIES': 'No activities were found on the date requested',
 		'NO_TICKET_ID': 'Failed to find ticket_id in title',
 		'BAD_TITLE': 'Failed to parse stream title',
