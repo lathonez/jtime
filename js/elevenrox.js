@@ -7,17 +7,17 @@ function ElevenRox(
 	tenrox_date,
 	username,
 	password,
+	token,
 	url
 ) {
-
 	this._init(
 		projects,
 		tenrox_date,
 		username,
 		password,
+		token,
 		url
 	);
-
 };
 
 ElevenRox.prototype._init = function(
@@ -25,6 +25,7 @@ ElevenRox.prototype._init = function(
 	tenrox_date,
 	username,
 	password,
+	token,
 	url
 ) {
 	this.projects    = projects;
@@ -32,35 +33,46 @@ ElevenRox.prototype._init = function(
 	this.username    = username;
 	this.password    = password;
 	this.url         = url;
-	this.token       = null;
+	this.token       = token;
 	this.request_id  = 0;
 };
 
 ElevenRox.prototype.upload = function () {
 
-	var fn = 'ElevenRox.upload: ';
+	var fn = 'ElevenRox.upload: ',
+	    obj = this;
 
 	console.log(fn + 'uploading..');
 
-	this._login();
+	this._login(function() {obj._get_time();});
 };
 
-ElevenRox.prototype._login = function () {
+/*
+ * _fn - what should we do next?
+ */
+ElevenRox.prototype._login = function (_fn) {
 
-	var request = {},
+	var fn = 'ElevenRox._login: ',
+	    request = {},
 	    obj = this;
+
+	if (this.token) {
+		console.log(fn + 'already logged in to tenrox');
+		return;
+	}
 
 	request.method = "login";
 	request.params = {};
 	request.params.username = this.username;
 	request.params.password = this.password;
 
-
-	this._send(request,function(_resp) { obj._login_cb(_resp) });
-
+	this._send(request,function(_resp) { obj._login_cb(_resp,_fn) });
 };
 
-ElevenRox.prototype._login_cb = function (_resp) {
+/*
+ * _fn - what should we do next?
+ */
+ElevenRox.prototype._login_cb = function (_resp, _fn) {
 
 	var fn = 'ElevenRox._login_cb: ';
 
@@ -72,8 +84,7 @@ ElevenRox.prototype._login_cb = function (_resp) {
 
 	console.log(fn + 'login successful!');
 
-	// now we're logged in we can go get the timesheet
-	this._get_time();
+	_fn();
 };
 
 ElevenRox.prototype._get_time = function () {

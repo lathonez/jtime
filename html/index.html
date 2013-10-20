@@ -23,20 +23,25 @@ $def with (msg)
 					<form class="pure-form pure-form-aligned" method="post" action="/jTime/doJTime">
 						<fieldset>
 							<div class="pure-control-group">
-								<label for="name"></label>
-								<input name="username" type="text" placeholder="Jira Username" required>
+								<input name="j_username" type="text" placeholder="Jira Username" required />
 							</div>
 							<div class="pure-control-group">
-								<label for="password"></label>
-								<input name="password" type="password" placeholder="Jira Password" required>
+								<input name="j_password" type="password" placeholder="Jira Password" required />
+							</div>
+							<div class="pure-control-group">
+								<input name="t_username" type="text" placeholder="Tenrox Username" required />
+							</div>
+							<div class="pure-control-group">
+								<input name="t_password" type="password" placeholder="Tenrox Password" required />
 							</div>
 							<div class="pure-control-group">
 								<label for="date"></label>
-								<input id="date" name="date" type="text" class="datepicker" placeholder="" required>
+								<input id="date" name="date" type="text" class="datepicker" placeholder="" required />
 							</div>
 							<div class="pure-controls">
 								<input type="submit" class="pure-button pure-button-primary" />
 							</div>
+							<input type="hidden" name="tenrox_token" value="" />
 						</fieldset>
 					</form>
 				</div>

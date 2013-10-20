@@ -37,8 +37,8 @@ class jtime:
 			d = data.date.rsplit('/')
 			date = datetime(int(d[2]),int(d[1]),int(d[0]))
 			as_rtn = act.do_activity_stream(
-				data.username,
-				data.password,
+				data.j_username,
+				data.j_password,
 				date
 			)
 		except ActivityStreamError as e:
@@ -52,7 +52,11 @@ class jtime:
 			data.date,
 			as_rtn['tickets'],
 			as_rtn['projects'],
-			as_rtn['summary']
+			as_rtn['summary'],
+			data.t_username,
+			data.t_password,
+			data.tenrox_token,
+			config.get('app','elevenrox_url')
 		)
 
 class Server():
