@@ -1,4 +1,4 @@
-$def with (msg)
+$def with (elevenrox_url,msg)
 <html>
 	<head>
 		<title>jTime</title>
@@ -9,8 +9,45 @@ $def with (msg)
 		<script type="text/javascript" language="Javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script type="text/javascript" language="Javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
 		<script type="text/javascript" language="Javascript" src="/static/jTime/js/jTime.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/jTime/js/elevenrox.js"></script>
 		<script type="text/javascript" language="Javascript" src="/static/jTime/js/zebra_datepicker.js"></script>
+
 	</head>
+	<script type="text/javascript">
+		function do_submit() {
+			var tenrox_user   = document.getElementById('t_username').value,
+			    tenrox_pass   = document.getElementById('t_password').value,
+			    elevenrox_url = '$elevenrox_url',
+			    do_submit,
+			    er;
+
+			// disable the button
+			document.getElementById('submit_button').disabled = true;
+
+			// bit of a hack, we should probably do this server side
+			er = new ElevenRox(
+				null,
+				null,
+				tenrox_user,
+				tenrox_pass,
+				null,
+				elevenrox_url
+			);
+
+			do_submit_final = function() {
+				// if we've logged in successfully, submit
+				if (er.token) {
+					document.getElementById('tenrox_token').value = er.token;
+					document.getElementById('frm').submit();
+				} else{
+					// error page
+					window.location.href = '/jTime?msg=BAD_T_USER';
+				}
+			};
+
+			er.login(do_submit_final);
+		}
+	</script>
 	<body>
 		<div class="header">
 			<h1>jTime</h1>
@@ -20,23 +57,27 @@ $def with (msg)
 			<div class="pure-g-r">
 				<div class="pure-u-1-3"></div>
 				<div class="pure-u-1-3">
-					<form class="pure-form pure-form-aligned" method="post" action="/jTime/doJTime">
+					<form class="pure-form pure-form-aligned" id="frm" method="post" action="/jTime/doJTime">
 						<fieldset>
 							<div class="pure-control-group">
-								<label for="name"></label>
-								<input name="username" type="text" placeholder="Jira Username" required>
+								<input name="j_username" type="text" placeholder="Jira Username" required />
 							</div>
 							<div class="pure-control-group">
-								<label for="password"></label>
-								<input name="password" type="password" placeholder="Jira Password" required>
+								<input name="j_password" type="password" placeholder="Jira Password" required />
 							</div>
 							<div class="pure-control-group">
-								<label for="date"></label>
-								<input id="date" name="date" type="text" class="datepicker" placeholder="" required>
+								<input name="t_username" id="t_username" type="text" placeholder="Tenrox Username" required />
+							</div>
+							<div class="pure-control-group">
+								<input name="t_password" id="t_password" type="password" placeholder="Tenrox Password" required />
+							</div>
+							<div class="pure-control-group">
+								<input id="date" name="date" type="text" class="datepicker" placeholder="" required />
 							</div>
 							<div class="pure-controls">
-								<input type="submit" class="pure-button pure-button-primary" />
+								<input type="submit" id="submit_button" class="pure-button pure-button-primary" onclick="javascript:do_submit()"//>
 							</div>
+							<input type="hidden" id="tenrox_token" name="tenrox_token" value="" />
 						</fieldset>
 					</form>
 				</div>

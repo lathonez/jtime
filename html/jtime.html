@@ -1,4 +1,4 @@
-$def with (date, tickets, projects, summary)
+$def with (date,tickets,projects,summary,tenrox_username,tenrox_password,tenrox_token,elevenrox_url)
 <html>
 	<head>
 		<title>jTime</title>
@@ -16,9 +16,12 @@ $def with (date, tickets, projects, summary)
 		<script type="text/javascript" language="Javascript" src="/static/jTime/js/timeentry.js"></script>
 
 		<script type="text/javascript" language="Javascript">
-			var projects = [],
-			    tenrox_date = '$date',
-			    url = '/elevenRox',
+			var projects      = [],
+			    tenrox_date   = '$date',
+			    tenrox_user   = '$tenrox_username',
+			    tenrox_pass   = '$tenrox_password',
+			    tenrox_token  = ('$tenrox_token' == '' ? null : '$tenrox_token'),
+			    elevenrox_url = '$elevenrox_url',
 			    er;
 
 			$for project in projects
@@ -33,7 +36,14 @@ $def with (date, tickets, projects, summary)
 			);
 
 			function upload() {
-				er = new ElevenRox(projects, tenrox_date, 'shazleto', 'open11bet', url);
+				er = new ElevenRox(
+					projects,
+					tenrox_date,
+					tenrox_user,
+					tenrox_pass,
+					tenrox_token,
+					elevenrox_url
+				);
 				er.upload();
 			}
 		</script>
