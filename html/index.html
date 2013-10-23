@@ -15,14 +15,14 @@ $def with (elevenrox_url,msg)
 	</head>
 	<script type="text/javascript">
 		function do_submit() {
-			var tenrox_user   = document.getElementById('t_username').value,
-			    tenrox_pass   = document.getElementById('t_password').value,
+			var tenrox_user   = $('t_username').value,
+			    tenrox_pass   = $('t_password').value,
 			    elevenrox_url = '$elevenrox_url',
 			    do_submit,
 			    er;
 
 			// disable the button
-			document.getElementById('submit_button').disabled = true;
+			$('submit_button').disabled = true;
 
 			// bit of a hack, we should probably do this server side
 			er = new ElevenRox(
@@ -37,8 +37,8 @@ $def with (elevenrox_url,msg)
 			do_submit_final = function() {
 				// if we've logged in successfully, submit
 				if (er.token) {
-					document.getElementById('tenrox_token').value = er.token;
-					document.getElementById('frm').submit();
+					$('tenrox_token').value = er.token;
+					$('frm').submit();
 				} else{
 					// error page
 					window.location.href = '/jTime?msg=BAD_T_USER';

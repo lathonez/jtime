@@ -100,6 +100,7 @@ ElevenRox.prototype._get_time = function () {
 	request.method = "get_time";
 	request.params = {};
 	request.params.start_date = this.tenrox_date;
+	request.params.reorder_timeentries = true;
 
 	this._send(request,function(_resp) { obj._get_time_cb(_resp) });
 
