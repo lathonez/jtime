@@ -46,7 +46,7 @@ class jtime:
 			)
 		except ActivityStreamError as e:
 			print e.message
-			if e.code == 'BAD_USER' or e.code == 'NO_ACTIVITIES':
+			if e.code == 'BAD_J_USER' or e.code == 'NO_ACTIVITIES':
 				web.seeother('/?msg=' + e.code)
 				return
 			raise e
