@@ -1,4 +1,3 @@
-C
 /*
  * jTime controller
  */
