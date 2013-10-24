@@ -31,7 +31,7 @@ $def with (date,tickets,projects,summary,tenrox_username,tenrox_password,tenrox_
 						new Project(
 							'$project['project']',
 							'$project['time']',
-							'$project['tenrox_code']',
+							'$project['tenrox_project_name']',
 							'$project['tenrox_comment']',
 							'$project['tenrox_time']'
 						)
@@ -49,7 +49,11 @@ $def with (date,tickets,projects,summary,tenrox_username,tenrox_password,tenrox_
 					tenrox_token
 				);
 
-				jt = new jTime(er);
+				jt = new jTime(
+					er,
+					projects,
+					tenrox_date
+				);
 			});
 
 		</script>
@@ -64,67 +68,65 @@ $def with (date,tickets,projects,summary,tenrox_username,tenrox_password,tenrox_
 				<input id="upload_button" type="submit" class="pure-button pure-button-primary" value="Upload" onclick="upload()" disabled/>
 			</div>
 		</div>
-		<div class="wide-content">
-			<div class="pure-g-r">
-				<div class="pure-u-1-4"></div>
-				<div class="pure-u-1-4">
-					<h3>Summary per project</h3>
-					<table class="pure-table-striped">
-						<thead>
-							<tr>
-								<th>Project</th>
-								<th>Tenrox Code</th>
-								<th>Real Time</th>
-								<th>Tenrox Time</th>
-							</tr>
-						</thead>
-						<tbody>
-						$for project in projects
-							<tr>
-								<td>$project['project']</td>
-								<td>$project['tenrox_code']</td>
-								<td>$project['time']</td>
-								<td>$project['tenrox_time']</td>
-								<td><div id="$project['project']_tenrox_comment" class="hidden">$project['tenrox_comment']</div></td>
-							</tr>
-						</tbody>
-					</table>
-					<h3>Overall Summary</h3>
-					<table class="pure-table-striped">
-						<thead>
-							<tr>
-								<th>Real Time</th>
-								<th>Tenrox Time</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>$summary['time']</td>
-								<td>$summary['tenrox_time']</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="pure-u-1-4">
-					<h3>Time per ticket</h3>
-					<table class="pure-table-striped">
-						<thead>
-							<tr>
-								<th>Ticket ID</th>
-								<th>Time</th>
-							</tr>
-						</thead>
-						<tbody>
-						$for ticket in tickets
-							<tr>
-								<td>$ticket['ticket_id']</td>
-								<td>$ticket['time']</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="pure-u-1-4"></div>
-			</div>	
+		<div class="content-centre">
+			<h3>Overall Summary</h3>
+			<table class="pure-table-striped">
+				<thead>
+					<tr>
+						<th>Real Time</th>
+						<th>Tenrox Time</th>
+						<th>Recorded Time</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>$summary['time']</td>
+						<td>$summary['tenrox_time']</td>
+						<td><div id="overall_recorded">?</div></th>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Summary per project</h3>
+			<table class="pure-table-striped">
+				<thead>
+					<tr>
+						<th>Project</th>
+						<th>Project Name</th>
+						<th>Real Time</th>
+						<th>Tenrox Time</th>
+						<th>Recorded Time</th>
+					</tr>
+				</thead>
+				<tbody>
+				$for project in projects
+					<tr>
+						<td>$project['project']</td>
+						<td>$project['tenrox_project_name']</td>
+						<td>$project['time']</td>
+						<td>$project['tenrox_time']</td>
+						<td>
+							<div id="$project['project']_recorded">?</div>
+							<div id="$project['project']_tenrox_comment" class="hidden">$project['tenrox_comment']</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Time per ticket</h3>
+			<table class="pure-table-striped">
+				<thead>
+					<tr>
+						<th>Ticket ID</th>
+						<th>Time</th>
+					</tr>
+				</thead>
+				<tbody>
+				$for ticket in tickets
+					<tr>
+						<td>$ticket['ticket_id']</td>
+						<td>$ticket['time']</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</body>
 </html>

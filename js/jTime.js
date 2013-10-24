@@ -1,33 +1,51 @@
 /*
  * jTime controller
  */
-function jTime(_er,_projects) {
-	this._init(_er,_projects);
+function jTime(
+	_er,
+	_projects,
+	_date
+) {
+	this._init(_er,_projects,_date);
 };
 
 /*
  * _er - ElevenRox instance
  */
-jTime.prototype._init = function(_er,_projects) {
+jTime.prototype._init = function(_er,_projects,_date) {
 
 	var obj = this,
 	    cb;
 
-	obj.er = _er;
-	obj.projects = _projects
+	obj.er       = _er;
+	obj.projects = _projects;
+	obj.date     = _date;
 
 	cb = function() {
 		obj.er_init_cb();
 	}
 
-	er.init(tenrox_date,cb);
+	er.init(obj.date,cb);
 };
 
+/*
+ * called after ElevenRox has initialised
+ */
 jTime.prototype.er_init_cb = function() {
+
+	// build our local data model
+	this._get_timeentries();
+
+	// update the entries
+	this._update_recorded_time();
+
 	// display the upload button
 	$('#upload_button').attr('disabled',false);
 };
 
+/*
+ * Upload timeentries to 11rx
+ */
 jTime.prototype.upload = function () {
 
 	var fn = 'jTime.upload: ',
@@ -108,29 +126,55 @@ jTime.prototype._set_time_cb = function(_resp,_project) {
 	}
 };
 
-
 /*
- * 
+ * Assign a timeentry to each project (where possible)
  */
-jTime.prototype._get_timeentries_to_add = function() {
+jTime.prototype._get_timeentries = function() {
 
 	var fn = 'jTime._build_set_requests: ',
-	    p;
+	    p, as;
 
 	// for each project, we need to find the appropriate assignment or timeentry (if available)
 	for (var i = 0; i < this.projects.length; i++) {
 
-		p = this.projects[i];
+		p  = this.projects[i];
+		as = this.er.get_assignment_by_name(p.tenrox_code);
 
-		p.assignment = this.timesheet.get_assignment(p.tenrox_code);
-
-		if (!p.assignment) {
+		if (!as) {
 			console.log(fn + 'assignment not found for ' + p.tenrox_code);
 			continue;
 		}
 
-		p.timeentry = p.assignment.get_timeentry(this.tenrox_date);
-		p = this._build_set_request(p);
+		if (as.length > 1) {
+			console.log(fn + 'multiple assignments found for ' + p.tenrox_code + ' not adding.');
+			continue;
+		}
+
+		p.assignment = as[0];
+		p.timeentry  = er.get_timeentry(p.assignment,this.date);
+	}
+};
+
+/*
+ * Apply the recorded (10rx) time in the model to the view
+ */
+jTime.prototype._update_recorded_time = function() {
+
+	var overall = er.convert_to_tenrox_time(er.get_total_time_for_date(this.date)),
+	    p, pt, pn;
+
+	$('#overall_recorded').html(overall);
+
+	for (var i = 0; i < this.projects.length; i++) {
+
+		pt = 0;
+		p = this.projects[i];
+		pn = '#' + p.project + '_recorded';
+
+		if (p.timeentry) {
+			pt = er.convert_to_tenrox_time(p.timeentry.time);
+		}
+		$(pn).html(pt);
 	}
 };
 
