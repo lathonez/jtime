@@ -10,42 +10,48 @@ $def with (date,tickets,projects,summary,tenrox_username,tenrox_password,tenrox_
 		<script type="text/javascript" language="Javascript" src="/static/jTime/js/jTime.js"></script>
 		<script type="text/javascript" language="Javascript" src="/static/jTime/js/zebra_datepicker.js"></script>
 		<script type="text/javascript" language="Javascript" src="/static/jTime/js/project.js"></script>
-		<script type="text/javascript" language="Javascript" src="/static/jTime/js/elevenrox.js"></script>
-		<script type="text/javascript" language="Javascript" src="/static/jTime/js/timesheet.js"></script>
-		<script type="text/javascript" language="Javascript" src="/static/jTime/js/assignment.js"></script>
-		<script type="text/javascript" language="Javascript" src="/static/jTime/js/timeentry.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/jTime/shared_js/elevenrox.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/jTime/shared_js/timesheet.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/jTime/shared_js/assignment.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/jTime/shared_js/timeentry.js"></script>
 
 		<script type="text/javascript" language="Javascript">
+
 			var projects      = [],
 			    tenrox_date   = '$date',
 			    tenrox_user   = '$tenrox_username',
 			    tenrox_pass   = '$tenrox_password',
 			    tenrox_token  = ('$tenrox_token' == '' ? null : '$tenrox_token'),
 			    elevenrox_url = '$elevenrox_url',
-			    er;
+			    er, jt;
 
-			$for project in projects
-			projects.push(
-			    new Project(
-			        '$project['project']',
-			        '$project['time']',
-			        '$project['tenrox_code']',
-			        '$project['tenrox_comment']',
-			        '$project['tenrox_time']'
-			    )
-			);
+				// python indenting
+				$for project in projects
+					projects.push(
+						new Project(
+							'$project['project']',
+							'$project['time']',
+							'$project['tenrox_code']',
+							'$project['tenrox_comment']',
+							'$project['tenrox_time']'
+						)
+					);
 
 			function upload() {
-				er = new ElevenRox(
-					projects,
-					tenrox_date,
-					tenrox_user,
-					tenrox_pass,
-					tenrox_token,
-					elevenrox_url
-				);
 				er.upload();
 			}
+
+			$$(document).ready(function() {
+				er = new ElevenRox(
+					tenrox_user,
+					tenrox_pass,
+					elevenrox_url,
+					tenrox_token
+				);
+
+				jt = new jTime(er);
+			});
+
 		</script>
 	</head>
 	<body>
@@ -55,7 +61,7 @@ $def with (date,tickets,projects,summary,tenrox_username,tenrox_password,tenrox_
 			<h3>$date</h3>
 			<div class="pure-controls">
 				<input type="submit" class="pure-button pure-button-primary" value="Back" onclick="document.location='/jTime'"/>
-				<input type="submit" class="pure-button pure-button-primary" value="Upload" onclick="upload()"/>
+				<input id="upload_button" type="submit" class="pure-button pure-button-primary" value="Upload" onclick="upload()" disabled/>
 			</div>
 		</div>
 		<div class="wide-content">

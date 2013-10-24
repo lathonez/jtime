@@ -9,11 +9,40 @@ $def with (elevenrox_url,msg)
 		<script type="text/javascript" language="Javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script type="text/javascript" language="Javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
 		<script type="text/javascript" language="Javascript" src="/static/jTime/js/jTime.js"></script>
-		<script type="text/javascript" language="Javascript" src="/static/jTime/js/elevenrox.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/jTime/shared_js/elevenrox.js"></script>
 		<script type="text/javascript" language="Javascript" src="/static/jTime/js/zebra_datepicker.js"></script>
 
 	</head>
 	<script type="text/javascript">
+		$$(document).ready(function() {
+
+			// sort out the datepicker
+			$$('#date').Zebra_DatePicker({
+				direction: false,
+				format: 'd/m/Y'
+			});
+
+			// set the date to yesterday
+			$$('#date').val(yesterday());
+		 });
+
+		/*
+		 * Returns yesterday in dd/mm/yyyy
+		 */
+		function yesterday() {
+
+			var date = new Date(),
+				d, m, y;
+
+			date.setDate(date.getDate() - 1)
+
+			d = ("00" + date.getDate()).slice (-2);
+			m = ("00" + (date.getMonth()+1)).slice (-2);
+			y = date.getFullYear();
+
+			return d + '/' + m + '/' + y;
+		}
+
 		function do_submit() {
 			var tenrox_user   = $('t_username').value,
 			    tenrox_pass   = $('t_password').value,
@@ -26,11 +55,8 @@ $def with (elevenrox_url,msg)
 
 			// bit of a hack, we should probably do this server side
 			er = new ElevenRox(
-				null,
-				null,
 				tenrox_user,
 				tenrox_pass,
-				null,
 				elevenrox_url
 			);
 
@@ -75,7 +101,7 @@ $def with (elevenrox_url,msg)
 								<input id="date" name="date" type="text" class="datepicker" placeholder="" required />
 							</div>
 							<div class="pure-controls">
-								<input type="submit" id="submit_button" class="pure-button pure-button-primary" onclick="javascript:do_submit()"//>
+								<input type="button" id="submit_button" value="Login" class="pure-button pure-button-primary" onclick="javascript:do_submit()"//>
 							</div>
 							<input type="hidden" id="tenrox_token" name="tenrox_token" value="" />
 						</fieldset>

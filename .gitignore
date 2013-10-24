@@ -1,8 +1,5 @@
 shared
-<<<<<<< HEAD
-activity_stream.pyc
-=======
+shared_js
 *.pyc
 *.swp
 password.cfg
->>>>>>> ae9f4d1dba717215518b57050066ce4526e06a55
