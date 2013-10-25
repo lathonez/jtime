@@ -33,14 +33,22 @@ jTime.prototype._init = function(_er,_projects,_date) {
  */
 jTime.prototype.er_init_cb = function() {
 
+	var synced = false;
+
 	// build our local data model
 	this._get_timeentries();
 
 	// update the entries
-	this._update_recorded_time();
+	synced = this._update_recorded_time();
 
-	// display the upload button
-	$('#upload_button').attr('disabled',false);
+	// check to see if we've got anything to update
+	if (!synced) {
+		// display the upload button
+		$('#upload_button').attr('disabled',false);
+	} else {
+		// reflect that there's nothing to upload
+		$('#upload_button').attr('value','In Sync');
+	}
 };
 
 /*
@@ -49,9 +57,24 @@ jTime.prototype.er_init_cb = function() {
 jTime.prototype.upload = function () {
 
 	var fn = 'jTime.upload: ',
-	    obj = this;
+	    obj = this,
+	    p;
 
+	// apply project time to the timeentries we're going to set
+	for (var i = 0; i < this.projects.length; i++) {
+		p = this.projects[i];
 
+		// don't bother doing projects that are already in sync!
+		if (p.synced) {
+			continue;
+		}
+
+		if (p.timeentry.time) {
+			p.timeentry.time = this.er.convert_to_seconds(p.tenrox_time);
+		} else {
+			// create a new timeentry
+		}
+	}
 };
 
 /*
@@ -151,16 +174,19 @@ jTime.prototype._get_timeentries = function() {
 		}
 
 		p.assignment = as[0];
-		p.timeentry  = er.get_timeentry(p.assignment,this.date);
+		p.add_timeentry(er.get_timeentry(p.assignment,this.date));
 	}
 };
 
 /*
  * Apply the recorded (10rx) time in the model to the view
+ *
+ * Returns true if we're in sync with 10rx, else false
  */
 jTime.prototype._update_recorded_time = function() {
 
 	var overall = er.convert_to_tenrox_time(er.get_total_time_for_date(this.date)),
+	    sync = true,
 	    p, pt, pn;
 
 	$('#overall_recorded').html(overall);
@@ -171,10 +197,23 @@ jTime.prototype._update_recorded_time = function() {
 		p = this.projects[i];
 		pn = '#' + p.project + '_recorded';
 
+		// don't display 0 if we've got no assignment
+		if (!p.assignment) {
+			pt = 'N/A';
+		}
+
 		if (p.timeentry) {
 			pt = er.convert_to_tenrox_time(p.timeentry.time);
 		}
+
+		// we only count synchronisation for assignments that exist
+		if (p.assignment && !p.synced) {
+			sync = false;
+		}
+
 		$(pn).html(pt);
 	}
+
+	return sync;
 };
 
