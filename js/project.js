@@ -33,6 +33,7 @@ Project.prototype._init = function(
 	this.tenrox_time    = tenrox_time;
 	this.assignment     = null;
 	this.timeentry      = null;
+	this.request_failed = false;
 	this.synced         = false;
 
 	// we've already got the amount of time we're looking for
@@ -57,9 +58,9 @@ Project.prototype._check_sync = function() {
 };
 
 /*
- * Add a timeentry to this project
+ * Set the timeentry for this project
  */
-Project.prototype.add_timeentry = function(_timeentry) {
+Project.prototype.set_timeentry = function(_timeentry) {
 
 	this.timeentry = _timeentry;
 	this.synced = this._check_sync();

@@ -60,27 +60,29 @@ jTime.prototype.upload = function () {
 	    obj = this,
 	    p;
 
+	$('#upload_button').attr('disabled',true);
+	$('#upload_button').attr('value','Uploading..');
+
 	// apply project time to the timeentries we're going to set
 	for (var i = 0; i < this.projects.length; i++) {
 		p = this.projects[i];
 
-		// don't bother doing projects that are already in sync!
-		if (p.synced) {
+		// don't bother doing projects that are already in sync or don't have assingments
+		if (p.synced || !p.assignment) {
 			continue;
 		}
 
-		if (p.timeentry.time) {
-			p.timeentry.time = this.er.convert_to_seconds(p.tenrox_time);
-		} else {
-			// create a new timeentry
-		}
+		p.timeentry.time = this.er.convert_to_seconds(p.tenrox_time);
 	}
+
+	// fall into the callback to do the upload
+	this._set_time_cb();
 };
 
 /*
  * Make requests to tenrox to set the time for each project
  *
- * This is called 'recursively', first from _get_time_cb,
+ * This is called 'recursively', first from upload
  * then as a result of each further request sent herein
  *
  * _resp - response from tenrox (if recursing)
@@ -89,25 +91,24 @@ jTime.prototype.upload = function () {
 jTime.prototype._set_time_cb = function(_resp,_project) {
 
 	var fn = 'jTime._set_time_cb: ',
-	    sent = 0,
-	    not_sending = 0,
-	    failed = 0,
 	    obj = this,
+	    sent = 0,
+	    synced = false,
 	    p;
 
 	// base handling if it's not our first time in
 	if (_resp !== undefined) {
 
-		// keep track of the response for each project
+		// reset the timeentry we've updated from 10rx
 		_project.response = _resp;
+		_project.set_timeentry(this._get_timeentry_for_project(_project));
+		this._update_recorded_time();
 
-		if (!this._resp_landing(_resp)) {
+		if (_resp.error) {
 			console.log(fn + 'failed to set time for ' + _project.project);
 			_project.request_failed = true;
 		} else {
 			console.log(fn + 'successfully set time for ' + _project.project);
-			// update the local data model to reflect the update
-			this.timesheet.set(_resp.result.timesheet);
 		}
 	}
 
@@ -115,37 +116,32 @@ jTime.prototype._set_time_cb = function(_resp,_project) {
 
 		p = this.projects[i];
 
-		// we weren't able to find a matching assignment for this project
-		// or the time for the project was already full
-		if (!p.request) {
-			not_sending++;
-			continue;
-		}
-		// keep a failed counter (we've already sent this)
-		if (p.request_failed) {
-			sent++;
-			failed++;
-			continue;
-		}
-		// we only care about stuff we've not sent yet
-		if (p.request_sent) {
+		// we don't want to send projects that are already in sync or have no assignments
+		if (p.synced || !p.assignment || p.request_failed) {
 			sent++;
 			continue;
 		}
 
-		p.request_sent = true;
-
-		this._send(p.request, function(_resp) {obj._set_time_cb(_resp,p)})
+		this.er.set_timeentry(p.timeentry, function(_resp) {obj._set_time_cb(_resp,p)});
 
 		// only send one project (for now..)
 		break;
 	}
 
-	// confirm if we've sent everything we need to send
-	if ((sent + not_sending) == this.projects.length) {
-		console.log(fn + 'not sent: ' + not_sending);
-		console.log(fn + 'sent: ' + sent);
-		console.log(fn + 'faled: ' + failed);
+	if (sent == this.projects.length) {
+		// if we're not synced, enabled the button again
+		if (!synced) {
+			$('#upload_button').attr('disabled',false);
+			$('#upload_button').attr('value','Upload');
+
+			// unset request failed
+			for (var i = 0; i < this.projects.length; i++) {
+				this.projects[i].request_failed = false;
+			}
+		} else {
+			// reflect that there's nothing to upload
+			$('#upload_button').attr('value','In Sync');
+		}
 	}
 };
 
@@ -159,23 +155,32 @@ jTime.prototype._get_timeentries = function() {
 
 	// for each project, we need to find the appropriate assignment or timeentry (if available)
 	for (var i = 0; i < this.projects.length; i++) {
-
 		p  = this.projects[i];
-		as = this.er.get_assignment_by_name(p.tenrox_code);
-
-		if (!as) {
-			console.log(fn + 'assignment not found for ' + p.tenrox_code);
-			continue;
-		}
-
-		if (as.length > 1) {
-			console.log(fn + 'multiple assignments found for ' + p.tenrox_code + ' not adding.');
-			continue;
-		}
-
-		p.assignment = as[0];
-		p.add_timeentry(er.get_timeentry(p.assignment,this.date));
+		p.set_timeentry(this._get_timeentry_for_project(p));
 	}
+};
+
+/*
+ * Get a timeentry for an individual project
+ */
+jTime.prototype._get_timeentry_for_project = function(_project) {
+
+	var fn = 'jTime._get_timeentry_for_project: ',
+	    as = this.er.get_assignment_by_name(_project.tenrox_code);
+
+	if (!as) {
+		console.log(fn + 'assignment not found for ' + _project.tenrox_code);
+		return null;
+	}
+
+	if (as.length > 1) {
+		console.log(fn + 'multiple assignments found for ' + _project.tenrox_code + ' not adding.');
+		return null;
+	}
+
+	_project.assignment = as[0];
+
+	return er.get_timeentry(_project.assignment,this.date);
 };
 
 /*
