@@ -50,7 +50,7 @@ Project.prototype._check_sync = function() {
 		return false;
 	}
 
-	if (parseInt(er.convert_to_tenrox_time(this.timeentry.time)) != parseInt(this.tenrox_time)) {
+	if (parseFloat(er.convert_to_tenrox_time(this.timeentry.time)) != parseFloat(this.tenrox_time)) {
 		return false;
 	}
 

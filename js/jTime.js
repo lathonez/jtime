@@ -73,6 +73,7 @@ jTime.prototype.upload = function () {
 		}
 
 		p.timeentry.time = this.er.convert_to_seconds(p.tenrox_time);
+		p.timeentry.set_comment(p.tenrox_comment);
 	}
 
 	// fall into the callback to do the upload
@@ -102,7 +103,7 @@ jTime.prototype._set_time_cb = function(_resp,_project) {
 		// reset the timeentry we've updated from 10rx
 		_project.response = _resp;
 		_project.set_timeentry(this._get_timeentry_for_project(_project));
-		this._update_recorded_time();
+		this._update_recorded_time_for_project(_project,true);
 
 		if (_resp.error) {
 			console.log(fn + 'failed to set time for ' + _project.project);
@@ -129,6 +130,10 @@ jTime.prototype._set_time_cb = function(_resp,_project) {
 	}
 
 	if (sent == this.projects.length) {
+
+		// totally re-write the view as a sanity check
+		synced = this._update_recorded_time();
+
 		// if we're not synced, enabled the button again
 		if (!synced) {
 			$('#upload_button').attr('disabled',false);
@@ -191,34 +196,57 @@ jTime.prototype._get_timeentry_for_project = function(_project) {
 jTime.prototype._update_recorded_time = function() {
 
 	var overall = er.convert_to_tenrox_time(er.get_total_time_for_date(this.date)),
-	    sync = true,
-	    p, pt, pn;
+	    sync = true;
 
 	$('#overall_recorded').html(overall);
 
 	for (var i = 0; i < this.projects.length; i++) {
 
-		pt = 0;
-		p = this.projects[i];
-		pn = '#' + p.project + '_recorded';
-
-		// don't display 0 if we've got no assignment
-		if (!p.assignment) {
-			pt = 'N/A';
-		}
-
-		if (p.timeentry) {
-			pt = er.convert_to_tenrox_time(p.timeentry.time);
-		}
-
-		// we only count synchronisation for assignments that exist
-		if (p.assignment && !p.synced) {
+		if (!this._update_recorded_time_for_project(this.projects[i])) {
 			sync = false;
 		}
-
-		$(pn).html(pt);
 	}
 
 	return sync;
 };
 
+/*
+ * Apply the recorded (10rx) time in the model to the view for a given project
+ *
+ * - _project      - the project to update for
+ * - _update_total - do we want to update the total as part of this?
+ * Returns true if we're in sync with 10rx, else false
+ */
+jTime.prototype._update_recorded_time_for_project = function(_project,_update_total) {
+
+	var sync = true,
+	    update_total = (typeof _update_total === undefined ? false : _update_total),
+	    overall = 0.0,
+	    pt, pn;
+
+	if (update_total) {
+		overall = er.convert_to_tenrox_time(er.get_total_time_for_date(this.date)),
+		$('#overall_recorded').html(overall);
+	}
+
+	pt = 0;
+	pn = '#' + _project.project + '_recorded';
+
+	// don't display 0 if we've got no assignment
+	if (!_project.assignment) {
+		pt = 'N/A';
+	}
+
+	if (_project.timeentry) {
+		pt = er.convert_to_tenrox_time(_project.timeentry.time);
+	}
+
+	// we only count synchronisation for assignments that exist
+	if (_project.assignment && !_project.synced) {
+		sync = false;
+	}
+
+	$(pn).html(pt);
+
+	return sync;
+};
