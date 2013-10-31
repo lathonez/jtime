@@ -51,8 +51,7 @@ $def with (elevenrox_url,msg)
 			var tenrox_user   = $('t_username').value,
 			    tenrox_pass   = $('t_password').value,
 			    elevenrox_url = '$elevenrox_url',
-			    do_submit,
-			    er;
+			    do_submit, er, loc;
 
 			// disable the button
 			$('submit_button').disabled = true;
@@ -64,14 +63,27 @@ $def with (elevenrox_url,msg)
 				elevenrox_url
 			);
 
-			do_submit_final = function() {
+			do_submit_final = function(_resp) {
 				// if we've logged in successfully, submit
 				if (er.token) {
 					$('tenrox_token').value = er.token;
 					$('frm').submit();
 				} else{
-					// error page
-					window.location.href = '/jTime?msg=BAD_T_USER';
+					// we've got some error, find what it is and report it
+					if (_resp.error.code < 30000) {
+						loc = '/jTime?msg=HTTP_ELEVENROX';
+					}
+
+					if (_resp.error.code == -32001 && _resp.error.data.search('Invalid username or password') > -1) {
+						loc = '/jTime?msg=BAD_T_USER';
+					}
+
+					// dunno what the problem is
+					if (typeof loc === undefined) {
+						loc = '/jTime?msg=UNKNOWN';
+					}
+
+					window.location.href = loc;
 				}
 			};
 

@@ -463,7 +463,10 @@ class ActivityStreamError(Exception):
 		'NO_ACTIVITIES': 'No activities were found on the date requested',
 		'NO_TICKET_ID': 'Failed to find ticket_id in title',
 		'BAD_TITLE': 'Failed to parse stream title',
-		'BAD_TIME': 'Parsed time does not match validation'
+		'BAD_TIME': 'Parsed time does not match validation',
+		'HTTP_ELEVENROX': 'HTTP error when communicating with elevenRox',
+		'HTTP_JIRA': 'HTTP error when communicating with Jira',
+		'UNKNOWN': 'An unknown error has occurred'
 	}
 
 	# code should be a member of ERROR_CODES
