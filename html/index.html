@@ -11,9 +11,13 @@ $def with (elevenrox_url,msg)
 		<script type="text/javascript" language="Javascript" src="/static/jTime/js/jTime.js"></script>
 		<script type="text/javascript" language="Javascript" src="/static/jTime/elevenrox_js/elevenrox.js"></script>
 		<script type="text/javascript" language="Javascript" src="/static/jTime/js/zebra_datepicker.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/jTime/js/jquery.knob.js"></script>
 
 	</head>
 	<script type="text/javascript">
+
+		var progress = 0;
+
 		$$(document).ready(function() {
 
 			// sort out the datepicker
@@ -72,6 +76,29 @@ $def with (elevenrox_url,msg)
 			};
 
 			er.login(do_submit_final);
+			start_progress();
+		}
+
+		function start_progress() {
+			progress = 0;
+			$$(".dial").knob();
+			$$('#knob').css('display','block');
+			progress_forever();
+		}
+
+		function progress_forever() {
+
+			if (progress == 100) {
+				progress = 0;
+			} else {
+				progress++;
+			}
+
+			$$('.dial')
+				.val(progress)
+				.trigger('change');
+
+			setTimeout(progress_forever, 175);
 		}
 	</script>
 	<body>
@@ -109,8 +136,11 @@ $def with (elevenrox_url,msg)
 				</div>
 				<div class="pure-u-1-3"></div>
 			</div>
-			$if msg is not None:
-			<div class="error_msg">$msg</div>
+				$if msg is not None:
+				<div class="error_msg">$msg</div>
+			<div id="knob" class="iKnob" style="display: none">
+				<input id="knob_input" type="text" value="0" data-width="100" data-height="100" data-displayInput=false data-fgColor="#0078e7" data-readOnly=true class="dial"/>
+			</div>
 		</div>
 	</body>
 </html>

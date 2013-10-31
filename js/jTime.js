@@ -285,3 +285,4 @@ jTime.prototype._do_progress = function() {
 		.val(this.progress)
 		.trigger('change');
 };
+
