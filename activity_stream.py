@@ -56,7 +56,7 @@ class ActivityStream():
 
 			# check for failed login
 			if str(e).find('HTTP error code: 401'):
-				raise ActivityStreamError('BAD_USER')
+				raise ActivityStreamError('BAD_J_USER')
 			else:
 				raise e
 
@@ -230,13 +230,13 @@ class ActivityStream():
 	#
 	# project: Jira project (LBR)
 	#
-	# returns: tenrox code (LBR300)
-	def _get_tenrox_code(self, project):
+	# returns: tenrox project name (LBR300)
+	def _get_tenrox_project_name(self, project):
 
 		try:
-			code = self.config.get('tenrox_codes',project)
+			code = self.config.get('tenrox_project_names',project)
 		except ConfigParser.NoOptionError:
-			code = project + '300'
+			code = project + '300 Investigation'
 
 		return code
 
@@ -313,7 +313,7 @@ class ActivityStream():
 				p = {
 					'project': ticket['project'],
 					'time': ticket['time'],
-					'tenrox_code': self._get_tenrox_code(ticket['project']),
+					'tenrox_project_name': self._get_tenrox_project_name(ticket['project']),
 					'tenrox_comment': self._get_tenrox_comment(ticket)
 				}
 				projects.append(p)
@@ -458,7 +458,8 @@ class ActivityStreamError(Exception):
 
 	ERROR_CODES = {
 		'DEFAULT': 'An error has occurred with the ActivityStream',
-		'BAD_USER': 'Invalid username or password',
+		'BAD_J_USER': 'Invalid Jira username or password',
+		'BAD_T_USER': 'Invalid Tenrox username or password',
 		'NO_ACTIVITIES': 'No activities were found on the date requested',
 		'NO_TICKET_ID': 'Failed to find ticket_id in title',
 		'BAD_TITLE': 'Failed to parse stream title',

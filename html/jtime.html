@@ -1,4 +1,4 @@
-$def with (date, tickets, projects, summary)
+$def with (date,tickets,projects,summary,tenrox_username,tenrox_password,tenrox_token,elevenrox_url)
 <html>
 	<head>
 		<title>jTime</title>
@@ -8,75 +8,128 @@ $def with (date, tickets, projects, summary)
 		<script type="text/javascript" language="Javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script type="text/javascript" language="Javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
 		<script type="text/javascript" language="Javascript" src="/static/jTime/js/jTime.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/jTime/js/project.js"></script>
 		<script type="text/javascript" language="Javascript" src="/static/jTime/js/zebra_datepicker.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/jTime/js/jquery.knob.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/jTime/elevenrox_js/elevenrox.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/jTime/elevenrox_js/timesheet.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/jTime/elevenrox_js/assignment.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/jTime/elevenrox_js/timeentry.js"></script>
+		<script type="text/javascript" language="Javascript">
+
+			var projects      = [],
+			    tenrox_date   = '$date',
+			    tenrox_user   = '$tenrox_username',
+			    tenrox_pass   = '$tenrox_password',
+			    tenrox_token  = ('$tenrox_token' == '' ? null : '$tenrox_token'),
+			    elevenrox_url = '$elevenrox_url',
+			    er, jt;
+
+				// python indenting
+				$for project in projects
+					projects.push(
+						new Project(
+							'$project['project']',
+							'$project['time']',
+							'$project['tenrox_project_name']',
+							'$project['tenrox_comment']',
+							'$project['tenrox_time']'
+						)
+					);
+
+			function upload() {
+				jt.upload();
+			}
+
+			$$(document).ready(function() {
+				er = new ElevenRox(
+					tenrox_user,
+					tenrox_pass,
+					elevenrox_url,
+					tenrox_token
+				);
+
+				jt = new jTime(
+					er,
+					projects,
+					tenrox_date
+				);
+			});
+
+		</script>
 	</head>
 	<body>
 		<div class="header">
 			<h1>jTime</h1>
 			<h2>Jira timesheet generator</h2>
 			<h3>$date</h3>
+			<div class="pure-controls">
+				<input type="submit" class="pure-button pure-button-primary" value="Back" onclick="document.location='/jTime'"/>
+				<input id="upload_button" type="submit" class="pure-button pure-button-primary" value="Upload" onclick="upload()" disabled/>
+			</div>
 		</div>
-		<div class="wide-content">
-			<div class="pure-g-r">
-				<div class="pure-u-1-4"></div>
-				<div class="pure-u-1-4">
-					<h3>Summary per project</h3>
-					<table class="pure-table-striped">
-						<thead>
-							<tr>
-								<th>Project</th>
-								<th>Tenrox Code</th>
-								<th>Real Time</th>
-								<th>Tenrox Time</th>
-							</tr>
-						</thead>
-						<tbody>
-						$for project in projects
-							<tr>
-								<td>$project['project']</td>
-								<td>$project['tenrox_code']</td>
-								<td>$project['time']</td>
-								<td>$project['tenrox_time']</td>
-								<td><div id="$project['project']_tenrox_comment" class="hidden">$project['tenrox_comment']</div></td>
-							</tr>
-						</tbody>
-					</table>
-					<h3>Overall Summary</h3>
-					<table class="pure-table-striped">
-						<thead>
-							<tr>
-								<th>Real Time</th>
-								<th>Tenrox Time</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>$summary['time']</td>
-								<td>$summary['tenrox_time']</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="pure-u-1-4">
-					<h3>Time per ticket</h3>
-					<table class="pure-table-striped">
-						<thead>
-							<tr>
-								<th>Ticket ID</th>
-								<th>Time</th>
-							</tr>
-						</thead>
-						<tbody>
-						$for ticket in tickets
-							<tr>
-								<td>$ticket['ticket_id']</td>
-								<td>$ticket['time']</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="pure-u-1-4"></div>
-			</div>	
+		<div class="content-centre">
+			<div id="knob" class="jKnob" style="display: none">
+				<input id="knob_input" type="text" value="0" data-width="100" data-height="100" data-displayInput=true data-fgColor="#0078e7" data-readOnly=true class="dial"/>
+			</div>
+			<h3>Overall Summary</h3>
+			<table class="pure-table-striped">
+				<thead>
+					<tr>
+						<th>Real Time</th>
+						<th>Tenrox Time</th>
+						<th>Recorded Time</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>$summary['time']</td>
+						<td>$summary['tenrox_time']</td>
+						<td><div id="overall_recorded">?</div></th>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Summary per project</h3>
+			<table class="pure-table-striped">
+				<thead>
+					<tr>
+						<th>Project</th>
+						<th>Project Name</th>
+						<th>Real Time</th>
+						<th>Tenrox Time</th>
+						<th>Recorded Time</th>
+					</tr>
+				</thead>
+				<tbody>
+				$for project in projects
+					<tr>
+						<td>$project['project']</td>
+						<td>$project['tenrox_project_name']</td>
+						<td>$project['time']</td>
+						<td>$project['tenrox_time']</td>
+						<td>
+							<div id="$project['project']_recorded">?</div>
+							<div id="$project['project']_tenrox_comment" class="hidden">$project['tenrox_comment']</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Time per ticket</h3>
+			<table class="pure-table-striped">
+				<thead>
+					<tr>
+						<th>Ticket ID</th>
+						<th>Time</th>
+					</tr>
+				</thead>
+				<tbody>
+				$for ticket in tickets
+					<tr>
+						<td>$ticket['ticket_id']</td>
+						<td>$ticket['time']</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</body>
 </html>
