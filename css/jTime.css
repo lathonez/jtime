@@ -21,4 +21,8 @@
 	margin: 0 auto;
 }
 
-
+.jKnob {
+	float: right;
+	width: 175px;
+	margin-top: 10px;
+}

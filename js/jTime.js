@@ -20,6 +20,7 @@ jTime.prototype._init = function(_er,_projects,_date) {
 	obj.er       = _er;
 	obj.projects = _projects;
 	obj.date     = _date;
+	obj.progress = 0;
 
 	cb = function() {
 		obj.er_init_cb();
@@ -58,6 +59,7 @@ jTime.prototype.upload = function () {
 
 	var fn = 'jTime.upload: ',
 	    obj = this,
+	    uploading = 0,
 	    p;
 
 	$('#upload_button').attr('disabled',true);
@@ -74,7 +76,11 @@ jTime.prototype.upload = function () {
 
 		p.timeentry.time = this.er.convert_to_seconds(p.tenrox_time);
 		p.timeentry.set_comment(p.tenrox_comment);
+		uploading++;
 	}
+
+	// draw the progress bar for the number of timeentries we're uploading
+	this._init_knob(uploading);
 
 	// fall into the callback to do the upload
 	this._set_time_cb();
@@ -104,6 +110,7 @@ jTime.prototype._set_time_cb = function(_resp,_project) {
 		_project.response = _resp;
 		_project.set_timeentry(this._get_timeentry_for_project(_project));
 		this._update_recorded_time_for_project(_project,true);
+		this._do_progress();
 
 		if (_resp.error) {
 			console.log(fn + 'failed to set time for ' + _project.project);
@@ -147,6 +154,9 @@ jTime.prototype._set_time_cb = function(_resp,_project) {
 			// reflect that there's nothing to upload
 			$('#upload_button').attr('value','In Sync');
 		}
+
+		// hide the progress knob
+		$('#knob').css('display','none');
 	}
 };
 
@@ -249,4 +259,29 @@ jTime.prototype._update_recorded_time_for_project = function(_project,_update_to
 	$(pn).html(pt);
 
 	return sync;
+};
+
+/*
+ * Draw the progress knob according to the number of timeentires we have to upload
+ *
+ * - _num_uploading - the number of time entries we're uploading
+ */
+jTime.prototype._init_knob = function(_num_uploading) {
+
+	this.progress = 0;
+	$(".dial").knob({
+		'max': _num_uploading
+	});
+	$('#knob').css('display','block');
+};
+
+/*
+ * Increment the progress knob (e.g. when a timeentry has been uploaded
+ */
+jTime.prototype._do_progress = function() {
+
+	this.progress++;
+	$('.dial')
+		.val(this.progress)
+		.trigger('change');
 };
