@@ -110,7 +110,7 @@ class Server():
 
 		# read the conf
 		config = SafeConfigParser()
-		config.read('activity_stream.cfg')
+		config.read('jtime.cfg')
 		config.read('password.cfg')
 
 		# grab the port and spoof command args
