@@ -1,0 +1,31 @@
+# attempt login
+OUTFILE="login.out"
+COOKIES="jira.cookies"
+BASE_URL="https://jira.openbet.com/"
+URL="login.jsp"
+
+# Post Variables we do need
+USERNAME="os_username=stephen.hazleton@openbet.com"
+PASSWORD="os_password=2VqXARVO"
+
+# ENTIRE POST NEEDS TO BE URL ENCODED.. OBVIOUSLY
+#POST=""$USERNAME"&"$PASSWORD"&"$VIEWSTATE"&"$EVENTVALIDATION"&"ASYNCPOST
+POST=""$USERNAME"&"$PASSWORD
+
+echo 'wget running with:'
+echo 'URL: '$BASE_URL$URL
+echo 'HEADER_CONTENT: '$HEADER_CONTENT
+echo 'HEADER_ENC: '$HEADER_ENC
+echo 'POST: '$POST
+echo ''
+
+wget \
+--no-check-certificate \
+--output-document=$OUTFILE \
+--cookies=on \
+--keep-session-cookies \
+--save-cookies=$COOKIES \
+--header="$HEADER_CONTENT" \
+--post-data $POST \
+$BASE_URL$URL
+

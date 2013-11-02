@@ -1,0 +1,764 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+
+<title>Log in - OpenBet JIRA</title>
+<meta name="application-name" content="JIRA" data-name="jira" data-version="5.2.11">
+<meta name="ajs-dev-mode" content="false">
+<meta name="ajs-context-path" content="">
+<meta name="ajs-version-number" content="5.2.11">
+<meta name="ajs-build-number" content="854">
+<meta name="ajs-remote-user" content="stephen.hazleton@openbet.com">
+<meta name="ajs-remote-user-fullname" content="Stephen Hazleton">
+<meta name="ajs-user-locale" content="en_UK">
+<meta name="ajs-app-title" content="OpenBet JIRA">
+<meta name="ajs-keyboard-shortcuts-enabled" content="true">
+<meta name="ajs-enabled-dark-features" content="[&quot;jira.frother.reporter.field&quot;,&quot;jira.user.darkfeature.admin&quot;,&quot;frother.assignee.field&quot;,&quot;com.atlassian.jira.config.CoreFeatures.KICKASS_SEARCH&quot;]">
+
+        <meta name="ajs-whats-new-iframe-src-override" content=""> <meta name="ajs-whatsnew-full-link" content="https://docs.atlassian.com/jira/docs-052/whatsnew/iframe?e=c3RlcGhlbi5oYXpsZXRvbkBvcGVuYmV0LmNvbQ%3D%3D&amp;od=false&amp;a=false&amp;pa=false">
+    
+
+
+
+
+    
+<meta id="atlassian-token" name="atlassian-token" content="BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">
+
+
+
+<link rel="shortcut icon" href="/s/en_UKxua58r-418945332/854/19/_/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="/osd.jsp" title="OpenBet JIRA"/>
+
+    
+
+
+
+
+
+
+
+
+
+
+<!--[if IE]><![endif]-->
+<script type="text/javascript">var contextPath = '';</script>
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/1/_/download/superbatch/css/batch.css" media="all">
+<!--[if lte IE 8]>
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/1/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+8" media="all">
+<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/1/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<!--[if IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/1/_/download/superbatch/css/batch.css?conditionalComment=IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/cc6003c5e84c5bf63c8a6457f1796eb5/_/download/contextbatch/css/atl.general/batch.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/5cf73a169fba05b27efe61e342f57769/_/download/contextbatch/css/jira.general/batch.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/c2e41f2cf09f8b3c8914470a6617682d/_/download/contextbatch/css/jira.global/batch.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/1.0/_/download/batch/jira.webresources:captcha/jira.webresources:captcha.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/1.0/_/download/batch/jira.webresources:global-static/jira.webresources:global-static.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/1.0/_/download/batch/jira.webresources:old_header_resources/jira.webresources:old_header_resources.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/1.1.1/_/download/batch/com.atlassian.administration.atlassian-admin-quicksearch-jira:admin-quicksearch-webresources/com.atlassian.administration.atlassian-admin-quicksearch-jira:admin-quicksearch-webresources.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/1.3.16/_/download/batch/com.atlassian.plugins.atlassian-nav-links-plugin:rotp-projectshortcuts/com.atlassian.plugins.atlassian-nav-links-plugin:rotp-projectshortcuts.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/1.0.54/_/download/batch/com.atlassian.jira.jira-quick-edit-plugin:quick-form/com.atlassian.jira.jira-quick-edit-plugin:quick-form.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/6.2.2.2/_/download/batch/com.pyxis.greenhopper.jira:gh-backports-jira5x-view-issue/com.pyxis.greenhopper.jira:gh-backports-jira5x-view-issue.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/7.7.1/_/download/batch/is.origo.jira.tempo-plugin:tempo-global-css-jira5/is.origo.jira.tempo-plugin:tempo-global-css-jira5.css" media="all">
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1/_/download/superbatch/js/batch.js" ></script>
+<!--[if lte IE 8]>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1/_/download/superbatch/js/batch.js?conditionalComment=lte+IE+8" ></script>
+<![endif]-->
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/cc6003c5e84c5bf63c8a6457f1796eb5/_/download/contextbatch/js/atl.general/batch.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/5cf73a169fba05b27efe61e342f57769/_/download/contextbatch/js/jira.general/batch.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/c2e41f2cf09f8b3c8914470a6617682d/_/download/contextbatch/js/jira.global/batch.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.6/_/download/batch/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-lib/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-lib.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.0/_/download/batch/jira.webresources:captcha/jira.webresources:captcha.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.1.1/_/download/batch/com.atlassian.administration.atlassian-admin-quicksearch-jira:admin-quicksearch-webresources/com.atlassian.administration.atlassian-admin-quicksearch-jira:admin-quicksearch-webresources.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.3.16/_/download/batch/com.atlassian.plugins.atlassian-nav-links-plugin:rotp-projectshortcuts/com.atlassian.plugins.atlassian-nav-links-plugin:rotp-projectshortcuts.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.0/_/download/batch/jira.webresources:calendar/jira.webresources:calendar.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.0/_/download/batch/jira.webresources:group-pickers/jira.webresources:group-pickers.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.0/_/download/batch/jira.webresources:user-pickers/jira.webresources:user-pickers.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.0/_/download/batch/jira.webresources:jira-fields/jira.webresources:jira-fields.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.0.54/_/download/batch/com.atlassian.jira.jira-quick-edit-plugin:quick-form/com.atlassian.jira.jira-quick-edit-plugin:quick-form.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.0.54/_/download/batch/com.atlassian.jira.jira-quick-edit-plugin:quick-create-issue/com.atlassian.jira.jira-quick-edit-plugin:quick-create-issue.js" ></script>
+
+    <script type="text/javascript" src="/rest/api/1.0/shortcuts/854/947bf9b14408d93b97f50ed23b2c752d/shortcuts.js"></script>
+
+
+    
+	
+    <meta name="decorator" content="login" />
+
+</head>
+<body id="jira" class="aui-layout aui-theme-default page-type-login " data-version="5.2.11">
+<div id="page">
+    <header id="header" role="banner">
+        
+
+
+
+    
+        
+            
+        
+    
+
+
+
+
+
+
+        
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<fieldset class="parameters hidden dont-default-focus">
+    <input type="hidden" title="tzdetect.pref.tzid" value="Europe/London" />
+    <input type="hidden" title="tzdetect.pref.tzname" value="(GMT+00:00) London" />
+    <input type="hidden" title="tzdetect.pref.tzoffset" value="(GMT+00:00)" />
+    <input type="hidden" title="tzdetect.pref.tzdst" value="true" />
+    <input type="hidden" title="tzdetect.pref.nothanks" value="" />
+</fieldset>
+
+
+<nav class="global" role="navigation">
+    <div class="primary">
+        <h1 id="logo"><a href="/secure/MyJiraHome.jspa"><img src="/s/en_UKxua58r-418945332/854/19/_/jira-logo-scaled.png" alt="OpenBet JIRA" /></a></h1>
+    </div>
+    <div class="secondary">
+        <ul>
+                                    
+            
+
+
+
+<li id="header-details-user" class="aui-dd-parent">
+            <a id="header-details-user-fullname" data-username="stephen.hazleton@openbet.com" class="lnk" href="/secure/ViewProfile.jspa">
+            Stephen Hazleton
+        </a>
+        <span class="drop-wrap">
+        <a class="drop aui-dd-link"
+                        href="#"><span>Access more options</span>
+        </a>
+    </span>
+    <div id="user-options-list" class="aui-list hidden">
+                                                        <ul id="personal" class="aui-list-section  aui-first     ">
+                                                                        <li class="aui-list-item"><a  id="view_profile"   class="aui-list-item-link "  title="View and change your details and preferences" href="/secure/ViewProfile.jspa">Profile</a></li>
+                                                                                                <li class="aui-list-item"><a  id="upm-requests-link"   class="aui-list-item-link "   href="/plugins/servlet/upm/requests?source=header_user">Atlassian Marketplace</a></li>
+                                                            </ul>
+                                 <h5>My JIRA Home</h5>                             <ul id="set_my_jira_home" class="aui-list-section    ">
+                                            
+                                                        <li class="aui-list-checked  aui-checked "><a  id="set_my_jira_home_default"   class="aui-list-item-link "  title="Set my JIRA Home to the Dashboard." href="/secure/UpdateMyJiraHome.jspa?target=com.atlassian.jira.jira-my-home-plugin%3Aset_my_jira_home_dashboard&atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">Dashboard</a></li>
+                                                                    
+                                                        <li class="aui-list-checked "><a  id="greenhopper-my-jira-home-set"   class="aui-list-item-link "  title="Set my JIRA Home to Agile." href="/secure/UpdateMyJiraHome.jspa?target=com.pyxis.greenhopper.jira%3Agreenhopper-my-jira-home-set-51&atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">Agile</a></li>
+                                                                    
+                                                        <li class="aui-list-checked "><a  id="set_my_jira_home_issuenav"   class="aui-list-item-link "  title="Set my JIRA Home to the Issue Navigator." href="/secure/UpdateMyJiraHome.jspa?target=com.atlassian.jira.jira-my-home-plugin%3Aset_my_jira_home_issue&atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">Issue Navigator</a></li>
+                                                                    
+                                                        <li class="aui-list-checked "><a  id="set_tempo_my_jira_home_link"   class="aui-list-item-link "  title="Set my JIRA home to Tempo" href="/secure/UpdateMyJiraHome.jspa?target=is.origo.jira.tempo-plugin%3Atempo.jira.home.link&atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">Tempo</a></li>
+                                                            </ul>
+                                                            <ul id="jira-help" class="aui-list-section    ">
+                                                                        <li class="aui-list-item"><a  id="view_help"   class="aui-list-item-link "  title="Goto the online documentation for JIRA" href="https://docs.atlassian.com/jira/docs-052/JIRA+Documentation">Online Help</a></li>
+                                                                                                <li class="aui-list-item"><a  id="gh_view_help"   class="aui-list-item-link "  title="Get help online for GreenHopper" href="http://docs.atlassian.com/greenhopper/docs-0620/GreenHopper+Documentation">GreenHopper Help</a></li>
+                                                                                                <li class="aui-list-item"><a  id="gh_view_agile_answers"   class="aui-list-item-link "  title="Get answers about Agile" href="http://answers.atlassian.com/tags/agile/">Agile Answers</a></li>
+                                                                                                <li class="aui-list-item"><a  id="keyshortscuthelp"   class="aui-list-item-link "  title="Get more information about JIRA's Keyboard Shortcuts" href="/secure/ViewKeyboardShortcuts!default.jspa">Keyboard Shortcuts</a></li>
+                                                                                                <li class="aui-list-item"><a  id="view_about"   class="aui-list-item-link "  title="Get more information about JIRA" href="http://www.atlassian.com/software/jira">About JIRA</a></li>
+                                                                                                <li class="aui-list-item"><a  id="view_credits"   class="aui-list-item-link "  title="See who did what" href="/secure/JiraCreditsPage!default.jspa">JIRA Credits</a></li>
+                                                                                                <li class="aui-list-item"><a  id="whats-new-menu-link"   class="aui-list-item-link "   href="https://docs.atlassian.com/jira/docs-052/whatsnew/iframe">What’s New</a></li>
+                                                            </ul>
+                                                            <ul id="tempo-core-help" class="aui-list-section    ">
+                                                                        <li class="aui-list-item"><a  id="tempo_core_help"   class="aui-list-item-link "  title="Goto the online documentation for Tempo" href="http://tempoplugin.com/support" target="_blank">Tempo Help</a></li>
+                                                            </ul>
+                                                            <ul id="system" class="aui-list-section    aui-last  ">
+                                                                        <li class="aui-list-item"><a  id="log_out"   class="aui-list-item-link "  title="Log out and cancel any automatic login." href="/logout?atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">Log Out</a></li>
+                                                            </ul>
+                        </div>
+
+</li>
+
+            
+        </ul>
+    </div>
+</nav>
+<nav class="local" role="navigation">
+    <div class="primary">
+                    
+            
+<ul id="main-nav" class="standard-menu-bar">
+                                            <li class="aui-dd-parent lazy">
+            <a class="lnk"
+                href="/secure/Dashboard.jspa"
+                 id="home_link"                 accessKey="h"                 title="View your current Dashboard"                >Dashboards</a>
+
+                    <span class="drop-wrap">
+            <a class="drop aui-dd-link"
+                                    id="home_link_drop"
+                    rel="home_link"
+                     accessKey="d"                    title="Access more options (Alt+d)"
+                                href="#"><span>Access more options (Alt+d)</span></a></span>
+                </li>
+                                            <li class="aui-dd-parent lazy">
+            <a class="lnk"
+                href="/browse/WIL"
+                 id="browse_link"                 accessKey="b"                 title="Browse currently active project 'William Hill'"                >Projects</a>
+
+                    <span class="drop-wrap">
+            <a class="drop aui-dd-link"
+                                    id="browse_link_drop"
+                    rel="browse_link"
+                     accessKey="p"                    title="Access more options (Alt+p)"
+                                href="#"><span>Access more options (Alt+p)</span></a></span>
+                </li>
+                                            <li class="aui-dd-parent lazy">
+            <a class="lnk"
+                href="/secure/IssueNavigator.jspa"
+                 id="find_link"                 accessKey="f"                 title="View your current filter"                >Issues</a>
+
+                    <span class="drop-wrap">
+            <a class="drop aui-dd-link"
+                                    id="find_link_drop"
+                    rel="find_link"
+                     accessKey="i"                    title="Access more options (Alt+i)"
+                                href="#"><span>Access more options (Alt+i)</span></a></span>
+                </li>
+                                            <li class="aui-dd-parent lazy">
+            <a class="lnk"
+                href="/secure/GreenHopper.jspa"
+                 id="greenhopper_menu"                                 title="Manage your project with GreenHopper"                >Agile</a>
+
+                    <span class="drop-wrap">
+            <a class="drop aui-dd-link"
+                                    id="greenhopper_menu_drop"
+                    rel="greenhopper_menu"
+                     accessKey="g"                    title="Access more options (Alt+g)"
+                                href="#"><span>Access more options (Alt+g)</span></a></span>
+                </li>
+                                            <li class="aui-dd-parent nonlazy">
+            <a class="lnk"
+                href="/secure/TempoInfo.jspa"
+                 id="tempo_menu"                                 title="Open Tempo Timesheet"                >Tempo</a>
+
+                                                                                                            <span class="drop-wrap">
+                            <a class="drop aui-dd-link"
+                                                                    id="tempo_menu_drop"
+                                     accessKey="t"                                    rel="tempo_menu"
+                                    title="Access more options (Alt+t)"
+                                                                href="#"><span>Access more options</span></a></span>
+                            <div class="aui-list hidden">
+                                                 <h5>Timesheets</h5>                         <ul id="tempo_menu_dropdown" class="aui-list-section aui-first   ">
+                                                            <li class="aui-list-item"><a
+                                     id="timesheet-mlink"                                     class="aui-list-item-link   "
+                                                                        title="View timesheets and log work"                                    href="/secure/TempoUserBoard!timesheet.jspa">User</a></li>
+                                                            <li class="aui-list-item"><a
+                                     id="timesheet-mlink-project"                                     class="aui-list-item-link   "
+                                                                        title="View timesheets and log work"                                    href="/secure/TempoProjectBoard!timesheet.jspa">Project</a></li>
+                                                            <li class="aui-list-item"><a
+                                     id="timesheet-mlink-advanced"                                     class="aui-list-item-link   "
+                                                                        title="View timesheets and log work"                                    href="/secure/TempoSearchBoard!timesheet.jspa">Advanced</a></li>
+                                                            <li class="aui-list-item"><a
+                                     id="timesheet-mlink-issue"                                     class="aui-list-item-link   "
+                                                                        title="View timesheets and log work"                                    href="/secure/TempoIssueBoard!timesheet.jspa">Issue</a></li>
+                                                            <li class="aui-list-item"><a
+                                     id="tempo-agile-timesheet-link"                                     class="aui-list-item-link   "
+                                                                        title="View Tempo Agile Timesheet"                                    href="/secure/TempoAgileTimesheet.jspa">Agile (LABS)</a></li>
+                                                    </ul>
+                                                                                                                                                        <ul id="tempo_menu_extra" class="  aui-last  ">
+                                                            <li class="aui-list-item"><a
+                                     id="tempo-bar-mlink"                                     class="aui-list-item-link tempo-bar-show  "
+                                                                        title="Open the Tracker Bar"                                    href="/secure/TempoUserBoard!timesheet.jspa">Tracker</a></li>
+                                                            <li class="aui-list-item"><a
+                                     id="about-mlink"                                     class="aui-list-item-link tempoaction-open-large-form  "
+                                                                        title="Get Tempo version and license information"                                    href="/secure/AboutTempo.jspa">About Tempo</a></li>
+                                                            <li class="aui-list-item"><a
+                                     id="tempo-about-start-link"                                     class="aui-list-item-link   "
+                                                                        title="Getting Started with Tempo"                                    href="/secure/TempoGettingStarted.jspa">Getting Started</a></li>
+                                                    </ul>
+                                                </div>
+                                                                                        </li>
+    </ul>
+
+            
+            </div>
+    <div class="secondary">
+        <ul>
+                            <li>
+                    <form id="quicksearch" action="/secure/QuickSearch.jspa" method="post" class="dont-default-focus">
+                        <div>
+                            <input id="quickSearchInput" class="text" type="text" title="Quick Search" name="searchString" accessKey="q" />
+                            <label for="quickSearchInput" class="overlabel">Quick Search</label>
+                            <input type="submit" class="hidden" value="Search" />
+                        </div>
+                    </form>
+                </li>
+                                        <li>
+                    <div id="createItem">
+                        <a title="Create a new issue / bug / feature request / etc"
+                           hidefocus="hidefocus"
+                           accesskey="c"
+                           id="create_link"
+                           href="/secure/CreateIssue!default.jspa"
+                           data-url="https://confluence.atlassian.com/display/JIRA/Creating+an+Issue"
+                           class="lnk aui-dd-parent create-issue">
+                            Create Issue
+                        </a>
+                    </div>
+                    <fieldset id="create_link_params" rel="createItem" class="hidden">
+                        <div>
+                            <input type="hidden" id="createItem_create" value="Create">
+                            <input type="hidden" id="createItem_create_desc" value="Create Issue">
+                            <input type="hidden" id="createItem_project" value="Project">
+                            <input type="hidden" id="createItem_select_project" value="Choose the project...">
+                            <input type="hidden" id="createItem_issuetype" value="Issue Type">
+                            <input type="hidden" id="createItem_select_type" value="Choose the issue type...">
+                            <input type="hidden" id="createItem_cancel" value="Cancel">
+                            <input type="hidden" id="createItem_log_in" value="Click here to log in">
+                            <input type="hidden" id="createItem_log_in_desc" value="You are not logged in.">
+                            <input type="hidden" id="createItem_no_permission" value="You do not have permission to create issues.">
+                            <input type="hidden" id="createItem_project_recent" value="Recent Projects">
+                            <input type="hidden" id="createItem_project_all" value="All Projects">
+                            <input type="hidden" id="createItem_issuetype_invalid" value="Invalid issue type.">
+                            <input type="hidden" id="createItem_issuetype_select" value="Please select...">
+                        </div>
+                    </fieldset>
+                </li>
+                    </ul>
+    </div>
+</nav>
+
+    </header>
+    
+
+<div id="announcement-banner" class="alertHeader">
+    <script type="text/javascript" async src="https://jira.openbet.com/s/en_UKy559lj/664/15/1.0.23-beta/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=ae2b3cdc"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34812501-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<script type="text/javascript">
+var fby = fby || [];
+fby.push(['showTab', {id: '5123', position: 'right', color: '#8B657F'}]);
+(function () {
+    var f = document.createElement('script'); f.type = 'text/javascript'; f.async = true;
+    f.src = 'https://cdn.feedbackify.com/f.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(f, s);
+})();
+</script>
+
+<script type="text/javascript">
+var fby = fby || [];
+(function () {
+    var f = document.createElement('script'); f.type = 'text/javascript'; f.async = true;
+    f.src = 'https://cdn.feedbackify.com/f.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(f, s);
+})();
+</script>
+</div>
+
+
+    <section id="content" role="main">
+        <div class="content-container">
+            <div class="content-body aui-panel">
+                
+    <header>
+        <h1>Welcome to OpenBet JIRA</h1>
+    </header>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form action="/login.jsp"
+      class="aui"
+      
+      id="login-form"
+      method="post">
+    <div class="form-body">
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+
+    
+            
+            
+        
+
+    
+
+    
+    
+
+
+
+
+<fieldset>
+    
+    
+
+        
+
+
+
+
+<div class="field-group">
+    
+            <label accesskey="u" for="login-form-username"><u>U</u>sername</label>
+            <input class="text medium-field" id="login-form-username" name="os_username" type="text" value="stephen.hazleton@openbet.com" />
+        
+    
+</div>
+
+        
+
+
+
+
+<div class="field-group">
+    
+            <label accesskey="p" for="login-form-password" id="passwordlabel"><u>P</u>assword</label>
+            <input id="login-form-password" class="text medium-field" name="os_password" type="password" />
+        
+    
+</div>
+        
+        
+        
+
+
+
+
+<fieldset class="group ">
+    
+    
+            
+            
+
+
+
+
+<div class="checkbox">
+    
+                
+                <input class="checkbox" id="login-form-remember-me" name="os_cookie" type="checkbox" value="true" />
+                <label for="login-form-remember-me" accesskey="r"><u>R</u>emember my login on this computer</label>
+            
+    
+</div>
+        
+</fieldset> <!-- // .group -->
+        
+
+        
+        <div id="sign-up-hint" class="field-group">
+            
+            Not a member? To request an account, please contact your <a href="/secure/ContactAdministrators!default.jspa">JIRA administrators</a>.
+            
+        </div>
+    
+</fieldset>
+    
+
+
+<div class="hidden"
+     
+            
+     
+    >
+    <input
+        
+            
+        
+        
+            name="os_destination"
+        
+        type="hidden"
+        
+            
+            
+        
+        
+            
+        
+    />
+</div>
+
+
+        
+
+
+<div class="hidden"
+     
+            
+     
+    >
+    <input
+        
+            
+        
+        
+            name="atl_token"
+        
+        type="hidden"
+        
+            
+            
+        
+        
+            
+        
+    />
+</div>
+
+    </div>
+    
+    <div class="buttons-container form-footer">
+        
+        <div class="buttons">
+            
+                
+
+
+
+
+<input
+    
+        accesskey="s"
+    
+    
+        
+        class="aui-button"
+    
+    
+    
+        id="login-form-submit"
+    
+    
+    name="login"
+    title="Press Alt+s to submit this form"
+    type="submit"
+    
+        value="Log In"
+        
+    
+    />
+
+            
+            
+                
+
+
+<a
+    
+    accesskey="`"
+    
+    
+        
+        class="aui-button aui-button-link cancel"
+    
+    href="/secure/ForgotLoginDetails.jspa"
+    id="login-form-cancel"
+    title="Press Alt+` to cancel"
+>Can&#39;t access your account?</a>
+            
+        </div>
+    </div>
+    
+</form> <!-- // .aui #login-form -->
+
+
+
+
+            </div>
+        </div>
+    </section>
+    <footer id="footer" role="contentinfo">
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="footer-body">
+    <ul>
+        <li>
+                            <a class="seo-link" href="http://www.atlassian.com/software/jira/bug-tracking.jsp">Bug tracking</a> and
+                <a class="seo-link" href="http://www.atlassian.com/software/jira/tour/project-tracking.jsp">project tracking</a> for
+                <a class="seo-link" href="http://www.atlassian.com/software/jira/tour/software-development.jsp">software development</a> powered by
+                        <a href="http://www.atlassian.com/software/jira">Atlassian JIRA</a>
+
+                                                    
+                        
+            <span id="footer-build-information">(v5.2.11#854-<span title='ef00d61167c699f0d87337863e0e6af1bc04b04e' data-commit-id='ef00d61167c699f0d87337863e0e6af1bc04b04e}'>sha1:ef00d61</span>)</span>
+        </li>
+        <li>
+                                    <a id="footer-report-problem-link" href="/secure/ContactAdministrators!default.jspa">Report a problem</a>
+        </li>
+    </ul>
+    </div>
+
+
+<form id="jira_request_timing_info" class="dont-default-focus" >
+	<fieldset class="parameters hidden">
+		<input type="hidden" title="jira.request.start.millis" value="1383431344538" />
+		<input type="hidden" title="jira.request.server.time" value="170" />
+		<input type="hidden" title="jira.request.id" value="1349x32634x1" />
+		<input type="hidden" title="jira.session.expiry.time" value="-" />
+		<input type="hidden" title="jira.session.expiry.in.mins" value="-" />
+		<input id="jiraConcurrentRequests" type="hidden" name="jira.request.concurrent.requests" value="1" />
+	</fieldset>
+</form>
+<!--
+	                 REQUEST ID : 1349x32634x1
+	          REQUEST TIMESTAMP : [02/Nov/2013:22:29:04 +0000]
+	               REQUEST TIME : 0.1700
+	                 ASESSIONID : 1mgfaue
+	        CONCURRENT REQUESTS : 1
+
+	                      db.reads : name=db.reads; inv=30; ms=20; cpu=0; rss=0;
+	                      db.conns : name=db.conns; inv=34; ms=48; cpu=0; rss=0;
+	                     db.writes : name=db.writes; inv=4; ms=25; cpu=0; rss=0;
+-->
+
+
+
+
+
+
+
+
+
+
+<fieldset class="hidden parameters">
+    <input type="hidden" title="loggedInUser" value="">
+    <input type="hidden" title="ajaxTimeout" value="The call to the JIRA server did not complete within the timeout period.  We are unsure of the result of this operation.">
+    <input type="hidden" title="JiraVersion" value="5.2.11" />
+    <input type="hidden" title="ajaxUnauthorised" value="You are not authorised to perform this operation.  Please log in.">
+    <input type="hidden" title="baseURL" value="https://jira.openbet.com:443">
+    <input type="hidden" title="ajaxCommsError" value="The JIRA server could not be contacted.  This may be a temporary glitch or the server may be down.">
+    <input type="hidden" title="ajaxServerError" value="The JIRA server was contacted but has returned an error response. We are unsure of the result of this operation.">
+    <input type="hidden" title="ajaxErrorCloseDialog" value="Close this dialog and press refresh in your browser">
+    <input type="hidden" title="ajaxErrorDialogHeading" value="Communications Breakdown">
+
+    <input type="hidden" title="dirtyMessage" value="You have entered new data on this page. If you navigate away from this page without first saving your data, the changes will be lost.">
+    <input type="hidden" title="dirtyDialogMessage" value="You have entered new data in this dialog. If you navigate away from this dialog without first saving your data, the changes will be lost. Click cancel to return to the dialog.">
+    <input type="hidden" title="keyType" value="Type">
+    <input type="hidden" title="keyThen" value="then">
+    <input type="hidden" title="dblClickToExpand" value="Double click to expand">
+    <input type="hidden" title="actions" value="Actions">
+    <input type="hidden" title="removeItem" value="Remove">
+    <input type="hidden" title="workflow" value="Workflow">
+    <input type="hidden" title="labelNew" value="New Label">
+    <input type="hidden" title="issueActionsHint" value="Begin typing for available operations or press down to see all">
+    <input type="hidden" title="closelink" value="Close">
+    <input type="hidden" title="dotOperations" value="Operations">
+    <input type="hidden" title="dotLoading" value="Loading...">
+    <input type="hidden" title="frotherSuggestions" value="Suggestions">
+    <input type="hidden" title="frotherNomatches" value="No Matches">
+    <input type="hidden" title="multiselectVersionsError" value="{0} is not a valid version.">
+    <input type="hidden" title="multiselectComponentsError" value="{0} is not a valid component.">
+    <input type="hidden" title="multiselectGenericError" value="The value {0} is invalid.">
+</fieldset>
+
+    </footer>
+</div>
+</body>
+</html>

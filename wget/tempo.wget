@@ -1,0 +1,30 @@
+# attempt login
+OUTFILE="tempo.out"
+COOKIES="jira.cookies"
+BASE_URL="https://jira.openbet.com/"
+URL="/secure/TempoUserBoard!report.jspa"
+
+# Post Variables we do need
+PERIODVIEW="periodView=DAY"
+EXACT="exact=2/Nov/13"
+
+# ENTIRE POST NEEDS TO BE URL ENCODED.. OBVIOUSLY
+GET=""EXACT"&"$PERIODVIEW
+
+echo 'wget running with:'
+echo 'URL: '$BASE_URL$URL
+echo 'HEADER_CONTENT: '$HEADER_CONTENT
+echo 'HEADER_ENC: '$HEADER_ENC
+echo 'POST: '$POST
+echo ''
+
+wget \
+--no-check-certificate \
+--output-document=$OUTFILE \
+--cookies=on \
+--keep-session-cookies \
+--load-cookies=$COOKIES \
+--save-cookies=$COOKIES \
+--header="$HEADER_CONTENT" \
+$BASE_URL$URL?$GET
+
