@@ -56,7 +56,7 @@ class ActivityStream():
 
 			# check for failed login
 			if str(e).find('HTTP error code: 401'):
-				raise ActivityStreamError('BAD_J_USER')
+				raise jTimeError('BAD_J_USER')
 			else:
 				raise e
 
@@ -82,7 +82,7 @@ class ActivityStream():
 		tickets = []
 
 		if not len(entries):
-			raise ActivityStreamError('NO_ACTIVITIES')
+			raise jTimeError('NO_ACTIVITIES')
 
 		print fn,len(stream.entries),'events found in stream'
 
@@ -111,7 +111,7 @@ class ActivityStream():
 			try:
 				# temp ticket to test with
 				t = self._build_ticket_dict(entry)
-			except ActivityStreamError as e:
+			except jTimeError as e:
 				# we've got a random event like 'linked two tickets', ignore
 				if e.code == 'NO_TICKET_ID':
 					print fn,'skipping entry @',entry['published']
@@ -152,7 +152,7 @@ class ActivityStream():
 
 		total_time = self._get_total_time(tickets)
 		if total_time != avail:
-			raise ActivityStreamError('BAD_TIME','total_time: {0}, avail: {1}'.format(total_time,avail))
+			raise jTimeError('BAD_TIME','total_time: {0}, avail: {1}'.format(total_time,avail))
 		else:
 			print fn,total_time,'accounted for'
 
@@ -213,13 +213,13 @@ class ActivityStream():
 		match     = re.search(rexp,jira_id)
 
 		if match is None:
-			raise ActivityStreamError('NO_TICKET_ID', title_detail)
+			raise jTimeError('NO_TICKET_ID', title_detail)
 
 		try:
 			project   = match.group(1)
 			ticket_id = match.group(2)
 		except Exception as e:
-			raise ActivityStreamError('BAD_TITLE', title_detail)
+			raise jTimeError('BAD_TITLE', title_detail)
 
 		return {
 			'project': project,
@@ -451,30 +451,4 @@ class ActivityStream():
 			'projects': projects,
 			'summary': summary
 		}
-
-
-# application specific error thrown by the ActivityStream
-class ActivityStreamError(Exception):
-
-	ERROR_CODES = {
-		'DEFAULT': 'An error has occurred with the ActivityStream',
-		'BAD_J_USER': 'Invalid Jira username or password',
-		'BAD_T_USER': 'Invalid Tenrox username or password',
-		'NO_ACTIVITIES': 'No activities were found on the date requested',
-		'NO_TICKET_ID': 'Failed to find ticket_id in title',
-		'BAD_TITLE': 'Failed to parse stream title',
-		'BAD_TIME': 'Parsed time does not match validation',
-		'HTTP_ELEVENROX': 'HTTP error when communicating with elevenRox',
-		'HTTP_JIRA': 'HTTP error when communicating with Jira',
-		'UNKNOWN': 'An unknown error has occurred'
-	}
-
-	# code should be a member of ERROR_CODES
-	def __init__(self, code='DEFAULT', debug=None):
-
-		self.code  = code
-		self.debug = debug
-		message    = self.ERROR_CODES[code]
-
-		Exception.__init__(self, message)
 

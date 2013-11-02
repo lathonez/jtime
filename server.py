@@ -1,4 +1,6 @@
-from activity_stream import *
+from activity_stream import ActivityStream
+from tempo           import Tempo
+from jtime_error     import jTimeError
 from ConfigParser    import SafeConfigParser
 from datetime        import datetime
 import web, sys
@@ -7,6 +9,7 @@ import web, sys
 render = None
 config = None
 act    = None
+tempo  = None
 
 class index:
 
@@ -21,7 +24,7 @@ class index:
 			pass
 
 		if msg is not None:
-			msg = ActivityStreamError.ERROR_CODES[msg]
+			msg = jTimeError.ERROR_CODES[msg]
 
 		return render.index(
 			config.get('app','elevenrox_url'),
@@ -36,30 +39,41 @@ class jtime:
 
 		data = web.input()
 
-		try:
-			as_rtn = self.do_activity_stream(data)
-		except ActivityStreamError as e:
-			print e.message
-			if e.code == 'BAD_J_USER' or e.code == 'NO_ACTIVITIES':
-				web.seeother('/?msg=' + e.code)
-				return
-			raise e
+		if data.tempo:
+			as_rtn = self.do_tempo(data)
+		else:
+			try:
+				as_rtn = self.do_activity_stream(data)
+			except jTimeError as e:
+				print e.message
+				if e.code == 'BAD_J_USER' or e.code == 'NO_ACTIVITIES':
+					web.seeother('/?msg=' + e.code)
+					return
+				raise e
 
-		return render.jtime(
-			data.date,
-			as_rtn['tickets'],
-			as_rtn['projects'],
-			as_rtn['summary'],
-			data.t_username,
-			data.t_password,
-			data.tenrox_token,
-			config.get('app','elevenrox_url'),
-			config.get('app','jira_url')
-		)
+			return render.jtime(
+				data.date,
+				as_rtn['tickets'],
+				as_rtn['projects'],
+				as_rtn['summary'],
+				data.t_username,
+				data.t_password,
+				data.tenrox_token,
+				config.get('app','elevenrox_url'),
+				config.get('app','jira_url')
+			)
+
+	def do_tempo(self,data):
+
+		global tempo
+
+		tempo._login(data.j_username,data.j_password)
+
+		return
 
 	def do_activity_stream(self,data):
 
-		global config
+		global config, act
 
 		# how many times should we retry when Jira doesn't return anything?
 		no_act_retries = config.getint('app','no_act_retries')
@@ -75,7 +89,7 @@ class jtime:
 					data.j_password,
 					date
 				)
-			except ActivityStreamError as e:
+			except jTimeError as e:
 				if e.code != 'NO_ACTIVITIES':
 					raise e
 
@@ -85,14 +99,14 @@ class jtime:
 
 
 		# if we've got this far, we should raise NO_ACTIVITIES
-		raise ActivityStreamError('NO_ACTIVITIES')
+		raise jTimeError('NO_ACTIVITIES')
 
 
 class Server():
 
 	def __init__ (self):
 
-		global config, render, act
+		global config, render, act, tempo
 
 		# read the conf
 		config = SafeConfigParser()
@@ -108,8 +122,9 @@ class Server():
 
 		render = web.template.render('html/')
 
-		# spin up an instance of activity stream
+		# spin up an instance of activity stream and tempo
 		act = ActivityStream(config)
+		tempo = Tempo(config)
 
 	def _set_urls(self):
 
