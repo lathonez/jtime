@@ -1,4 +1,4 @@
-$def with (date,tickets,projects,summary,tenrox_username,tenrox_password,tenrox_token,elevenrox_url)
+$def with (date,tickets,projects,summary,tenrox_username,tenrox_password,tenrox_token,elevenrox_url,jira_url)
 <html>
 	<head>
 		<title>jTime</title>
@@ -125,7 +125,7 @@ $def with (date,tickets,projects,summary,tenrox_username,tenrox_password,tenrox_
 				<tbody>
 				$for ticket in tickets
 					<tr>
-						<td>$ticket['ticket_id']</td>
+						<td><a href="$jira_url/browse/$ticket['ticket_id']">$ticket['ticket_id']</a></td>
 						<td>$ticket['time']</td>
 					</tr>
 				</tbody>

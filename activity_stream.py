@@ -26,7 +26,7 @@ class ActivityStream():
 		from_secs = self._get_jira_seconds(date)
 		to_secs   = self._get_jira_seconds(date+timedelta(days=1))
 
-		url     = self.config.get('app','base_url')
+		url     = self.config.get('app','jira_url') + '/activity'
 		auth    = self.config.get('app','auth_type')
 		results = self.config.get('app','results')
 

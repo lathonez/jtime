@@ -53,7 +53,8 @@ class jtime:
 			data.t_username,
 			data.t_password,
 			data.tenrox_token,
-			config.get('app','elevenrox_url')
+			config.get('app','elevenrox_url'),
+			config.get('app','jira_url')
 		)
 
 	def do_activity_stream(self,data):
