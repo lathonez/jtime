@@ -8,10 +8,10 @@ class ActivityStream():
 
 	def __init__ (self, config):
 
-		self.config = config
-		self.http_utils = HTTPUtils(self.config)
-		self.debug = self.config.getboolean('app','debug')
-		self.debug_stream = self.config.getboolean('app','debug_stream')
+		self.config         = config
+		self.http_utils     = HTTPUtils(self.config)
+		self.debug          = self.config.getboolean('app','debug')
+		self.debug_stream   = self.config.getboolean('app','debug_stream')
 		self.relevant_terms = self.config.get('app','relevant_terms').rsplit('|')
 
 	# get the activity stream for a given user

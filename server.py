@@ -37,13 +37,7 @@ class jtime:
 		data = web.input()
 
 		try:
-			d = data.date.rsplit('/')
-			date = datetime(int(d[2]),int(d[1]),int(d[0]))
-			as_rtn = act.do_activity_stream(
-				data.j_username,
-				data.j_password,
-				date
-			)
+			as_rtn = self.do_activity_stream(data)
 		except ActivityStreamError as e:
 			print e.message
 			if e.code == 'BAD_J_USER' or e.code == 'NO_ACTIVITIES':
@@ -61,6 +55,37 @@ class jtime:
 			data.tenrox_token,
 			config.get('app','elevenrox_url')
 		)
+
+	def do_activity_stream(self,data):
+
+		global config
+
+		# how many times should we retry when Jira doesn't return anything?
+		no_act_retries = config.getint('app','no_act_retries')
+
+		while no_act_retries >= 0:
+
+			try:
+				d = data.date.rsplit('/')
+				date = datetime(int(d[2]),int(d[1]),int(d[0]))
+
+				return act.do_activity_stream(
+					data.j_username,
+					data.j_password,
+					date
+				)
+			except ActivityStreamError as e:
+				if e.code != 'NO_ACTIVITIES':
+					raise e
+
+			print 'retrying for no activities error',no_act_retries,'retries remaining'
+
+			no_act_retries -= 1
+
+
+		# if we've got this far, we should raise NO_ACTIVITIES
+		raise ActivityStreamError('NO_ACTIVITIES')
+
 
 class Server():
 
