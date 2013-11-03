@@ -8,7 +8,7 @@
 .content-centre {
 	margin: 0 auto;
 	padding: 0 2em;
-	max-width: 550px;
+	max-width: 600px;
 	margin-bottom: 50px;
 }
 .hidden {
@@ -20,14 +20,19 @@
 .pure-form-aligned .pure-controls {
 	margin: 0 auto;
 }
-
 .jKnob {
 	float: right;
 	width: 175px;
 	margin-top: 10px;
 }
-
 .iKnob {
 	text-align: center;
 	margin-top: 10px;
 }
+th {
+	font-weight: normal;
+}
+h1,h2,h3 {
+	color: #990066;
+}
+
