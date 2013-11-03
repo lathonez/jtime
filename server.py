@@ -60,10 +60,17 @@ class jtime:
 
 		global jt
 
+		find_codes = False
+
+		try:
+			find_codes = data.find_codes
+		except AttributeError:
+			pass
+
 		d = data.date.rsplit('/')
 		date = datetime(int(d[2]),int(d[1]),int(d[0]))
 
-		return jt.do(data.j_username,data.j_password,date)
+		return jt.do(data.j_username,data.j_password,date,find_codes)
 
 class Server():
 

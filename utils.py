@@ -111,6 +111,10 @@ class JTHTMLUtils():
 
 		return tickets
 
+	def get_tenrox_code(self):
+
+		print self.soup.prettify()
+
 
 from shared.utils import HTTPUtils
 from jtime_error  import jTimeError
@@ -178,6 +182,50 @@ class JiraUtils():
 
 		return cookies
 
+	# Grab a ticket and try to get a tenrox code from it
+	#
+	# ticket_id - e.g. WIL-1234
+	# cookies   - Jira cookies from the previous request
+	#
+	# returns {
+	#     tenrox_code: tenrox code,
+	#     cookies: session cookie dict (as per _check_session)
+	# }
+	def get_tenrox_code_from_ticket(self, ticket_id, cookies):
+
+		url = self.config.get('jira','jira_url') + '/browse/' + ticket_id
+
+		sc = self.http_utils.set_cookie(
+			self.config.get('jira','jira_sess_cookie'),
+			cookies['session'],
+			self.config.get('jira','jira_cookie_dom')
+		)
+
+		xc = self.http_utils.set_cookie(
+			self.config.get('jira','jira_csrf_cookie'),
+			cookies['csrf'],
+			self.config.get('jira','jira_cookie_dom')
+		)
+
+		resp = self.http_utils.do_req(
+			url=url,
+			post=False,
+			cookies = [sc,xc]
+		)
+
+		resp     = self.http_utils.do_req(url)
+		resp_str = resp['response_string']
+
+		cookies = self._check_session(resp['cookie_jar'])
+
+		html = JTHTMLUtils(resp_str,self.config)
+		html.get_tenrox_code()
+
+		return {
+			'tenrox_code': 'WIL-300',
+			'cookies': cookies
+		}
+	
 	# build a dict from parse_ticket_id
 	#
 	# ticket_detail: return value of _parse_ticket_id

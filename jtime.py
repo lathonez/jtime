@@ -1,8 +1,8 @@
 from activity_stream import ActivityStream
 from tempo           import Tempo
 from jtime_error     import jTimeError
-from utils           import JTUtils
-from shared.utils    import HTTPUtilsError
+from utils           import *
+from shared.utils    import HTTPUtils, HTTPUtilsError
 from datetime        import *
 import ConfigParser
 
@@ -15,6 +15,7 @@ class jTime():
 		self.act    = ActivityStream(config)
 		self.tempo  = Tempo(config)
 		self.utils  = JTUtils()
+		self.jira   = JiraUtils(config,HTTPUtils(config))
 
 	# Build a summary per project from a list of ticket dicts
 	#
@@ -157,7 +158,7 @@ class jTime():
 	#     'projects': projects,
 	#     'summary': {total_time: '07:30:59', total_tenrox_time: '7.5'}
 	# }
-	def do(self, username, password, date):
+	def do(self, username, password, date, find_codes):
 
 		tickets = None
 
@@ -187,6 +188,15 @@ class jTime():
 			# if we've got this far with no tickets, we should raise NO_ACTIVITIES
 			if tickets is None:
 				raise jTimeError('NO_ACTIVITIES')
+
+		# try to find the tenrox codes from Jira
+		if find_codes:
+
+			cookies = self.jira.login(username, password)
+
+			for ticket in tickets:
+				rtn     = self.jira.get_tenrox_code_from_ticket(ticket['ticket_id'],cookies)
+				cookies = rtn['cookies']
 
 		projects = self._get_project_summary(tickets)
 		summary  = self._get_total_summary(projects)
