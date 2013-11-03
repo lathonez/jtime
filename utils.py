@@ -1,5 +1,25 @@
-# Utility for parsing Jira HTML
-#
+# anything else we're sharing amongst jTime Tempo and ActivityStream
+class JTUtils():
+
+	# retrieve a dict from a list of dicts based on a key value pair
+	#
+	# l: list of dicts
+	# k: key to search
+	# v: value of k
+	#
+	# returns dict if found, else none
+	def get_from_dict(self,l,k,v):
+
+		i = iter(d for d in l if d[k] == v)
+
+		try:
+			return next(i)
+		except StopIteration:
+			return None
+		finally:
+			del i
+
+
 from bs4      import BeautifulSoup
 from datetime import *
 import re
@@ -29,8 +49,8 @@ class JTHTMLUtils():
 
 	# parse the tempo timesheet HTML table
 	#
-	# returns ?
-	def get_tempo_time(self):
+	# returns a list of ticket dicts parsed out of the html
+	def parse_tempo_html(self):
 
 		# grab the tempo issue table
 		issues = self.soup.find(id='issuetable')
@@ -41,10 +61,9 @@ class JTHTMLUtils():
 		issue_idx  = -1
 		worked_idx = -1
 		head_idx   = 0
+		tickets    = []
 
 		for head in heads:
-			pretty = head.prettify()
-
 			if head.get_text().strip() == 'Issue':
 				issue_idx = head_idx
 
@@ -66,7 +85,7 @@ class JTHTMLUtils():
 			# iterate columns
 			cols        = row.find_all("td")
 			col_idx     = 0
-			found_issue = False
+			ticket      = None
 
 			for col in cols:
 
@@ -83,13 +102,17 @@ class JTHTMLUtils():
 						self.jira.parse_ticket_id(col.get_text().strip())
 					)
 
-					print 'TICKET',ticket
-					found_issue = True
-
-				if col_idx == worked_idx - 1 and found_issue:
-					print 'WORKED',col.get_text().strip()
+				if col_idx == worked_idx - 1 and ticket is not None:
+					ticket['time'] = self.jira.convert_tempo_time(float(col.get_text().strip()))
+					tickets.append(ticket)
 
 				col_idx +=1
+
+		for ticket in tickets:
+			print ticket
+
+		return tickets
+
 
 from shared.utils import HTTPUtils
 from jtime_error  import jTimeError
@@ -203,4 +226,22 @@ class JiraUtils():
 			'project': project,
 			'ticket_id': ticket_id
 		}
+
+	# convert a tempo time (0.40) to a python timedelta
+	#
+	# time: tempo time
+	#
+	# return python timedelta
+	def convert_tempo_time(self,time):
+
+		hours   = int(time)
+		m       = 60 * (time-hours)
+		minutes = int(m)
+		seconds = int(60 * (m-minutes))
+
+		return timedelta(
+			hours=hours,
+			minutes=minutes,
+			seconds=seconds
+		)
 

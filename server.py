@@ -1,15 +1,13 @@
-from activity_stream import ActivityStream
-from tempo           import Tempo
-from jtime_error     import jTimeError
-from ConfigParser    import SafeConfigParser
-from datetime        import datetime
+from jtime        import jTime
+from jtime_error  import jTimeError
+from ConfigParser import SafeConfigParser
+from datetime     import datetime
 import web, sys
 
 # globals
 render = None
 config = None
-act    = None
-tempo  = None
+jt     = None
 
 class index:
 
@@ -38,18 +36,9 @@ class jtime:
 		global config, act
 
 		data  = web.input()
-		tempo = False
 
 		try:
-			tempo = data.tempo
-		except AttributeError:
-			pass
-
-		try:
-			if tempo:
-				as_rtn = self.do_tempo(data)
-			else:
-				as_rtn = self.do_activity_stream(data)
+			rtn = self.do_jtime(data)
 		except jTimeError as e:
 			print e.message
 			if e.code == 'BAD_J_USER' or e.code == 'NO_ACTIVITIES':
@@ -59,9 +48,9 @@ class jtime:
 
 		return render.jtime(
 			data.date,
-			as_rtn['tickets'],
-			as_rtn['projects'],
-			as_rtn['summary'],
+			rtn['tickets'],
+			rtn['projects'],
+			rtn['summary'],
 			data.t_username,
 			data.t_password,
 			data.tenrox_token,
@@ -69,57 +58,27 @@ class jtime:
 			config.get('jira','jira_url')
 		)
 
-	def do_tempo(self,data):
+	def do_jtime(self,data):
 
-		global tempo
+		global jt
+
+		tempo = False
+
+		try:
+			tempo = data.tempo
+		except AttributeError:
+			pass
 
 		d = data.date.rsplit('/')
 		date = datetime(int(d[2]),int(d[1]),int(d[0]))
 
-		tempo.get_time(
-			data.j_username,
-			data.j_password,
-			date
-		)
-
-		return
-
-	def do_activity_stream(self,data):
-
-		global config, act
-
-		# how many times should we retry when Jira doesn't return anything?
-		no_act_retries = config.getint('activity_stream','no_act_retries')
-
-		while no_act_retries >= 0:
-
-			try:
-				d = data.date.rsplit('/')
-				date = datetime(int(d[2]),int(d[1]),int(d[0]))
-
-				return act.do_activity_stream(
-					data.j_username,
-					data.j_password,
-					date
-				)
-			except jTimeError as e:
-				if e.code != 'NO_ACTIVITIES':
-					raise e
-
-			print 'retrying for no activities error',no_act_retries,'retries remaining'
-
-			no_act_retries -= 1
-
-
-		# if we've got this far, we should raise NO_ACTIVITIES
-		raise jTimeError('NO_ACTIVITIES')
-
+		return jt.do(data.j_username,data.j_password,date,tempo)
 
 class Server():
 
 	def __init__ (self):
 
-		global config, render, act, tempo
+		global config, render, jt
 
 		# read the conf
 		config = SafeConfigParser()
@@ -135,9 +94,8 @@ class Server():
 
 		render = web.template.render('html/')
 
-		# spin up an instance of activity stream and tempo
-		act = ActivityStream(config)
-		tempo = Tempo(config)
+		# spin up an instance of jTime
+		jt = jTime(config)
 
 	def _set_urls(self):
 

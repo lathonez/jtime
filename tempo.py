@@ -16,8 +16,8 @@ class Tempo():
 	# date -    python datetime
 	# cookies - cookies from login
 	#
-	# returns ?
-	def _get_timesheet(self, date, cookies):
+	# returns list of ticket dicts
+	def _get_tickets(self, date, cookies):
 
 		url = self.config.get('jira','jira_url') + '/secure/TempoUserBoard!report.jspa'
 
@@ -53,11 +53,12 @@ class Tempo():
 		)
 
 		resp_str = resp['response_string']
-	
-		print resp_str
+		html     = JTHTMLUtils(resp_str,self.config)
 
-		html = JTHTMLUtils(resp_str,self.config)
-		html.get_tempo_time()
+		tickets = html.parse_tempo_html()
+
+		# sort the results
+		return sorted(tickets, key=lambda k: k['ticket_id'])
 	
 	# Fully parse a HTML time report from tempo
 	#
@@ -70,14 +71,8 @@ class Tempo():
 	#     'projects': projects,
 	#     'summary': {total_time: '07:30:59', total_tenrox_time: '7.5'}
 	# }
-	def get_time(self, username, password, date):
+	def get_tickets(self, username, password, date):
 
 		cookies = self.jira.login(username, password)
-		self._get_timesheet(date, cookies)
-
-		return {
-			'tickets': None,
-			'projects': None,
-			'summary': None
-		}
+		return self._get_tickets(date, cookies)
 
