@@ -2,6 +2,7 @@ from activity_stream import ActivityStream
 from tempo           import Tempo
 from jtime_error     import jTimeError
 from utils           import JTUtils
+from shared.utils    import HTTPUtilsError
 from datetime        import *
 import ConfigParser
 
@@ -157,6 +158,8 @@ class jTime():
 		except jTimeError as e:
 			if e.code != 'NO_ACTIVITIES':
 				raise e
+		except HTTPUtilsError:
+			raise jTimeError('HTTP_JIRA')
 
 		# if we've got nothing from tempo, try the activity stream
 		if tickets is None:

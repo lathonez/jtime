@@ -41,10 +41,8 @@ class jtime:
 			rtn = self.do_jtime(data)
 		except jTimeError as e:
 			print e.message
-			if e.code == 'BAD_J_USER' or e.code == 'NO_ACTIVITIES':
-				web.seeother('/?msg=' + e.code)
-				return
-			raise e
+			web.seeother('/?msg=' + e.code)
+			return
 
 		return render.jtime(
 			data.date,
