@@ -57,6 +57,9 @@ class Tempo():
 
 		tickets = html.parse_tempo_html()
 
+		if not len(tickets):
+			raise jTimeError('NO_ACTIVITIES')
+
 		# sort the results
 		return sorted(tickets, key=lambda k: k['ticket_id'])
 	
