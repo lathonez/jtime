@@ -37,10 +37,16 @@ class jtime:
 
 		global config, act
 
-		data = web.input()
+		data  = web.input()
+		tempo = False
 
 		try:
-			if data.tempo:
+			tempo = data.tempo
+		except AttributeError:
+			pass
+
+		try:
+			if tempo:
 				as_rtn = self.do_tempo(data)
 			else:
 				as_rtn = self.do_activity_stream(data)

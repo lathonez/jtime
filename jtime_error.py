@@ -11,6 +11,7 @@ class jTimeError(Exception):
 		'BAD_TIME': 'Parsed time does not match validation',
 		'HTTP_ELEVENROX': 'HTTP error when communicating with elevenRox',
 		'HTTP_JIRA': 'HTTP error when communicating with Jira',
+		'TEMPO_PARSE': 'Failed to parse Tempo Timesheet',
 		'UNKNOWN': 'An unknown error has occurred'
 	}
 

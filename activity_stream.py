@@ -1,3 +1,5 @@
+from jtime_error  import jTimeError
+from utils        import JiraUtils
 from shared.utils import HTTPUtils
 from time         import mktime
 from datetime     import *
@@ -13,6 +15,7 @@ class ActivityStream():
 		self.debug          = self.config.getboolean('app','debug')
 		self.debug_stream   = self.config.getboolean('activity_stream','debug_stream')
 		self.relevant_terms = self.config.get('activity_stream','relevant_terms').rsplit('|')
+		self.jira           = JiraUtils(self.config)
 
 	# get the activity stream for a given user
 	#
@@ -110,7 +113,9 @@ class ActivityStream():
 
 			try:
 				# temp ticket to test with
-				t = self._build_ticket_dict(entry)
+				t = self.jira.build_ticket_dict(
+					self.jira.parse_ticket_id(entry['title_detail']['value'])
+				)
 			except jTimeError as e:
 				# we've got a random event like 'linked two tickets', ignore
 				if e.code == 'NO_TICKET_ID':
@@ -174,57 +179,6 @@ class ActivityStream():
 		diff  = time1 - time2
 
 		return diff
-
-	# build a dict from an rss entry
-	#
-	# entry: rss entry
-	#
-	# returns: {
-	#     'project': LBR,
-	#     'ticket_id': LBR-12345,
-	#     'time': None
-	# }
-	def _build_ticket_dict(self,entry):
-
-		td          = self._parse_title_detail(entry['title_detail']['value'])
-		project     = td['project']
-		ticket_id   = project + '-' + td['ticket_id']
-
-		return {
-			'project': project,
-			'ticket_id': ticket_id,
-			'time': timedelta()
-		}
-
-	# parse the rss title detail into useful info
-	#
-	# rss entry .title_detail.value
-	#
-	# return {
-	#     'project': LBR,
-	#     'ticket_id': LBR-12345
-	# }
-	def _parse_title_detail(self, title_detail):
-
-		jira_link = 'https://jira.openbet.com/browse/'
-		rexp      = '([A-Z][A-Z][A-Z]*)-([1-9][0-9]*)'
-		idx       = title_detail.find(jira_link) + len(jira_link)
-		jira_id   = title_detail[idx:idx+9]
-		match     = re.search(rexp,jira_id)
-
-		if match is None:
-			raise jTimeError('NO_TICKET_ID', title_detail)
-
-		try:
-			project   = match.group(1)
-			ticket_id = match.group(2)
-		except Exception as e:
-			raise jTimeError('BAD_TITLE', title_detail)
-
-		return {
-			'project': project,
-			'ticket_id': ticket_id
-		}
 
 	# derive the tenrox code from a project
 	#

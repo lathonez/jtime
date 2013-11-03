@@ -9,7 +9,7 @@ PERIODVIEW="periodView=DAY"
 EXACT="exact=2/Nov/13"
 
 # ENTIRE POST NEEDS TO BE URL ENCODED.. OBVIOUSLY
-GET=""EXACT"&"$PERIODVIEW
+GET=""$EXACT"&"$PERIODVIEW
 
 echo 'wget running with:'
 echo 'URL: '$BASE_URL$URL
