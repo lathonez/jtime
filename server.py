@@ -35,7 +35,7 @@ class jtime:
 
 		global config, act
 
-		data  = web.input()
+		data = web.input()
 
 		try:
 			rtn = self.do_jtime(data)
@@ -62,17 +62,10 @@ class jtime:
 
 		global jt
 
-		tempo = False
-
-		try:
-			tempo = data.tempo
-		except AttributeError:
-			pass
-
 		d = data.date.rsplit('/')
 		date = datetime(int(d[2]),int(d[1]),int(d[0]))
 
-		return jt.do(data.j_username,data.j_password,date,tempo)
+		return jt.do(data.j_username,data.j_password,date)
 
 class Server():
 

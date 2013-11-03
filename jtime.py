@@ -1,5 +1,6 @@
 from activity_stream import ActivityStream
 from tempo           import Tempo
+from jtime_error     import jTimeError
 from utils           import JTUtils
 from datetime        import *
 import ConfigParser
@@ -141,20 +142,24 @@ class jTime():
 	# username:  jira username
 	# password:  jira password
 	# date:      datetime
-	# try_tempo: should we try tempo before activity stream?
 	#
 	# returns: {
 	#     'tickets': tickets,
 	#     'projects': projects,
 	#     'summary': {total_time: '07:30:59', total_tenrox_time: '7.5'}
 	# }
-	def do(self, username, password, date, try_tempo=True):
+	def do(self, username, password, date):
 
 		tickets = None
 
-		if try_tempo:
+		try:
 			tickets  = self.tempo.get_tickets(username, password, date)
-		else:
+		except jTimeError as e:
+			if e.code != 'NO_ACTIVITIES':
+				raise e
+
+		# if we've got nothing from tempo, try the activity stream
+		if tickets is None:
 			no_act_retries = self.config.getint('activity_stream','no_act_retries')
 
 			while no_act_retries >= 0:
