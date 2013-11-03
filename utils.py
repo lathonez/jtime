@@ -108,9 +108,6 @@ class JTHTMLUtils():
 
 				col_idx +=1
 
-		for ticket in tickets:
-			print ticket
-
 		return tickets
 
 
