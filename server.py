@@ -39,35 +39,42 @@ class jtime:
 
 		data = web.input()
 
-		if data.tempo:
-			as_rtn = self.do_tempo(data)
-		else:
-			try:
+		try:
+			if data.tempo:
+				as_rtn = self.do_tempo(data)
+			else:
 				as_rtn = self.do_activity_stream(data)
-			except jTimeError as e:
-				print e.message
-				if e.code == 'BAD_J_USER' or e.code == 'NO_ACTIVITIES':
-					web.seeother('/?msg=' + e.code)
-					return
-				raise e
+		except jTimeError as e:
+			print e.message
+			if e.code == 'BAD_J_USER' or e.code == 'NO_ACTIVITIES':
+				web.seeother('/?msg=' + e.code)
+				return
+			raise e
 
-			return render.jtime(
-				data.date,
-				as_rtn['tickets'],
-				as_rtn['projects'],
-				as_rtn['summary'],
-				data.t_username,
-				data.t_password,
-				data.tenrox_token,
-				config.get('app','elevenrox_url'),
-				config.get('app','jira_url')
-			)
+		return render.jtime(
+			data.date,
+			as_rtn['tickets'],
+			as_rtn['projects'],
+			as_rtn['summary'],
+			data.t_username,
+			data.t_password,
+			data.tenrox_token,
+			config.get('app','elevenrox_url'),
+			config.get('jira','jira_url')
+		)
 
 	def do_tempo(self,data):
 
 		global tempo
 
-		tempo._login(data.j_username,data.j_password)
+		d = data.date.rsplit('/')
+		date = datetime(int(d[2]),int(d[1]),int(d[0]))
+
+		tempo.get_time(
+			data.j_username,
+			data.j_password,
+			date
+		)
 
 		return
 
@@ -76,7 +83,7 @@ class jtime:
 		global config, act
 
 		# how many times should we retry when Jira doesn't return anything?
-		no_act_retries = config.getint('app','no_act_retries')
+		no_act_retries = config.getint('activity_stream','no_act_retries')
 
 		while no_act_retries >= 0:
 

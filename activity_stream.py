@@ -11,8 +11,8 @@ class ActivityStream():
 		self.config         = config
 		self.http_utils     = HTTPUtils(self.config)
 		self.debug          = self.config.getboolean('app','debug')
-		self.debug_stream   = self.config.getboolean('app','debug_stream')
-		self.relevant_terms = self.config.get('app','relevant_terms').rsplit('|')
+		self.debug_stream   = self.config.getboolean('activity_stream','debug_stream')
+		self.relevant_terms = self.config.get('activity_stream','relevant_terms').rsplit('|')
 
 	# get the activity stream for a given user
 	#
@@ -26,9 +26,9 @@ class ActivityStream():
 		from_secs = self._get_jira_seconds(date)
 		to_secs   = self._get_jira_seconds(date+timedelta(days=1))
 
-		url     = self.config.get('app','jira_url') + '/activity'
-		auth    = self.config.get('app','auth_type')
-		results = self.config.get('app','results')
+		url     = self.config.get('jira','jira_url') + '/activity'
+		auth    = self.config.get('jira','auth_type')
+		results = self.config.get('activity_stream','results')
 
 		# the stream filters are passed through as two streams variables
 		time_stream = 'update-date+BETWEEN+{0}+{1}'.format(from_secs,to_secs)
