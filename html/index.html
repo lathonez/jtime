@@ -3,9 +3,9 @@ $def with (elevenrox_url,msg)
 	<head>
 		<title>jTime</title>
 		<link rel="stylesheet" type="text/css" href="/static/jTime/css/pure-min.css" />
+		<link rel="stylesheet" type="text/css" href="/static/jTime/css/pure-ob.css" />
 		<link rel="stylesheet" type="text/css" href="/static/jTime/css/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="/static/jTime/css/jTime.css" />
-
 		<script type="text/javascript" language="Javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script type="text/javascript" language="Javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
 		<script type="text/javascript" language="Javascript" src="/static/jTime/js/jTime.js"></script>
@@ -113,7 +113,7 @@ $def with (elevenrox_url,msg)
 			setTimeout(progress_forever, 175);
 		}
 	</script>
-	<body>
+	<body class="pure-skin-ob">
 		<div class="header">
 			<h1>jTime</h1>
 			<h2>Jira timesheet generator</h2>
@@ -151,7 +151,7 @@ $def with (elevenrox_url,msg)
 				$if msg is not None:
 				<div class="error_msg">$msg</div>
 			<div id="knob" class="iKnob" style="display: none">
-				<input id="knob_input" type="text" value="0" data-width="100" data-height="100" data-displayInput=false data-fgColor="#0078e7" data-readOnly=true class="dial"/>
+				<input id="knob_input" type="text" value="0" data-width="100" data-height="100" data-displayInput=false data-fgColor="#7b4e8d" data-readOnly=true class="dial"/>
 			</div>
 		</div>
 	</body>

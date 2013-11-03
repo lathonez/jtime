@@ -1,0 +1,2775 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+
+<title>
+            Stephen Hazleton
+         - OpenBet JIRA</title>
+<meta name="application-name" content="JIRA" data-name="jira" data-version="5.2.11">
+<meta name="ajs-dev-mode" content="false">
+<meta name="ajs-context-path" content="">
+<meta name="ajs-version-number" content="5.2.11">
+<meta name="ajs-build-number" content="854">
+<meta name="ajs-remote-user" content="stephen.hazleton@openbet.com">
+<meta name="ajs-remote-user-fullname" content="Stephen Hazleton">
+<meta name="ajs-user-locale" content="en_UK">
+<meta name="ajs-app-title" content="OpenBet JIRA">
+<meta name="ajs-keyboard-shortcuts-enabled" content="true">
+<meta name="ajs-enabled-dark-features" content="[&quot;jira.frother.reporter.field&quot;,&quot;jira.user.darkfeature.admin&quot;,&quot;frother.assignee.field&quot;,&quot;com.atlassian.jira.config.CoreFeatures.KICKASS_SEARCH&quot;]">
+
+        <meta name="ajs-whats-new-iframe-src-override" content=""> <meta name="ajs-whatsnew-full-link" content="https://docs.atlassian.com/jira/docs-052/whatsnew/iframe?e=c3RlcGhlbi5oYXpsZXRvbkBvcGVuYmV0LmNvbQ%3D%3D&amp;od=false&amp;a=false&amp;pa=false">
+    
+
+
+
+
+    
+<meta id="atlassian-token" name="atlassian-token" content="BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">
+
+
+
+<link rel="shortcut icon" href="/s/en_UKxua58r-418945332/854/19/_/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="/osd.jsp" title="OpenBet JIRA"/>
+
+    
+
+
+
+
+
+
+
+
+
+
+<!--[if IE]><![endif]-->
+<script type="text/javascript">var contextPath = '';</script>
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/1/_/download/superbatch/css/batch.css" media="all">
+<!--[if lte IE 8]>
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/1/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+8" media="all">
+<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/1/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<!--[if IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/1/_/download/superbatch/css/batch.css?conditionalComment=IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/cc6003c5e84c5bf63c8a6457f1796eb5/_/download/contextbatch/css/atl.general/batch.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/5cf73a169fba05b27efe61e342f57769/_/download/contextbatch/css/jira.general/batch.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/c2e41f2cf09f8b3c8914470a6617682d/_/download/contextbatch/css/jira.global/batch.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/7.7.1/_/download/batch/is.origo.jira.tempo-plugin:tempo-global-css-jira5/is.origo.jira.tempo-plugin:tempo-global-css-jira5.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/1.0/_/download/batch/jira.webresources:jquery-fancybox/jira.webresources:jquery-fancybox.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/1.0.54/_/download/batch/com.atlassian.jira.jira-quick-edit-plugin:quick-form/com.atlassian.jira.jira-quick-edit-plugin:quick-form.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/7.7.1/_/download/batch/is.origo.jira.tempo-plugin:tempo-css-jira5/is.origo.jira.tempo-plugin:tempo-css-jira5.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/5.0-m10/_/download/batch/com.atlassian.auiplugin:aui-experimental-dropdown2/com.atlassian.auiplugin:aui-experimental-dropdown2.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/5.0-m10/_/download/batch/com.atlassian.auiplugin:aui-experimental-tooltips/com.atlassian.auiplugin:aui-experimental-tooltips.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/1.0/_/download/batch/jira.webresources:global-static/jira.webresources:global-static.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/1.0/_/download/batch/jira.webresources:old_header_resources/jira.webresources:old_header_resources.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/1.1.1/_/download/batch/com.atlassian.administration.atlassian-admin-quicksearch-jira:admin-quicksearch-webresources/com.atlassian.administration.atlassian-admin-quicksearch-jira:admin-quicksearch-webresources.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/1.3.16/_/download/batch/com.atlassian.plugins.atlassian-nav-links-plugin:rotp-projectshortcuts/com.atlassian.plugins.atlassian-nav-links-plugin:rotp-projectshortcuts.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_UKxua58r-418945332/854/19/6.2.2.2/_/download/batch/com.pyxis.greenhopper.jira:gh-backports-jira5x-view-issue/com.pyxis.greenhopper.jira:gh-backports-jira5x-view-issue.css" media="all">
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1/_/download/superbatch/js/batch.js" ></script>
+<!--[if lte IE 8]>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1/_/download/superbatch/js/batch.js?conditionalComment=lte+IE+8" ></script>
+<![endif]-->
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/cc6003c5e84c5bf63c8a6457f1796eb5/_/download/contextbatch/js/atl.general/batch.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/5cf73a169fba05b27efe61e342f57769/_/download/contextbatch/js/jira.general/batch.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/c2e41f2cf09f8b3c8914470a6617682d/_/download/contextbatch/js/jira.global/batch.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.6/_/download/batch/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-lib/com.atlassian.jira.jira-tzdetect-plugin:tzdetect-lib.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.0/_/download/batch/jira.webresources:calendar/jira.webresources:calendar.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.0/_/download/batch/jira.webresources:calendar-en/jira.webresources:calendar-en.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.0/_/download/batch/jira.webresources:jquery-easing/jira.webresources:jquery-easing.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.0/_/download/batch/jira.webresources:jquery-fancybox/jira.webresources:jquery-fancybox.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.0/_/download/batch/jira.webresources:group-pickers/jira.webresources:group-pickers.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.0/_/download/batch/jira.webresources:user-pickers/jira.webresources:user-pickers.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.0/_/download/batch/jira.webresources:jira-fields/jira.webresources:jira-fields.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.0.54/_/download/batch/com.atlassian.jira.jira-quick-edit-plugin:quick-form/com.atlassian.jira.jira-quick-edit-plugin:quick-form.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.0.54/_/download/batch/com.atlassian.jira.jira-quick-edit-plugin:quick-edit-issue/com.atlassian.jira.jira-quick-edit-plugin:quick-edit-issue.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/7.7.1/_/download/batch/is.origo.jira.tempo-plugin:tempo-resource/is.origo.jira.tempo-plugin:tempo-resource.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/7.7.1/_/download/batch/is.origo.jira.tempo-plugin:tempo-timeframe-resource/is.origo.jira.tempo-plugin:tempo-timeframe-resource.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/5.0-m10/_/download/batch/com.atlassian.auiplugin:aui-experimental-dropdown2/com.atlassian.auiplugin:aui-experimental-dropdown2.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/5.0-m10/_/download/batch/com.atlassian.auiplugin:aui-experimental-tooltips/com.atlassian.auiplugin:aui-experimental-tooltips.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/7.7.1/_/download/batch/is.origo.jira.tempo-plugin:tempo-report-resource/is.origo.jira.tempo-plugin:tempo-report-resource.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.1.1/_/download/batch/com.atlassian.administration.atlassian-admin-quicksearch-jira:admin-quicksearch-webresources/com.atlassian.administration.atlassian-admin-quicksearch-jira:admin-quicksearch-webresources.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.3.16/_/download/batch/com.atlassian.plugins.atlassian-nav-links-plugin:rotp-projectshortcuts/com.atlassian.plugins.atlassian-nav-links-plugin:rotp-projectshortcuts.js" ></script>
+<script type="text/javascript" src="/s/en_UKxua58r-418945332/854/19/1.0.54/_/download/batch/com.atlassian.jira.jira-quick-edit-plugin:quick-create-issue/com.atlassian.jira.jira-quick-edit-plugin:quick-create-issue.js" ></script>
+
+    <script type="text/javascript" src="/rest/api/1.0/shortcuts/854/947bf9b14408d93b97f50ed23b2c752d/shortcuts.js"></script>
+
+
+    
+        
+
+
+                                    <link rel="stylesheet" href="/download/resources/is.origo.jira.tempo-plugin/css/print.css"  media="print" type="text/css" />
+                            <!---->
+    
+</head>
+<body id="jira" class="aui-layout aui-theme-default page-type-viewissue tempo " data-version="5.2.11">
+<div id="page">
+    <header id="header" role="banner">
+        
+
+
+
+    
+        
+            
+        
+    
+
+
+
+
+
+
+        
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<fieldset class="parameters hidden dont-default-focus">
+    <input type="hidden" title="tzdetect.pref.tzid" value="Europe/London" />
+    <input type="hidden" title="tzdetect.pref.tzname" value="(GMT+00:00) London" />
+    <input type="hidden" title="tzdetect.pref.tzoffset" value="(GMT+00:00)" />
+    <input type="hidden" title="tzdetect.pref.tzdst" value="true" />
+    <input type="hidden" title="tzdetect.pref.nothanks" value="" />
+</fieldset>
+
+
+<nav class="global" role="navigation">
+    <div class="primary">
+        <h1 id="logo"><a href="/secure/MyJiraHome.jspa"><img src="/s/en_UKxua58r-418945332/854/19/_/jira-logo-scaled.png" alt="OpenBet JIRA" /></a></h1>
+    </div>
+    <div class="secondary">
+        <ul>
+                                    
+            
+
+
+
+<li id="header-details-user" class="aui-dd-parent">
+            <a id="header-details-user-fullname" data-username="stephen.hazleton@openbet.com" class="lnk" href="/secure/ViewProfile.jspa">
+            Stephen Hazleton
+        </a>
+        <span class="drop-wrap">
+        <a class="drop aui-dd-link"
+                        href="#"><span>Access more options</span>
+        </a>
+    </span>
+    <div id="user-options-list" class="aui-list hidden">
+                                                        <ul id="personal" class="aui-list-section  aui-first     ">
+                                                                        <li class="aui-list-item"><a  id="view_profile"   class="aui-list-item-link "  title="View and change your details and preferences" href="/secure/ViewProfile.jspa">Profile</a></li>
+                                                                                                <li class="aui-list-item"><a  id="upm-requests-link"   class="aui-list-item-link "   href="/plugins/servlet/upm/requests?source=header_user">Atlassian Marketplace</a></li>
+                                                            </ul>
+                                 <h5>My JIRA Home</h5>                             <ul id="set_my_jira_home" class="aui-list-section    ">
+                                            
+                                                        <li class="aui-list-checked  aui-checked "><a  id="set_my_jira_home_default"   class="aui-list-item-link "  title="Set my JIRA Home to the Dashboard." href="/secure/UpdateMyJiraHome.jspa?target=com.atlassian.jira.jira-my-home-plugin%3Aset_my_jira_home_dashboard&atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">Dashboard</a></li>
+                                                                    
+                                                        <li class="aui-list-checked "><a  id="greenhopper-my-jira-home-set"   class="aui-list-item-link "  title="Set my JIRA Home to Agile." href="/secure/UpdateMyJiraHome.jspa?target=com.pyxis.greenhopper.jira%3Agreenhopper-my-jira-home-set-51&atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">Agile</a></li>
+                                                                    
+                                                        <li class="aui-list-checked "><a  id="set_my_jira_home_issuenav"   class="aui-list-item-link "  title="Set my JIRA Home to the Issue Navigator." href="/secure/UpdateMyJiraHome.jspa?target=com.atlassian.jira.jira-my-home-plugin%3Aset_my_jira_home_issue&atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">Issue Navigator</a></li>
+                                                                    
+                                                        <li class="aui-list-checked "><a  id="set_tempo_my_jira_home_link"   class="aui-list-item-link "  title="Set my JIRA home to Tempo" href="/secure/UpdateMyJiraHome.jspa?target=is.origo.jira.tempo-plugin%3Atempo.jira.home.link&atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">Tempo</a></li>
+                                                            </ul>
+                                                            <ul id="jira-help" class="aui-list-section    ">
+                                                                        <li class="aui-list-item"><a  id="view_help"   class="aui-list-item-link "  title="Goto the online documentation for JIRA" href="https://docs.atlassian.com/jira/docs-052/JIRA+Documentation">Online Help</a></li>
+                                                                                                <li class="aui-list-item"><a  id="gh_view_help"   class="aui-list-item-link "  title="Get help online for GreenHopper" href="http://docs.atlassian.com/greenhopper/docs-0620/GreenHopper+Documentation">GreenHopper Help</a></li>
+                                                                                                <li class="aui-list-item"><a  id="gh_view_agile_answers"   class="aui-list-item-link "  title="Get answers about Agile" href="http://answers.atlassian.com/tags/agile/">Agile Answers</a></li>
+                                                                                                <li class="aui-list-item"><a  id="keyshortscuthelp"   class="aui-list-item-link "  title="Get more information about JIRA's Keyboard Shortcuts" href="/secure/ViewKeyboardShortcuts!default.jspa">Keyboard Shortcuts</a></li>
+                                                                                                <li class="aui-list-item"><a  id="view_about"   class="aui-list-item-link "  title="Get more information about JIRA" href="http://www.atlassian.com/software/jira">About JIRA</a></li>
+                                                                                                <li class="aui-list-item"><a  id="view_credits"   class="aui-list-item-link "  title="See who did what" href="/secure/JiraCreditsPage!default.jspa">JIRA Credits</a></li>
+                                                                                                <li class="aui-list-item"><a  id="whats-new-menu-link"   class="aui-list-item-link "   href="https://docs.atlassian.com/jira/docs-052/whatsnew/iframe">What’s New</a></li>
+                                                            </ul>
+                                                            <ul id="tempo-core-help" class="aui-list-section    ">
+                                                                        <li class="aui-list-item"><a  id="tempo_core_help"   class="aui-list-item-link "  title="Goto the online documentation for Tempo" href="http://tempoplugin.com/support" target="_blank">Tempo Help</a></li>
+                                                            </ul>
+                                                            <ul id="system" class="aui-list-section    aui-last  ">
+                                                                        <li class="aui-list-item"><a  id="log_out"   class="aui-list-item-link "  title="Log out and cancel any automatic login." href="/logout?atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">Log Out</a></li>
+                                                            </ul>
+                        </div>
+
+</li>
+
+            
+        </ul>
+    </div>
+</nav>
+<nav class="local" role="navigation">
+    <div class="primary">
+                    
+            
+<ul id="main-nav" class="standard-menu-bar">
+                                            <li class="aui-dd-parent lazy">
+            <a class="lnk"
+                href="/secure/Dashboard.jspa"
+                 id="home_link"                 accessKey="h"                 title="View your current Dashboard"                >Dashboards</a>
+
+                    <span class="drop-wrap">
+            <a class="drop aui-dd-link"
+                                    id="home_link_drop"
+                    rel="home_link"
+                     accessKey="d"                    title="Access more options (Alt+d)"
+                                href="#"><span>Access more options (Alt+d)</span></a></span>
+                </li>
+                                            <li class="aui-dd-parent lazy">
+            <a class="lnk"
+                href="/browse/WIL"
+                 id="browse_link"                 accessKey="b"                 title="Browse currently active project 'William Hill'"                >Projects</a>
+
+                    <span class="drop-wrap">
+            <a class="drop aui-dd-link"
+                                    id="browse_link_drop"
+                    rel="browse_link"
+                     accessKey="p"                    title="Access more options (Alt+p)"
+                                href="#"><span>Access more options (Alt+p)</span></a></span>
+                </li>
+                                            <li class="aui-dd-parent lazy">
+            <a class="lnk"
+                href="/secure/IssueNavigator.jspa"
+                 id="find_link"                 accessKey="f"                 title="View your current filter"                >Issues</a>
+
+                    <span class="drop-wrap">
+            <a class="drop aui-dd-link"
+                                    id="find_link_drop"
+                    rel="find_link"
+                     accessKey="i"                    title="Access more options (Alt+i)"
+                                href="#"><span>Access more options (Alt+i)</span></a></span>
+                </li>
+                                            <li class="aui-dd-parent lazy">
+            <a class="lnk"
+                href="/secure/GreenHopper.jspa"
+                 id="greenhopper_menu"                                 title="Manage your project with GreenHopper"                >Agile</a>
+
+                    <span class="drop-wrap">
+            <a class="drop aui-dd-link"
+                                    id="greenhopper_menu_drop"
+                    rel="greenhopper_menu"
+                     accessKey="g"                    title="Access more options (Alt+g)"
+                                href="#"><span>Access more options (Alt+g)</span></a></span>
+                </li>
+                                            <li class="aui-dd-parent nonlazy selected">
+            <a class="lnk"
+                href="/secure/TempoInfo.jspa"
+                 id="tempo_menu"                                 title="Open Tempo Timesheet"                >Tempo</a>
+
+                                                                                                            <span class="drop-wrap">
+                            <a class="drop aui-dd-link"
+                                                                    id="tempo_menu_drop"
+                                     accessKey="t"                                    rel="tempo_menu"
+                                    title="Access more options (Alt+t)"
+                                                                href="#"><span>Access more options</span></a></span>
+                            <div class="aui-list hidden">
+                                                 <h5>Timesheets</h5>                         <ul id="tempo_menu_dropdown" class="aui-list-section aui-first   ">
+                                                            <li class="aui-list-item"><a
+                                     id="timesheet-mlink"                                     class="aui-list-item-link   "
+                                                                        title="View timesheets and log work"                                    href="/secure/TempoUserBoard!timesheet.jspa">User</a></li>
+                                                            <li class="aui-list-item"><a
+                                     id="timesheet-mlink-project"                                     class="aui-list-item-link   "
+                                                                        title="View timesheets and log work"                                    href="/secure/TempoProjectBoard!timesheet.jspa">Project</a></li>
+                                                            <li class="aui-list-item"><a
+                                     id="timesheet-mlink-advanced"                                     class="aui-list-item-link   "
+                                                                        title="View timesheets and log work"                                    href="/secure/TempoSearchBoard!timesheet.jspa">Advanced</a></li>
+                                                            <li class="aui-list-item"><a
+                                     id="timesheet-mlink-issue"                                     class="aui-list-item-link   "
+                                                                        title="View timesheets and log work"                                    href="/secure/TempoIssueBoard!timesheet.jspa">Issue</a></li>
+                                                            <li class="aui-list-item"><a
+                                     id="tempo-agile-timesheet-link"                                     class="aui-list-item-link   "
+                                                                        title="View Tempo Agile Timesheet"                                    href="/secure/TempoAgileTimesheet.jspa">Agile (LABS)</a></li>
+                                                    </ul>
+                                                                                                                                                        <ul id="tempo_menu_extra" class="  aui-last  ">
+                                                            <li class="aui-list-item"><a
+                                     id="tempo-bar-mlink"                                     class="aui-list-item-link tempo-bar-show  "
+                                                                        title="Open the Tracker Bar"                                    href="/secure/TempoUserBoard!timesheet.jspa">Tracker</a></li>
+                                                            <li class="aui-list-item"><a
+                                     id="about-mlink"                                     class="aui-list-item-link tempoaction-open-large-form  "
+                                                                        title="Get Tempo version and license information"                                    href="/secure/AboutTempo.jspa">About Tempo</a></li>
+                                                            <li class="aui-list-item"><a
+                                     id="tempo-about-start-link"                                     class="aui-list-item-link   "
+                                                                        title="Getting Started with Tempo"                                    href="/secure/TempoGettingStarted.jspa">Getting Started</a></li>
+                                                    </ul>
+                                                </div>
+                                                                                        </li>
+    </ul>
+
+            
+            </div>
+    <div class="secondary">
+        <ul>
+                            <li>
+                    <form id="quicksearch" action="/secure/QuickSearch.jspa" method="post" class="dont-default-focus">
+                        <div>
+                            <input id="quickSearchInput" class="text" type="text" title="Quick Search" name="searchString" accessKey="q" />
+                            <label for="quickSearchInput" class="overlabel">Quick Search</label>
+                            <input type="submit" class="hidden" value="Search" />
+                        </div>
+                    </form>
+                </li>
+                                        <li>
+                    <div id="createItem">
+                        <a title="Create a new issue / bug / feature request / etc"
+                           hidefocus="hidefocus"
+                           accesskey="c"
+                           id="create_link"
+                           href="/secure/CreateIssue!default.jspa"
+                           data-url="https://confluence.atlassian.com/display/JIRA/Creating+an+Issue"
+                           class="lnk aui-dd-parent create-issue">
+                            Create Issue
+                        </a>
+                    </div>
+                    <fieldset id="create_link_params" rel="createItem" class="hidden">
+                        <div>
+                            <input type="hidden" id="createItem_create" value="Create">
+                            <input type="hidden" id="createItem_create_desc" value="Create Issue">
+                            <input type="hidden" id="createItem_project" value="Project">
+                            <input type="hidden" id="createItem_select_project" value="Choose the project...">
+                            <input type="hidden" id="createItem_issuetype" value="Issue Type">
+                            <input type="hidden" id="createItem_select_type" value="Choose the issue type...">
+                            <input type="hidden" id="createItem_cancel" value="Cancel">
+                            <input type="hidden" id="createItem_log_in" value="Click here to log in">
+                            <input type="hidden" id="createItem_log_in_desc" value="You are not logged in.">
+                            <input type="hidden" id="createItem_no_permission" value="You do not have permission to create issues.">
+                            <input type="hidden" id="createItem_project_recent" value="Recent Projects">
+                            <input type="hidden" id="createItem_project_all" value="All Projects">
+                            <input type="hidden" id="createItem_issuetype_invalid" value="Invalid issue type.">
+                            <input type="hidden" id="createItem_issuetype_select" value="Please select...">
+                        </div>
+                    </fieldset>
+                </li>
+                    </ul>
+    </div>
+</nav>
+
+    </header>
+    
+
+<div id="announcement-banner" class="alertHeader">
+    <script type="text/javascript" async src="https://jira.openbet.com/s/en_UKy559lj/664/15/1.0.23-beta/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=ae2b3cdc"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34812501-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<script type="text/javascript">
+var fby = fby || [];
+fby.push(['showTab', {id: '5123', position: 'right', color: '#8B657F'}]);
+(function () {
+    var f = document.createElement('script'); f.type = 'text/javascript'; f.async = true;
+    f.src = 'https://cdn.feedbackify.com/f.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(f, s);
+})();
+</script>
+
+<script type="text/javascript">
+var fby = fby || [];
+(function () {
+    var f = document.createElement('script'); f.type = 'text/javascript'; f.async = true;
+    f.src = 'https://cdn.feedbackify.com/f.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(f, s);
+})();
+</script>
+</div>
+
+
+    <section id="content" role="main">
+        
+          
+
+<span id="user"
+      title="stephen.hazleton@openbet.com"
+      data-avatar="/secure/useravatar?size=small&ownerId=stephen.hazleton%40openbet.com&avatarId=10052"
+      data-selected-panel-worklog="0"
+      data-selected-panel-plan="0"
+      class="username hidden">Stephen Hazleton</span>
+
+<header id="stalker" class="stalker ">
+<div class="tempo-stalker-content stalker-content ">
+
+            
+<ul class="breadcrumbs ">
+    <li class="aui-dd-parent ">
+        <a href="#subtype-list" class="button more drop">
+            User<span class="icon drop-menu"></span></a>
+
+        <div id="subtype-list" class="aui-list aui-dropdown-right standard hidden">
+            <ul class="aui-list-section first last aui-first aui-last">
+                                                                                    <li class="aui-list-item">
+                            <a class="aui-list-item-link tempo-spinner"
+                               href="/secure/TempoUserBoard!report.jspa?v=1&amp;periodType=BILLING&amp;periodView=DAY&amp;period=02112013">User</a>
+                        </li>
+                    
+                                                                                    <li class="aui-list-item">
+                            <a class="aui-list-item-link tempo-spinner"
+                               href="/secure/TempoProjectBoard!report.jspa?v=1&amp;periodType=BILLING&amp;periodView=DAY&amp;period=02112013">Project</a>
+                        </li>
+                    
+                                    
+                                                                                    <li class="aui-list-item">
+                            <a class="aui-list-item-link tempo-spinner"
+                               href="/secure/TempoSearchBoard!report.jspa?v=1&amp;periodType=BILLING&amp;periodView=DAY&amp;period=02112013">Advanced</a>
+                        </li>
+                    
+                                                                                    <li class="aui-list-item">
+                            <a class="aui-list-item-link tempo-spinner"
+                               href="/secure/TempoIssueBoard!report.jspa?v=1&amp;periodType=BILLING&amp;periodView=DAY&amp;period=02112013">Issue</a>
+                        </li>
+                    
+                            </ul>
+        </div>
+    </li>
+</ul>
+        <fieldset class="hidden parameters">
+    <input type="hidden" id="tempoHidePayPeriod" value="true"/>
+    <input type="hidden" id="tempoHideBillingPeriod" value="true"/>
+    <input type="hidden" id="tempoBillingStart" value="1"/>
+        <input type="hidden" id="tempoBillingStartOrdinal" value="1st"/>
+    <input type="hidden" id="tempoPayStart" value="1"/>
+        <input type="hidden" id="tempoPayStartOrdinal" value="1st"/>
+    <input type="hidden" id="tempoUseISO8061WeekNumbers" value="false">
+</fieldset>
+<form id="tempo-report-header-form" method="get" action="/secure/TempoUserBoard!report.jspa?v=1&amp;periodType=BILLING&amp;periodView=DAY&amp;period=02112013"
+      class="aui tempo-user-picker">
+
+    
+
+                                
+    <div class="tempo-pickers">
+        <a type="button" id="filter-search-button-id" data-id="filterIds"
+                class="aui-button aui-button-subtle aui-dropdown2-trigger"
+                aria-owns="filter-search-button"
+                aria-haspopup="false"
+                aria-controls="filter-search-button">
+            <div style="max-width: 217px; overflow: hidden; text-overflow: ellipsis; white-space:nowrap;" class="criteria-wrap searcherValue">
+                <span id="filter-search-button-text" class="fieldValue"></span>
+            </div>
+        </a>
+
+        <div id="filter-search-button" class="aui-dropdown2 aui-style-default" data-dropdown2-alignment="left" style="z-index: 1000;">
+            <select name="filterIds"
+                    data-placeholder-text="Find Filters"
+                    multiple="multiple"
+                    size="4"
+                    id="searcher-filter"
+                    class="select hidden js-default-checkboxmultiselect">
+                                            <option selected="selected" value="-1001" title="User Timesheet">User Timesheet</option>
+                                </select>
+        </div>
+    </div>
+
+    
+    
+    
+    
+    
+<div id="tempo-report-filter" style="display: none;">
+
+    <input type="hidden" id="currentPeriod" value="1113"/>
+    <input type="hidden" id="period" name="period" value="02112013"/>
+    <input type="hidden" name="periodType" value="BILLING"/>
+    <input type="hidden" name="periodView" value="DAY"/>
+    <input type="hidden" name="from" value="02/Nov/13">
+    <input type="hidden" name="to" value="02/Nov/13">
+    <input type="hidden" name="exact" value="02/Nov/13">
+    <input type="hidden" name="span" value="1">
+
+    
+    
+</div>
+
+            <div class="button">
+    <input accesskey="s" type="submit" class="submit-query" id="submitSearch" name="submitSearch"
+        value="Refresh"
+        title="Refresh"/>
+</div>
+    
+</form>    
+<div class="command-bar">
+<div class="ops-cont">
+<div class="ops-menus ">
+
+        <div id="heading-avatar" style="background-image:url(/secure/useravatar?size=large&ownerId=stephen.hazleton%40openbet.com&avatarId=10052)"></div>
+    <div style="float: left; width: 80%;">
+    
+    
+            
+
+<ul class="first ops" id="view-layout-buttons">
+
+    <li class="     first " id="toggle-timesheet-icon">
+        <a class="     button first   "
+           href="/secure/TempoUserBoard!timesheet.jspa?v=1&amp;periodType=BILLING&amp;periodView=DAY&amp;period=02112013"
+           title="Timesheet in grid view">
+            <span class="icon timesheet-view">&nbsp;</span></a>
+    </li>
+
+    <li class="      ">
+        <a class="     button   "
+           href="/secure/TempoUserBoard!calendar.jspa?v=1&amp;periodType=BILLING&amp;periodView=DAY&amp;period=02112013"
+           title="View your planned and scheduled activities in a calendar view"><span
+                class="icon calendar-view">&nbsp;</span></a>
+    </li>
+
+    <li class="      ">
+        <a class="     button  tempo-active "
+           href="/secure/TempoUserBoard!report.jspa?v=1&amp;periodType=BILLING&amp;periodView=DAY&amp;period=02112013"
+           title="Report in a tabular view">
+            <span class="icon report-view">&nbsp;</span></a>
+    </li>
+
+    <li class="     last ">
+        <a class="     button last  "
+           href="/secure/TempoUserBoard!worklogs.jspa?v=1&amp;periodType=BILLING&amp;periodView=DAY&amp;period=02112013"
+           title="Report in a table view">
+            <span class="icon worklog-view">&nbsp;</span></a>
+    </li>
+
+</ul>        <ul class="first ops">
+    <li class="      ">
+        <a class="     first button  selectperiod tempo-spinner"
+           id="period_01112013"
+           href="/secure/TempoUserBoard!report.jspa?v=1&amp;periodType=BILLING&amp;periodView=DAY&amp;period=01112013"
+           title="Previous period">
+            <span class="icon butt-prev icon-previous"></span></a>
+    </li>
+    <li class="      ">
+        <a class="toolbar-trigger button tempo-timeframe-bar"
+           id="tempo-timeframe-bar">Today
+    <span class="timeframe-color">
+        (Sat, November 2, 2013)
+    </span>
+</a>
+    </li>
+    <li class="     last ">
+        <a class="     last button  selectperiod tempo-spinner"
+           id="period_03112013"
+           href="/secure/TempoUserBoard!report.jspa?v=1&amp;periodType=BILLING&amp;periodView=DAY&amp;period=03112013"
+           title="Next period">
+            <span class="icon butt-next icon-next"></span></a>
+    </li>
+</ul>        
+
+<ul class=" first ops " id="add-buttons">
+    <li class="        last ">
+        <a id="tempo-add-button" name="tempo-add-button"
+           class="     button first  open-dialog  last  "
+           href="#"><span class="icon butt-edit"></span>
+            Log Work</a>
+    </li>
+
+    
+    </ul>
+    
+</div>
+
+    
+    
+    
+    <ul class=" ops " id="view-drop">
+        
+            <li >
+                                <div class="aui-dd-parent">                <a href="#" title="" id="tempo-view-drop-trigger"
+                   class="      drop lnk aui-dd-link standard icon-views  js-default-dropdown">
+                    <span class="">Views</span>
+                    </a>
+
+                <div id="view-drop-container" class="aui-list standard hidden">
+                                            <ul class="first aui-first aui-list-section">
+                                                            <li class="aui-list-item">
+                                    <a href="/secure/TempoUserBoard!reportPrint.jspa?v=1&amp;periodType=BILLING&amp;periodView=DAY&amp;period=02112013"
+                                       class="aui-list-item-link "
+                                       rel="nofollow">
+                                                                                Printable</a>
+                                </li>
+                                                            <li class="aui-list-item">
+                                    <a href="/secure/TempoUserBoard!excel.jspa?v=1&amp;periodType=BILLING&amp;periodView=DAY&amp;period=02112013"
+                                       class="aui-list-item-link "
+                                       rel="nofollow">
+                                                                                Export to Excel</a>
+                                </li>
+                                                    </ul>
+
+                                            <ul class=" aui-list-section">
+                                                            <li class="aui-list-item">
+                                    <a href="/secure/TempoUserBoard!report.jspa?v=1&amp;periodType=BILLING&amp;periodView=DAY&amp;period=02112013&amp;originalEstimate=false"
+                                       class="aui-list-item-link tempo-spinner"
+                                       rel="nofollow">
+                                                                                    <span class="icon-is-on icon"></span>
+                                                                                Estimated</a>
+                                </li>
+                                                            <li class="aui-list-item">
+                                    <a href="/secure/TempoUserBoard!report.jspa?v=1&amp;periodType=BILLING&amp;periodView=DAY&amp;period=02112013&amp;remainingEstimate=false"
+                                       class="aui-list-item-link tempo-spinner"
+                                       rel="nofollow">
+                                                                                    <span class="icon-is-on icon"></span>
+                                                                                Remaining</a>
+                                </li>
+                                                    </ul>
+
+                                            <ul class="last aui-last aui-list-section">
+                                                            <li class="aui-list-item">
+                                    <a href="/secure/TempoUserBoard!report.jspa?v=1&amp;periodType=BILLING&amp;periodView=DAY&amp;period=02112013&amp;planned=false"
+                                       class="aui-list-item-link tempo-spinner"
+                                       rel="nofollow">
+                                                                                    <span class="icon-is-on icon"></span>
+                                                                                Planned</a>
+                                </li>
+                                                            <li class="aui-list-item">
+                                    <a href="/secure/TempoUserBoard!report.jspa?v=1&amp;periodType=BILLING&amp;periodView=DAY&amp;period=02112013&amp;worked=false"
+                                       class="aui-list-item-link tempo-spinner"
+                                       rel="nofollow">
+                                                                                    <span class="icon-is-on icon"></span>
+                                                                                Worked</a>
+                                </li>
+                                                            <li class="aui-list-item">
+                                    <a href="/secure/TempoUserBoard!report.jspa?v=1&amp;periodType=BILLING&amp;periodView=DAY&amp;period=02112013&amp;external=true"
+                                       class="aui-list-item-link tempo-spinner"
+                                       rel="nofollow">
+                                                                                    <span class="icon-is-off icon"></span>
+                                                                                External</a>
+                                </li>
+                                                    </ul>
+
+                                    </div>
+                                </div>
+                            </li>
+        
+                    
+
+<li>
+    <div class="aui-dd-parent">
+        <a href="#" title="Tools"
+           class="     drop lnk aui-dd-link standard icon-tools  js-default-dropdown">
+            <span>Tools</span>
+        </a>
+
+        <div class="aui-list standard hidden">
+            <ul class="aui-list-section first last aui-first aui-last">
+                <li class="aui-list-item">
+                    <a class="tempoaction-open-user-settings aui-list-item-link"
+                       href="/secure/tempoUserSettings!default.jspa?username=stephen.hazleton%40openbet.com">User Preferences</a>
+                </li>
+                <li class="aui-list-item">
+                    <a class="tempoaction-open-large-form aui-list-item-link"
+                       href="/secure/AboutTempo.jspa">About Tempo</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</li>        
+    </ul>
+
+    
+    
+            <div id="tempo-report-controls" class="refresh-report">
+                            <span style="float: left; font-weight: bold; padding-right: 10px; margin-right: 10px; border-right: 1px solid #eee;">
+                    
+                                            Stephen Hazleton
+                                    </span>
+                        <div class="total-work-container">
+                                                            <div id="tempo-progress-bar-user" class="tempo-progress-bar-new"><span>8.1
+                            / 0</span></div>
+                                                </div>
+                            <div class="status">
+                                        </div>
+                    </div>
+    
+    
+    
+    
+    
+            <div id="report-filter-level">
+    <select id="report-detail-select" class="report-detail">
+        <option value="|tr.level-1,tr.level-2,tr.level-3"
+                id="detail-project">
+                            Projects
+                    </option>
+        <option value="tr.level-1|tr.level-2,tr.level-3"
+                id="activity-detail">Activities
+        </option>
+        <option value="tr.level-1,tr.level-2|tr.level-3"
+                id="issue-detail">Issues
+        </option>
+        <option value="tr.level-1,tr.level-2,tr.level-3|"
+                selected="selected"
+                id="worklog-detail">Worklogs
+        </option>
+    </select>
+</div>
+    
+</div>
+
+</div>
+
+</div>
+
+<div class="btm clear"></div>
+</div>
+</header>
+      <div class="content-container">
+          <div class="content-body aui-panel">
+                          
+<div class="tempo-report-module tempo-table page-type-issuenav stalker-original" id="tempo-report-module">
+    <table id="issuetable" style="margin-top: 0;">
+        <thead>
+        <tr>
+                                <th class="">
+                    Project
+            </th>
+                                <th class="">
+                    Activity
+            </th>
+                                <th class="">
+                    Issue
+            </th>
+                                <th class="">
+                    Description
+            </th>
+                                <th class="">
+                    
+            </th>
+                                <th class="">
+                    Initials
+            </th>
+                                <th class="right">
+                    Estimated
+            </th>
+                                <th class="right">
+                    Remaining
+            </th>
+                                <th class="right">
+                    Planned
+            </th>
+                                <th class="right">
+                    Worked
+            </th>
+                                <th class="">
+                    
+            </th>
+                    </tr>
+        </thead>
+        <tbody>
+                        
+      
+      
+      
+      
+      
+      
+      
+                                <tr rel="" id="section-82177" class="section level-0 issuerow parent-0">
+                                                    <td colspan="5" class="nav summary expanded">
+          SKY
+          -
+          SkyBet
+
+      </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                        <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 3.82 </td>
+                                                                                                                            <td  class="nav " > &nbsp; </td>
+                                              </tr>
+                                                                                                    <tr rel="363308" id="section--1846832289" class="section level-1 issuerow parent-0 parent-82177">
+                                                                        <td>&nbsp;</td>
+                                                                      <td colspan="4" class="nav summary expanded">
+                        SKY - Unscheduled
+                </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                        <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 3.82 </td>
+                                                                                                                            <td  class="nav " > &nbsp; </td>
+                                              </tr>
+                                                                                                    <tr rel="363210" id="section-363210" class="section level-2 issuerow parent-0 parent-82177 parent--1846832289">
+                                                                                                                                      <td>&nbsp;</td>
+                                                                                <td class="nav" style="float: right; border-bottom: none !important; background: none;">
+           <span class="estimate not-available"
+                title="Original estimate  , Time spent:  0.08
+                                "> not-available</span>
+          </td>
+            <td colspan="3" class="nav summary expanded">
+                    <a href="/browse/SKY-21745">SKY-21745
+                              Alarm Not Showing on Bet Scroller
+          </a>
+      </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                                                <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 0.08 </td>
+                                                                    
+                                                  <td class="nav issue_actions">
+                  
+<div class="action-dropdown aui-dd-parent actions">
+        <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+       id="actions_363210" title="Actions"
+       href="/rest/api/1.0/issues/363210/ActionsAndOperations"
+       hidefocus
+       onclick="return false;">
+                          <span>
+                              <em>Actions</em>
+                          </span>
+    </a>
+    
+    <div id="actions_363210_drop"
+         class="aui-dropdown standard hidden gadget-dropdown"></div>
+</div>
+
+              </td>
+                                        </tr>
+                                                                                                    <tr rel="363210" id="section-164664" class="section level-3 issuerow parent-0 parent-82177 parent--1846832289 parent-363210">
+                                                                                                                                      <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                                                
+
+<td class="nav editable col1  ">
+
+            <span class="tempo-calendar-inline   edit-container editDate">
+                                          <span id="tempo-calendar-display-164664"
+                                                class="tempo-calendar-display tempo-inline-edit">02/Nov/13</span>
+
+        <input type="hidden" class="tempo-calendar-input " id="date_164664"
+               value="02/Nov/13"/>
+
+        <img id="tempo-calendar-img-164664" class="tempo-calendar-trigger"
+             alt="Select a date"
+             src="/download/resources/is.origo.jira.tempo-plugin/img/calendar.png"/>
+        </span>
+    
+</td>
+<td class="nav summary editable  " colspan="2">
+                    <span class="edit-container editDesc"
+              id="comment_164664">
+                    <span class="tempo-inline-edit">Working on issue SKY-21745</span></span>
+    </td>
+            <td   class="nav initial"> SH </td>
+                                    <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+    
+        <td class="nav sum editable">
+              <span id="hoursSpent_164664"
+                    hourtype="hoursSpent"
+                                      class="edit-container editHours"
+                                        >
+                                        <span class="tempo-inline-edit">0.08</span>
+                                </span>
+    </td>
+    
+    
+                                    <td class="nav issue_actions">
+    <div class="action-dropdown aui-dd-parent actions">
+                    <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+               id="actions_363210" title="Actions"
+               href="/rest/tempo-rest/2.0/issues/SKY-21745/worklogs/164664/actions?atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">
+                    <span>
+                        <em>Actions</em>
+                    </span>
+            </a>
+            </div>
+</td>
+                        </tr>
+                                              
+                                      
+                                
+                                      
+                                                                                      <tr rel="363308" id="section-363308" class="section level-2 issuerow parent-0 parent-82177 parent--1846832289">
+                                                                                                                                      <td>&nbsp;</td>
+                                                                                <td class="nav" style="float: right; border-bottom: none !important; background: none;">
+           <span class="estimate not-available"
+                title="Original estimate  , Time spent:  3.73
+                                "> not-available</span>
+          </td>
+            <td colspan="3" class="nav summary expanded">
+                    <a href="/browse/SKY-21750">SKY-21750
+                              Registration Unavailable on Web
+          </a>
+      </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                                                <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 3.73 </td>
+                                                                    
+                                                  <td class="nav issue_actions">
+                  
+<div class="action-dropdown aui-dd-parent actions">
+        <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+       id="actions_363308" title="Actions"
+       href="/rest/api/1.0/issues/363308/ActionsAndOperations"
+       hidefocus
+       onclick="return false;">
+                          <span>
+                              <em>Actions</em>
+                          </span>
+    </a>
+    
+    <div id="actions_363308_drop"
+         class="aui-dropdown standard hidden gadget-dropdown"></div>
+</div>
+
+              </td>
+                                        </tr>
+                                                                                                    <tr rel="363308" id="section-164665" class="section level-3 issuerow parent-0 parent-82177 parent--1846832289 parent-363308">
+                                                                                                                                      <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                                                
+
+<td class="nav editable col1  ">
+
+            <span class="tempo-calendar-inline   edit-container editDate">
+                                          <span id="tempo-calendar-display-164665"
+                                                class="tempo-calendar-display tempo-inline-edit">02/Nov/13</span>
+
+        <input type="hidden" class="tempo-calendar-input " id="date_164665"
+               value="02/Nov/13"/>
+
+        <img id="tempo-calendar-img-164665" class="tempo-calendar-trigger"
+             alt="Select a date"
+             src="/download/resources/is.origo.jira.tempo-plugin/img/calendar.png"/>
+        </span>
+    
+</td>
+<td class="nav summary editable  " colspan="2">
+                    <span class="edit-container editDesc"
+              id="comment_164665">
+                    <span class="tempo-inline-edit">Working on issue SKY-21750</span></span>
+    </td>
+            <td   class="nav initial"> SH </td>
+                                    <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+    
+        <td class="nav sum editable">
+              <span id="hoursSpent_164665"
+                    hourtype="hoursSpent"
+                                      class="edit-container editHours"
+                                        >
+                                        <span class="tempo-inline-edit">3.73</span>
+                                </span>
+    </td>
+    
+    
+                                    <td class="nav issue_actions">
+    <div class="action-dropdown aui-dd-parent actions">
+                    <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+               id="actions_363308" title="Actions"
+               href="/rest/tempo-rest/2.0/issues/SKY-21750/worklogs/164665/actions?atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">
+                    <span>
+                        <em>Actions</em>
+                    </span>
+            </a>
+            </div>
+</td>
+                        </tr>
+                                              
+                                      
+                                
+                                      
+                                
+                                      
+                                
+                                                    <tr rel="" id="section-66918" class="section level-0 issuerow parent-0">
+                                                    <td colspan="5" class="nav summary expanded">
+          COR
+          -
+          Coral
+
+      </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                        <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 1.33 </td>
+                                                                                                                            <td  class="nav " > &nbsp; </td>
+                                              </tr>
+                                                                                                    <tr rel="363296" id="section-1993554138" class="section level-1 issuerow parent-0 parent-66918">
+                                                                        <td>&nbsp;</td>
+                                                                      <td colspan="4" class="nav summary expanded">
+                        COR - Unscheduled
+                </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                        <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 1.33 </td>
+                                                                                                                            <td  class="nav " > &nbsp; </td>
+                                              </tr>
+                                                                                                    <tr rel="347951" id="section-347951" class="section level-2 issuerow parent-0 parent-66918 parent-1993554138">
+                                                                                                                                      <td>&nbsp;</td>
+                                                                                <td class="nav" style="float: right; border-bottom: none !important; background: none;">
+           <span class="estimate not-available"
+                title="Original estimate  , Time spent:  32.5
+                                "> not-available</span>
+          </td>
+            <td colspan="3" class="nav summary expanded">
+                    <a href="/browse/COR-9417">COR-9417
+                              Web Display Issues - bet-in-play markets are suspending when it seems they should not - (#3131)
+          </a>
+      </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                                                <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 0.92 </td>
+                                                                    
+                                                  <td class="nav issue_actions">
+                  
+<div class="action-dropdown aui-dd-parent actions">
+        <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+       id="actions_347951" title="Actions"
+       href="/rest/api/1.0/issues/347951/ActionsAndOperations"
+       hidefocus
+       onclick="return false;">
+                          <span>
+                              <em>Actions</em>
+                          </span>
+    </a>
+    
+    <div id="actions_347951_drop"
+         class="aui-dropdown standard hidden gadget-dropdown"></div>
+</div>
+
+              </td>
+                                        </tr>
+                                                                                                    <tr rel="347951" id="section-164656" class="section level-3 issuerow parent-0 parent-66918 parent-1993554138 parent-347951">
+                                                                                                                                      <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                                                
+
+<td class="nav editable col1  ">
+
+            <span class="tempo-calendar-inline   edit-container editDate">
+                                          <span id="tempo-calendar-display-164656"
+                                                class="tempo-calendar-display tempo-inline-edit">02/Nov/13</span>
+
+        <input type="hidden" class="tempo-calendar-input " id="date_164656"
+               value="02/Nov/13"/>
+
+        <img id="tempo-calendar-img-164656" class="tempo-calendar-trigger"
+             alt="Select a date"
+             src="/download/resources/is.origo.jira.tempo-plugin/img/calendar.png"/>
+        </span>
+    
+</td>
+<td class="nav summary editable  " colspan="2">
+                    <span class="edit-container editDesc"
+              id="comment_164656">
+                    <span class="tempo-inline-edit">Working on issue COR-9417</span></span>
+    </td>
+            <td   class="nav initial"> SH </td>
+                                    <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+    
+        <td class="nav sum editable">
+              <span id="hoursSpent_164656"
+                    hourtype="hoursSpent"
+                                      class="edit-container editHours"
+                                        >
+                                        <span class="tempo-inline-edit">0.92</span>
+                                </span>
+    </td>
+    
+    
+                                    <td class="nav issue_actions">
+    <div class="action-dropdown aui-dd-parent actions">
+                    <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+               id="actions_347951" title="Actions"
+               href="/rest/tempo-rest/2.0/issues/COR-9417/worklogs/164656/actions?atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">
+                    <span>
+                        <em>Actions</em>
+                    </span>
+            </a>
+            </div>
+</td>
+                        </tr>
+                                              
+                                      
+                                
+                                      
+                                                                                      <tr rel="363290" id="section-363290" class="section level-2 issuerow parent-0 parent-66918 parent-1993554138">
+                                                                                                                                      <td>&nbsp;</td>
+                                                                                <td class="nav" style="float: right; border-bottom: none !important; background: none;">
+           <span class="estimate not-available"
+                title="Original estimate  , Time spent:  0.57
+                                "> not-available</span>
+          </td>
+            <td colspan="3" class="nav summary expanded">
+                    <a href="/browse/COR-9858">COR-9858
+                              Oddschecker
+          </a>
+      </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                                                <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 0.07 </td>
+                                                                    
+                                                  <td class="nav issue_actions">
+                  
+<div class="action-dropdown aui-dd-parent actions">
+        <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+       id="actions_363290" title="Actions"
+       href="/rest/api/1.0/issues/363290/ActionsAndOperations"
+       hidefocus
+       onclick="return false;">
+                          <span>
+                              <em>Actions</em>
+                          </span>
+    </a>
+    
+    <div id="actions_363290_drop"
+         class="aui-dropdown standard hidden gadget-dropdown"></div>
+</div>
+
+              </td>
+                                        </tr>
+                                                                                                    <tr rel="363290" id="section-164657" class="section level-3 issuerow parent-0 parent-66918 parent-1993554138 parent-363290">
+                                                                                                                                      <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                                                
+
+<td class="nav editable col1  ">
+
+            <span class="tempo-calendar-inline   edit-container editDate">
+                                          <span id="tempo-calendar-display-164657"
+                                                class="tempo-calendar-display tempo-inline-edit">02/Nov/13</span>
+
+        <input type="hidden" class="tempo-calendar-input " id="date_164657"
+               value="02/Nov/13"/>
+
+        <img id="tempo-calendar-img-164657" class="tempo-calendar-trigger"
+             alt="Select a date"
+             src="/download/resources/is.origo.jira.tempo-plugin/img/calendar.png"/>
+        </span>
+    
+</td>
+<td class="nav summary editable  " colspan="2">
+                    <span class="edit-container editDesc"
+              id="comment_164657">
+                    <span class="tempo-inline-edit">Working on issue COR-9858</span></span>
+    </td>
+            <td   class="nav initial"> SH </td>
+                                    <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+    
+        <td class="nav sum editable">
+              <span id="hoursSpent_164657"
+                    hourtype="hoursSpent"
+                                      class="edit-container editHours"
+                                        >
+                                        <span class="tempo-inline-edit">0.07</span>
+                                </span>
+    </td>
+    
+    
+                                    <td class="nav issue_actions">
+    <div class="action-dropdown aui-dd-parent actions">
+                    <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+               id="actions_363290" title="Actions"
+               href="/rest/tempo-rest/2.0/issues/COR-9858/worklogs/164657/actions?atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">
+                    <span>
+                        <em>Actions</em>
+                    </span>
+            </a>
+            </div>
+</td>
+                        </tr>
+                                              
+                                      
+                                
+                                      
+                                                                                      <tr rel="363296" id="section-363296" class="section level-2 issuerow parent-0 parent-66918 parent-1993554138">
+                                                                                                                                      <td>&nbsp;</td>
+                                                                                <td class="nav" style="float: right; border-bottom: none !important; background: none;">
+           <span class="estimate not-available"
+                title="Original estimate  , Time spent:  0.35
+                                "> not-available</span>
+          </td>
+            <td colspan="3" class="nav summary expanded">
+                    <a href="/browse/COR-9859">COR-9859
+                              Code break #3434
+          </a>
+      </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                                                <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 0.35 </td>
+                                                                    
+                                                  <td class="nav issue_actions">
+                  
+<div class="action-dropdown aui-dd-parent actions">
+        <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+       id="actions_363296" title="Actions"
+       href="/rest/api/1.0/issues/363296/ActionsAndOperations"
+       hidefocus
+       onclick="return false;">
+                          <span>
+                              <em>Actions</em>
+                          </span>
+    </a>
+    
+    <div id="actions_363296_drop"
+         class="aui-dropdown standard hidden gadget-dropdown"></div>
+</div>
+
+              </td>
+                                        </tr>
+                                                                                                    <tr rel="363296" id="section-164658" class="section level-3 issuerow parent-0 parent-66918 parent-1993554138 parent-363296">
+                                                                                                                                      <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                                                
+
+<td class="nav editable col1  ">
+
+            <span class="tempo-calendar-inline   edit-container editDate">
+                                          <span id="tempo-calendar-display-164658"
+                                                class="tempo-calendar-display tempo-inline-edit">02/Nov/13</span>
+
+        <input type="hidden" class="tempo-calendar-input " id="date_164658"
+               value="02/Nov/13"/>
+
+        <img id="tempo-calendar-img-164658" class="tempo-calendar-trigger"
+             alt="Select a date"
+             src="/download/resources/is.origo.jira.tempo-plugin/img/calendar.png"/>
+        </span>
+    
+</td>
+<td class="nav summary editable  " colspan="2">
+                    <span class="edit-container editDesc"
+              id="comment_164658">
+                    <span class="tempo-inline-edit">Working on issue COR-9859</span></span>
+    </td>
+            <td   class="nav initial"> SH </td>
+                                    <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+    
+        <td class="nav sum editable">
+              <span id="hoursSpent_164658"
+                    hourtype="hoursSpent"
+                                      class="edit-container editHours"
+                                        >
+                                        <span class="tempo-inline-edit">0.35</span>
+                                </span>
+    </td>
+    
+    
+                                    <td class="nav issue_actions">
+    <div class="action-dropdown aui-dd-parent actions">
+                    <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+               id="actions_363296" title="Actions"
+               href="/rest/tempo-rest/2.0/issues/COR-9859/worklogs/164658/actions?atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">
+                    <span>
+                        <em>Actions</em>
+                    </span>
+            </a>
+            </div>
+</td>
+                        </tr>
+                                              
+                                      
+                                
+                                      
+                                
+                                      
+                                
+                                                    <tr rel="" id="section-85946" class="section level-0 issuerow parent-0">
+                                                    <td colspan="5" class="nav summary expanded">
+          WIL
+          -
+          William Hill
+
+      </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                        <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 1.73 </td>
+                                                                                                                            <td  class="nav " > &nbsp; </td>
+                                              </tr>
+                                                                                                    <tr rel="363342" id="section--1734550010" class="section level-1 issuerow parent-0 parent-85946">
+                                                                        <td>&nbsp;</td>
+                                                                      <td colspan="4" class="nav summary expanded">
+                        WIL - Unscheduled
+                </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                        <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 1.73 </td>
+                                                                                                                            <td  class="nav " > &nbsp; </td>
+                                              </tr>
+                                                                                                    <tr rel="363289" id="section-363289" class="section level-2 issuerow parent-0 parent-85946 parent--1734550010">
+                                                                                                                                      <td>&nbsp;</td>
+                                                                                <td class="nav" style="float: right; border-bottom: none !important; background: none;">
+           <span class="estimate not-available"
+                title="Original estimate  , Time spent:  0.42
+                                "> not-available</span>
+          </td>
+            <td colspan="3" class="nav summary expanded">
+                    <a href="/browse/WIL-19409">WIL-19409
+                              European Basketball Prematch markets in ATS
+          </a>
+      </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                                                <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 0.42 </td>
+                                                                    
+                                                  <td class="nav issue_actions">
+                  
+<div class="action-dropdown aui-dd-parent actions">
+        <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+       id="actions_363289" title="Actions"
+       href="/rest/api/1.0/issues/363289/ActionsAndOperations"
+       hidefocus
+       onclick="return false;">
+                          <span>
+                              <em>Actions</em>
+                          </span>
+    </a>
+    
+    <div id="actions_363289_drop"
+         class="aui-dropdown standard hidden gadget-dropdown"></div>
+</div>
+
+              </td>
+                                        </tr>
+                                                                                                    <tr rel="363289" id="section-164666" class="section level-3 issuerow parent-0 parent-85946 parent--1734550010 parent-363289">
+                                                                                                                                      <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                                                
+
+<td class="nav editable col1  ">
+
+            <span class="tempo-calendar-inline   edit-container editDate">
+                                          <span id="tempo-calendar-display-164666"
+                                                class="tempo-calendar-display tempo-inline-edit">02/Nov/13</span>
+
+        <input type="hidden" class="tempo-calendar-input " id="date_164666"
+               value="02/Nov/13"/>
+
+        <img id="tempo-calendar-img-164666" class="tempo-calendar-trigger"
+             alt="Select a date"
+             src="/download/resources/is.origo.jira.tempo-plugin/img/calendar.png"/>
+        </span>
+    
+</td>
+<td class="nav summary editable  " colspan="2">
+                    <span class="edit-container editDesc"
+              id="comment_164666">
+                    <span class="tempo-inline-edit">Working on issue WIL-19409</span></span>
+    </td>
+            <td   class="nav initial"> SH </td>
+                                    <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+    
+        <td class="nav sum editable">
+              <span id="hoursSpent_164666"
+                    hourtype="hoursSpent"
+                                      class="edit-container editHours"
+                                        >
+                                        <span class="tempo-inline-edit">0.42</span>
+                                </span>
+    </td>
+    
+    
+                                    <td class="nav issue_actions">
+    <div class="action-dropdown aui-dd-parent actions">
+                    <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+               id="actions_363289" title="Actions"
+               href="/rest/tempo-rest/2.0/issues/WIL-19409/worklogs/164666/actions?atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">
+                    <span>
+                        <em>Actions</em>
+                    </span>
+            </a>
+            </div>
+</td>
+                        </tr>
+                                              
+                                      
+                                
+                                      
+                                                                                      <tr rel="363331" id="section-363331" class="section level-2 issuerow parent-0 parent-85946 parent--1734550010">
+                                                                                                                                      <td>&nbsp;</td>
+                                                                                <td class="nav" style="float: right; border-bottom: none !important; background: none;">
+           <span class="estimate not-available"
+                title="Original estimate  , Time spent:  0.32
+                                "> not-available</span>
+          </td>
+            <td colspan="3" class="nav summary expanded">
+                    <a href="/browse/WIL-19410">WIL-19410
+                              oxi_pub_inf is maxed out on gibux510
+          </a>
+      </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                                                <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 0.32 </td>
+                                                                    
+                                                  <td class="nav issue_actions">
+                  
+<div class="action-dropdown aui-dd-parent actions">
+        <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+       id="actions_363331" title="Actions"
+       href="/rest/api/1.0/issues/363331/ActionsAndOperations"
+       hidefocus
+       onclick="return false;">
+                          <span>
+                              <em>Actions</em>
+                          </span>
+    </a>
+    
+    <div id="actions_363331_drop"
+         class="aui-dropdown standard hidden gadget-dropdown"></div>
+</div>
+
+              </td>
+                                        </tr>
+                                                                                                    <tr rel="363331" id="section-164667" class="section level-3 issuerow parent-0 parent-85946 parent--1734550010 parent-363331">
+                                                                                                                                      <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                                                
+
+<td class="nav editable col1  ">
+
+            <span class="tempo-calendar-inline   edit-container editDate">
+                                          <span id="tempo-calendar-display-164667"
+                                                class="tempo-calendar-display tempo-inline-edit">02/Nov/13</span>
+
+        <input type="hidden" class="tempo-calendar-input " id="date_164667"
+               value="02/Nov/13"/>
+
+        <img id="tempo-calendar-img-164667" class="tempo-calendar-trigger"
+             alt="Select a date"
+             src="/download/resources/is.origo.jira.tempo-plugin/img/calendar.png"/>
+        </span>
+    
+</td>
+<td class="nav summary editable  " colspan="2">
+                    <span class="edit-container editDesc"
+              id="comment_164667">
+                    <span class="tempo-inline-edit">Working on issue WIL-19410</span></span>
+    </td>
+            <td   class="nav initial"> SH </td>
+                                    <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+    
+        <td class="nav sum editable">
+              <span id="hoursSpent_164667"
+                    hourtype="hoursSpent"
+                                      class="edit-container editHours"
+                                        >
+                                        <span class="tempo-inline-edit">0.32</span>
+                                </span>
+    </td>
+    
+    
+                                    <td class="nav issue_actions">
+    <div class="action-dropdown aui-dd-parent actions">
+                    <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+               id="actions_363331" title="Actions"
+               href="/rest/tempo-rest/2.0/issues/WIL-19410/worklogs/164667/actions?atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">
+                    <span>
+                        <em>Actions</em>
+                    </span>
+            </a>
+            </div>
+</td>
+                        </tr>
+                                              
+                                      
+                                
+                                      
+                                                                                      <tr rel="363342" id="section-363342" class="section level-2 issuerow parent-0 parent-85946 parent--1734550010">
+                                                                                                                                      <td>&nbsp;</td>
+                                                                                <td class="nav" style="float: right; border-bottom: none !important; background: none;">
+           <span class="estimate not-available"
+                title="Original estimate  , Time spent:  1
+                                "> not-available</span>
+          </td>
+            <td colspan="3" class="nav summary expanded">
+                    <a href="/browse/WIL-19411">WIL-19411
+                              Last login time on .com does not take mobile into account
+          </a>
+      </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                                                <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 1 </td>
+                                                                    
+                                                  <td class="nav issue_actions">
+                  
+<div class="action-dropdown aui-dd-parent actions">
+        <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+       id="actions_363342" title="Actions"
+       href="/rest/api/1.0/issues/363342/ActionsAndOperations"
+       hidefocus
+       onclick="return false;">
+                          <span>
+                              <em>Actions</em>
+                          </span>
+    </a>
+    
+    <div id="actions_363342_drop"
+         class="aui-dropdown standard hidden gadget-dropdown"></div>
+</div>
+
+              </td>
+                                        </tr>
+                                                                                                    <tr rel="363342" id="section-164668" class="section level-3 issuerow parent-0 parent-85946 parent--1734550010 parent-363342">
+                                                                                                                                      <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                                                
+
+<td class="nav editable col1  ">
+
+            <span class="tempo-calendar-inline   edit-container editDate">
+                                          <span id="tempo-calendar-display-164668"
+                                                class="tempo-calendar-display tempo-inline-edit">02/Nov/13</span>
+
+        <input type="hidden" class="tempo-calendar-input " id="date_164668"
+               value="02/Nov/13"/>
+
+        <img id="tempo-calendar-img-164668" class="tempo-calendar-trigger"
+             alt="Select a date"
+             src="/download/resources/is.origo.jira.tempo-plugin/img/calendar.png"/>
+        </span>
+    
+</td>
+<td class="nav summary editable  " colspan="2">
+                    <span class="edit-container editDesc"
+              id="comment_164668">
+                    <span class="tempo-inline-edit">Working on issue WIL-19411</span></span>
+    </td>
+            <td   class="nav initial"> SH </td>
+                                    <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+    
+        <td class="nav sum editable">
+              <span id="hoursSpent_164668"
+                    hourtype="hoursSpent"
+                                      class="edit-container editHours"
+                                        >
+                                        <span class="tempo-inline-edit">1</span>
+                                </span>
+    </td>
+    
+    
+                                    <td class="nav issue_actions">
+    <div class="action-dropdown aui-dd-parent actions">
+                    <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+               id="actions_363342" title="Actions"
+               href="/rest/tempo-rest/2.0/issues/WIL-19411/worklogs/164668/actions?atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">
+                    <span>
+                        <em>Actions</em>
+                    </span>
+            </a>
+            </div>
+</td>
+                        </tr>
+                                              
+                                      
+                                
+                                      
+                                
+                                      
+                                
+                                                    <tr rel="" id="section-79447" class="section level-0 issuerow parent-0">
+                                                    <td colspan="5" class="nav summary expanded">
+          PPW
+          -
+          Paddypower
+
+      </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                        <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 0.05 </td>
+                                                                                                                            <td  class="nav " > &nbsp; </td>
+                                              </tr>
+                                                                                                    <tr rel="363313" id="section--1928161719" class="section level-1 issuerow parent-0 parent-79447">
+                                                                        <td>&nbsp;</td>
+                                                                      <td colspan="4" class="nav summary expanded">
+                        PPW - Unscheduled
+                </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                        <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 0.05 </td>
+                                                                                                                            <td  class="nav " > &nbsp; </td>
+                                              </tr>
+                                                                                                    <tr rel="363313" id="section-363313" class="section level-2 issuerow parent-0 parent-79447 parent--1928161719">
+                                                                                                                                      <td>&nbsp;</td>
+                                                                                <td class="nav" style="float: right; border-bottom: none !important; background: none;">
+           <span class="estimate not-available"
+                title="Original estimate  , Time spent:  1.88
+                                "> not-available</span>
+          </td>
+            <td colspan="3" class="nav summary expanded">
+                    <a href="/browse/PPW-15514">PPW-15514
+                              #167884 - Error retrieving ATR BIR streams
+          </a>
+      </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                                                <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 0.05 </td>
+                                                                    
+                                                  <td class="nav issue_actions">
+                  
+<div class="action-dropdown aui-dd-parent actions">
+        <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+       id="actions_363313" title="Actions"
+       href="/rest/api/1.0/issues/363313/ActionsAndOperations"
+       hidefocus
+       onclick="return false;">
+                          <span>
+                              <em>Actions</em>
+                          </span>
+    </a>
+    
+    <div id="actions_363313_drop"
+         class="aui-dropdown standard hidden gadget-dropdown"></div>
+</div>
+
+              </td>
+                                        </tr>
+                                                                                                    <tr rel="363313" id="section-164663" class="section level-3 issuerow parent-0 parent-79447 parent--1928161719 parent-363313">
+                                                                                                                                      <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                                                
+
+<td class="nav editable col1  ">
+
+            <span class="tempo-calendar-inline   edit-container editDate">
+                                          <span id="tempo-calendar-display-164663"
+                                                class="tempo-calendar-display tempo-inline-edit">02/Nov/13</span>
+
+        <input type="hidden" class="tempo-calendar-input " id="date_164663"
+               value="02/Nov/13"/>
+
+        <img id="tempo-calendar-img-164663" class="tempo-calendar-trigger"
+             alt="Select a date"
+             src="/download/resources/is.origo.jira.tempo-plugin/img/calendar.png"/>
+        </span>
+    
+</td>
+<td class="nav summary editable  " colspan="2">
+                    <span class="edit-container editDesc"
+              id="comment_164663">
+                    <span class="tempo-inline-edit">Working on issue PPW-15514</span></span>
+    </td>
+            <td   class="nav initial"> SH </td>
+                                    <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+    
+        <td class="nav sum editable">
+              <span id="hoursSpent_164663"
+                    hourtype="hoursSpent"
+                                      class="edit-container editHours"
+                                        >
+                                        <span class="tempo-inline-edit">0.05</span>
+                                </span>
+    </td>
+    
+    
+                                    <td class="nav issue_actions">
+    <div class="action-dropdown aui-dd-parent actions">
+                    <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+               id="actions_363313" title="Actions"
+               href="/rest/tempo-rest/2.0/issues/PPW-15514/worklogs/164663/actions?atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">
+                    <span>
+                        <em>Actions</em>
+                    </span>
+            </a>
+            </div>
+</td>
+                        </tr>
+                                              
+                                      
+                                
+                                      
+                                
+                                      
+                                
+                                                    <tr rel="" id="section-75164" class="section level-0 issuerow parent-0">
+                                                    <td colspan="5" class="nav summary expanded">
+          LBR
+          -
+          Ladbrokes
+
+      </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                        <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 1.17 </td>
+                                                                                                                            <td  class="nav " > &nbsp; </td>
+                                              </tr>
+                                                                                                    <tr rel="363322" id="section--2055756572" class="section level-1 issuerow parent-0 parent-75164">
+                                                                        <td>&nbsp;</td>
+                                                                      <td colspan="4" class="nav summary expanded">
+                        LBR - Unscheduled
+                </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                        <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 1.17 </td>
+                                                                                                                            <td  class="nav " > &nbsp; </td>
+                                              </tr>
+                                                                                                    <tr rel="362814" id="section-362814" class="section level-2 issuerow parent-0 parent-75164 parent--2055756572">
+                                                                                                                                      <td>&nbsp;</td>
+                                                                                <td class="nav" style="float: right; border-bottom: none !important; background: none;">
+           <span class="estimate not-available"
+                title="Original estimate  , Time spent:  4.17
+                                "> not-available</span>
+          </td>
+            <td colspan="3" class="nav summary expanded">
+                    <a href="/browse/LBR-28367">LBR-28367
+                              Missing silks - Santa Anita
+          </a>
+      </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                                                <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 0.42 </td>
+                                                                    
+                                                  <td class="nav issue_actions">
+                  
+<div class="action-dropdown aui-dd-parent actions">
+        <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+       id="actions_362814" title="Actions"
+       href="/rest/api/1.0/issues/362814/ActionsAndOperations"
+       hidefocus
+       onclick="return false;">
+                          <span>
+                              <em>Actions</em>
+                          </span>
+    </a>
+    
+    <div id="actions_362814_drop"
+         class="aui-dropdown standard hidden gadget-dropdown"></div>
+</div>
+
+              </td>
+                                        </tr>
+                                                                                                    <tr rel="362814" id="section-164659" class="section level-3 issuerow parent-0 parent-75164 parent--2055756572 parent-362814">
+                                                                                                                                      <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                                                
+
+<td class="nav editable col1  ">
+
+            <span class="tempo-calendar-inline   edit-container editDate">
+                                          <span id="tempo-calendar-display-164659"
+                                                class="tempo-calendar-display tempo-inline-edit">02/Nov/13</span>
+
+        <input type="hidden" class="tempo-calendar-input " id="date_164659"
+               value="02/Nov/13"/>
+
+        <img id="tempo-calendar-img-164659" class="tempo-calendar-trigger"
+             alt="Select a date"
+             src="/download/resources/is.origo.jira.tempo-plugin/img/calendar.png"/>
+        </span>
+    
+</td>
+<td class="nav summary editable  " colspan="2">
+                    <span class="edit-container editDesc"
+              id="comment_164659">
+                    <span class="tempo-inline-edit">Working on issue LBR-28367</span></span>
+    </td>
+            <td   class="nav initial"> SH </td>
+                                    <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+    
+        <td class="nav sum editable">
+              <span id="hoursSpent_164659"
+                    hourtype="hoursSpent"
+                                      class="edit-container editHours"
+                                        >
+                                        <span class="tempo-inline-edit">0.42</span>
+                                </span>
+    </td>
+    
+    
+                                    <td class="nav issue_actions">
+    <div class="action-dropdown aui-dd-parent actions">
+                    <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+               id="actions_362814" title="Actions"
+               href="/rest/tempo-rest/2.0/issues/LBR-28367/worklogs/164659/actions?atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">
+                    <span>
+                        <em>Actions</em>
+                    </span>
+            </a>
+            </div>
+</td>
+                        </tr>
+                                              
+                                      
+                                
+                                      
+                                                                                      <tr rel="363293" id="section-363293" class="section level-2 issuerow parent-0 parent-75164 parent--2055756572">
+                                                                                                                                      <td>&nbsp;</td>
+                                                                                <td class="nav" style="float: right; border-bottom: none !important; background: none;">
+           <span class="estimate not-available"
+                title="Original estimate  , Time spent:  2.58
+                                "> not-available</span>
+          </td>
+            <td colspan="3" class="nav summary expanded">
+                    <a href="/browse/LBR-28413">LBR-28413
+                              No Greyhound  markets
+          </a>
+      </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                                                <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 0.08 </td>
+                                                                    
+                                                  <td class="nav issue_actions">
+                  
+<div class="action-dropdown aui-dd-parent actions">
+        <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+       id="actions_363293" title="Actions"
+       href="/rest/api/1.0/issues/363293/ActionsAndOperations"
+       hidefocus
+       onclick="return false;">
+                          <span>
+                              <em>Actions</em>
+                          </span>
+    </a>
+    
+    <div id="actions_363293_drop"
+         class="aui-dropdown standard hidden gadget-dropdown"></div>
+</div>
+
+              </td>
+                                        </tr>
+                                                                                                    <tr rel="363293" id="section-164660" class="section level-3 issuerow parent-0 parent-75164 parent--2055756572 parent-363293">
+                                                                                                                                      <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                                                
+
+<td class="nav editable col1  ">
+
+            <span class="tempo-calendar-inline   edit-container editDate">
+                                          <span id="tempo-calendar-display-164660"
+                                                class="tempo-calendar-display tempo-inline-edit">02/Nov/13</span>
+
+        <input type="hidden" class="tempo-calendar-input " id="date_164660"
+               value="02/Nov/13"/>
+
+        <img id="tempo-calendar-img-164660" class="tempo-calendar-trigger"
+             alt="Select a date"
+             src="/download/resources/is.origo.jira.tempo-plugin/img/calendar.png"/>
+        </span>
+    
+</td>
+<td class="nav summary editable  " colspan="2">
+                    <span class="edit-container editDesc"
+              id="comment_164660">
+                    <span class="tempo-inline-edit">Working on issue LBR-28413</span></span>
+    </td>
+            <td   class="nav initial"> SH </td>
+                                    <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+    
+        <td class="nav sum editable">
+              <span id="hoursSpent_164660"
+                    hourtype="hoursSpent"
+                                      class="edit-container editHours"
+                                        >
+                                        <span class="tempo-inline-edit">0.08</span>
+                                </span>
+    </td>
+    
+    
+                                    <td class="nav issue_actions">
+    <div class="action-dropdown aui-dd-parent actions">
+                    <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+               id="actions_363293" title="Actions"
+               href="/rest/tempo-rest/2.0/issues/LBR-28413/worklogs/164660/actions?atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">
+                    <span>
+                        <em>Actions</em>
+                    </span>
+            </a>
+            </div>
+</td>
+                        </tr>
+                                              
+                                      
+                                
+                                      
+                                                                                      <tr rel="363305" id="section-363305" class="section level-2 issuerow parent-0 parent-75164 parent--2055756572">
+                                                                                                                                      <td>&nbsp;</td>
+                                                                                <td class="nav" style="float: right; border-bottom: none !important; background: none;">
+           <span class="estimate not-available"
+                title="Original estimate  , Time spent:  0.48
+                                "> not-available</span>
+          </td>
+            <td colspan="3" class="nav summary expanded">
+                    <a href="/browse/LBR-28414">LBR-28414
+                              Money stuck in the games?
+          </a>
+      </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                                                <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 0.48 </td>
+                                                                    
+                                                  <td class="nav issue_actions">
+                  
+<div class="action-dropdown aui-dd-parent actions">
+        <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+       id="actions_363305" title="Actions"
+       href="/rest/api/1.0/issues/363305/ActionsAndOperations"
+       hidefocus
+       onclick="return false;">
+                          <span>
+                              <em>Actions</em>
+                          </span>
+    </a>
+    
+    <div id="actions_363305_drop"
+         class="aui-dropdown standard hidden gadget-dropdown"></div>
+</div>
+
+              </td>
+                                        </tr>
+                                                                                                    <tr rel="363305" id="section-164661" class="section level-3 issuerow parent-0 parent-75164 parent--2055756572 parent-363305">
+                                                                                                                                      <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                                                
+
+<td class="nav editable col1  ">
+
+            <span class="tempo-calendar-inline   edit-container editDate">
+                                          <span id="tempo-calendar-display-164661"
+                                                class="tempo-calendar-display tempo-inline-edit">02/Nov/13</span>
+
+        <input type="hidden" class="tempo-calendar-input " id="date_164661"
+               value="02/Nov/13"/>
+
+        <img id="tempo-calendar-img-164661" class="tempo-calendar-trigger"
+             alt="Select a date"
+             src="/download/resources/is.origo.jira.tempo-plugin/img/calendar.png"/>
+        </span>
+    
+</td>
+<td class="nav summary editable  " colspan="2">
+                    <span class="edit-container editDesc"
+              id="comment_164661">
+                    <span class="tempo-inline-edit">Working on issue LBR-28414</span></span>
+    </td>
+            <td   class="nav initial"> SH </td>
+                                    <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+    
+        <td class="nav sum editable">
+              <span id="hoursSpent_164661"
+                    hourtype="hoursSpent"
+                                      class="edit-container editHours"
+                                        >
+                                        <span class="tempo-inline-edit">0.48</span>
+                                </span>
+    </td>
+    
+    
+                                    <td class="nav issue_actions">
+    <div class="action-dropdown aui-dd-parent actions">
+                    <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+               id="actions_363305" title="Actions"
+               href="/rest/tempo-rest/2.0/issues/LBR-28414/worklogs/164661/actions?atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">
+                    <span>
+                        <em>Actions</em>
+                    </span>
+            </a>
+            </div>
+</td>
+                        </tr>
+                                              
+                                      
+                                
+                                      
+                                                                                      <tr rel="363322" id="section-363322" class="section level-2 issuerow parent-0 parent-75164 parent--2055756572">
+                                                                                                                                      <td>&nbsp;</td>
+                                                                                <td class="nav" style="float: right; border-bottom: none !important; background: none;">
+           <span class="estimate not-available"
+                title="Original estimate  , Time spent:  2.18
+                                "> not-available</span>
+          </td>
+            <td colspan="3" class="nav summary expanded">
+                    <a href="/browse/LBR-28415">LBR-28415
+                              Santa Anita Placepot / Quadpot
+          </a>
+      </td>
+                              <td  class="nav " > &nbsp; </td>
+                                                                                                <td  class="nav sum" > N/A </td>
+                                              <td  class="nav sum" > 0 </td>
+                                              <td  class="nav sum" > &nbsp; </td>
+                                              <td  class="nav sum" > 0.18 </td>
+                                                                    
+                                                  <td class="nav issue_actions">
+                  
+<div class="action-dropdown aui-dd-parent actions">
+        <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+       id="actions_363322" title="Actions"
+       href="/rest/api/1.0/issues/363322/ActionsAndOperations"
+       hidefocus
+       onclick="return false;">
+                          <span>
+                              <em>Actions</em>
+                          </span>
+    </a>
+    
+    <div id="actions_363322_drop"
+         class="aui-dropdown standard hidden gadget-dropdown"></div>
+</div>
+
+              </td>
+                                        </tr>
+                                                                                                    <tr rel="363322" id="section-164662" class="section level-3 issuerow parent-0 parent-75164 parent--2055756572 parent-363322">
+                                                                                                                                      <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                                                
+
+<td class="nav editable col1  ">
+
+            <span class="tempo-calendar-inline   edit-container editDate">
+                                          <span id="tempo-calendar-display-164662"
+                                                class="tempo-calendar-display tempo-inline-edit">02/Nov/13</span>
+
+        <input type="hidden" class="tempo-calendar-input " id="date_164662"
+               value="02/Nov/13"/>
+
+        <img id="tempo-calendar-img-164662" class="tempo-calendar-trigger"
+             alt="Select a date"
+             src="/download/resources/is.origo.jira.tempo-plugin/img/calendar.png"/>
+        </span>
+    
+</td>
+<td class="nav summary editable  " colspan="2">
+                    <span class="edit-container editDesc"
+              id="comment_164662">
+                    <span class="tempo-inline-edit">Working on issue LBR-28415</span></span>
+    </td>
+            <td   class="nav initial"> SH </td>
+                                    <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+                <td   class="nav sum"> &nbsp; </td>
+    
+        <td class="nav sum editable">
+              <span id="hoursSpent_164662"
+                    hourtype="hoursSpent"
+                                      class="edit-container editHours"
+                                        >
+                                        <span class="tempo-inline-edit">0.18</span>
+                                </span>
+    </td>
+    
+    
+                                    <td class="nav issue_actions">
+    <div class="action-dropdown aui-dd-parent actions">
+                    <a class="aui-dropdown-trigger aui-dd-link icon-tools-small issue-actions-trigger"
+               id="actions_363322" title="Actions"
+               href="/rest/tempo-rest/2.0/issues/LBR-28415/worklogs/164662/actions?atl_token=BBUQ-U9RY-LE73-0O84|06fb393db7cd26482c5a86f0cc9b5bdee78bbe34|lin">
+                    <span>
+                        <em>Actions</em>
+                    </span>
+            </a>
+            </div>
+</td>
+                        </tr>
+                                              
+                                      
+                                
+                                      
+                                
+                                      
+                                
+                    
+                                                                            <tr>
+    <td></td>
+</tr>
+<tr class="foot total-level-0">
+          <th class="nav total" colspan="5">Total</th>
+                <th class="nav">&nbsp;</th>
+                                <th class="nav sum">N/A</th>
+                                    <th class="nav sum">0</th>
+                        <th class="nav sum">0</th>
+                <th class="nav sum">8.1</th>
+        
+    
+    
+    <th class="nav" colspan="20"></th>
+</tr>
+
+        
+        <tr class="foot total-level-1">
+                  <td class="nav user" colspan="5">Stephen Hazleton</td>
+                <td class="nav initial">SH</td>
+                            <td class="nav">&nbsp;</td>
+        
+                    <td class="nav">&nbsp;</td>
+        
+                    <td class="nav sum">0</td>
+                            <td class="nav sum">8.1</td>
+                
+                        <td class="nav" colspan="20"></td>
+    </tr>
+                              </tbody>
+    </table>
+</div>                      </div>
+        </div>
+                   <div class="tempo-dialog" id="tempo-add-button-dialog" title="Log Work" style="display:none;">
+    <ul class="dialog-buttons">
+        <li class="add-close">Log Work</li>
+        <li class="cancel">Cancel</li>
+    </ul>
+                <div class="dialog-panel-form" title="Issue">
+<form action="/rest/tempo-rest/1.0/worklogs/{issueKey}"
+      class="aui tempo-form"
+      data-form-type=""
+      name="tempo-panel-form-0"
+      method="post">
+<div class="form-body">
+        <input type="hidden" name="user" value="stephen.hazleton@openbet.com"/>
+    <input type="hidden" name="id" value=""/>
+<input type="hidden" name="type" value=""/>
+<input type="hidden" name="selected-panel" value="0"/>
+        <input type="hidden" name="startTimeEnabled" value="false"/>
+
+    
+    <input type="hidden" name="tracker"  value="false"/>
+
+                    <input type="hidden" name="planning" value="false"/>
+
+    <div class="field-group">
+        <label for="user-picker-0">User</label>
+        <div class="tempo-pickers">
+                            <span class="field-value">Stephen Hazleton</span>
+                    </div>
+    </div>
+
+    
+    
+    
+    
+        <div class="field-group tempo-issue-container select" >
+        <label for="tempo-issue-picker-0">Issue
+        </label>
+        <select id="tempo-issue-picker-0" class="tempo-issue-picker tempo-picker-all-issues" name="issue"> </select>
+    </div>
+    
+            
+
+    
+    
+    
+    
+    
+<div class="tempo-datepicker">
+    <div class="field-group tempo-show-period">
+        <label for="showPeriod-0">Period</label>
+        <div >
+            <input id="showPeriod-0" name="showperiod" type="checkbox" value="showperiod"
+                 checked="checked"                    class="showperiod tempo-show-period"/>
+        </div>
+    </div>
+            <div class="field-group datepicker  ">
+        <label for="datefield-0">Date</label>
+        <input type="text" id="datefield-0" name="date" size="7" value="02/Nov/13"  class=" "  style="min-width: 65px;" />
+        <a href="#" title="Select a date">
+          <span id="datefield-trigger-0" class="aui-icon icon-date">Select a date</span>
+        </a>
+    </div>
+
+    <div class="field-group enddate datepicker "  >
+        <label for="enddate-0">End date</label>
+        <input type="text" id="enddate-0" name="enddate" size="7" value="02/Nov/13"  style="min-width: 65px;" />
+        <a href="#" title="Select a date">
+          <span id="enddate-trigger-0" class="aui-icon icon-date">Select a date</span>
+        </a>
+    </div>
+</div>
+
+<div class="tempo-timepicker resetable">
+    
+            <div class="field-group " style="clear: left; margin-bottom: 10px;">
+
+            <label class="timepicker-label" tmp="Work per day"
+                   for="time-0">Worked
+            </label>
+            <input autocomplete="off" type="text" id="time-0" name="time" size="3" value="" class="tempo-time "/>
+        </div>
+    
+    <div class="remaining-and-billed-hours-container">
+                                    <div class="field-group ">
+                    <label for="totalSpent-0">Logged</label>
+                    <span class="totalSpent" id="totalSpent-0"></span>
+                </div>
+                                    <div class="field-group " style="clear: left;">
+                <label for="remainingEstimate-0">Remaining estimate
+                </label>
+                                    <input type="hidden" id="remainingEstimateHidden-0" size="3" maxlength="6" value=""/>
+                    <input type="text" id="remainingEstimate-0" name="remainingEstimate" size="3" maxlength="6"
+                           value="" class="validate remaining resetable "/>
+                            </div>
+            <div class="field-group ">
+                <label for="originalEstimate-0">Original estimate</label>
+                <span class="originalEstimate" id="originalEstimate-0"></span>
+            </div>
+            </div>
+
+    </div>
+
+<div class="field-group resetable">
+
+    <label for="comment-0">Description</label>
+    <textarea id="comment-0"
+              name="comment"
+              class="tempo-comment textarea resetable"></textarea>
+</div>
+
+    
+    <ul id="errors-0" class="error-list">
+    </ul>
+
+  
+</div>
+    </form>
+</div>            <div class="dialog-panel-form" title="Assigned">
+<form action="/rest/tempo-rest/1.0/worklogs/{issueKey}"
+      class="aui tempo-form"
+      data-form-type=""
+      name="tempo-panel-form-1"
+      method="post">
+<div class="form-body">
+        <input type="hidden" name="user" value="stephen.hazleton@openbet.com"/>
+    <input type="hidden" name="id" value=""/>
+<input type="hidden" name="type" value=""/>
+<input type="hidden" name="selected-panel" value="1"/>
+        <input type="hidden" name="startTimeEnabled" value="false"/>
+
+    
+    <input type="hidden" name="tracker"  value="false"/>
+
+                    <input type="hidden" name="planning" value="false"/>
+
+    <div class="field-group">
+        <label for="user-picker-1">User</label>
+        <div class="tempo-pickers">
+                            <span class="field-value">Stephen Hazleton</span>
+                    </div>
+    </div>
+
+    
+    
+    
+        <div class="field-group tempo-issue-container select" >
+        <label for="tempo-issue-picker-1">Issue
+        </label>
+        <select id="tempo-issue-picker-1" class="tempo-issue-picker tempo-picker-assigned" name="issue"> </select>
+    </div>
+    
+    
+            
+
+    
+    
+    
+    
+    
+<div class="tempo-datepicker">
+    <div class="field-group tempo-show-period">
+        <label for="showPeriod-1">Period</label>
+        <div >
+            <input id="showPeriod-1" name="showperiod" type="checkbox" value="showperiod"
+                 checked="checked"                    class="showperiod tempo-show-period"/>
+        </div>
+    </div>
+            <div class="field-group datepicker  ">
+        <label for="datefield-1">Date</label>
+        <input type="text" id="datefield-1" name="date" size="7" value="02/Nov/13"  class=" "  style="min-width: 65px;" />
+        <a href="#" title="Select a date">
+          <span id="datefield-trigger-1" class="aui-icon icon-date">Select a date</span>
+        </a>
+    </div>
+
+    <div class="field-group enddate datepicker "  >
+        <label for="enddate-1">End date</label>
+        <input type="text" id="enddate-1" name="enddate" size="7" value="02/Nov/13"  style="min-width: 65px;" />
+        <a href="#" title="Select a date">
+          <span id="enddate-trigger-1" class="aui-icon icon-date">Select a date</span>
+        </a>
+    </div>
+</div>
+
+<div class="tempo-timepicker resetable">
+    
+            <div class="field-group " style="clear: left; margin-bottom: 10px;">
+
+            <label class="timepicker-label" tmp="Work per day"
+                   for="time-1">Worked
+            </label>
+            <input autocomplete="off" type="text" id="time-1" name="time" size="3" value="" class="tempo-time "/>
+        </div>
+    
+    <div class="remaining-and-billed-hours-container">
+                                    <div class="field-group ">
+                    <label for="totalSpent-1">Logged</label>
+                    <span class="totalSpent" id="totalSpent-1"></span>
+                </div>
+                                    <div class="field-group " style="clear: left;">
+                <label for="remainingEstimate-1">Remaining estimate
+                </label>
+                                    <input type="hidden" id="remainingEstimateHidden-1" size="3" maxlength="6" value=""/>
+                    <input type="text" id="remainingEstimate-1" name="remainingEstimate" size="3" maxlength="6"
+                           value="" class="validate remaining resetable "/>
+                            </div>
+            <div class="field-group ">
+                <label for="originalEstimate-1">Original estimate</label>
+                <span class="originalEstimate" id="originalEstimate-1"></span>
+            </div>
+            </div>
+
+    </div>
+
+<div class="field-group resetable">
+
+    <label for="comment-1">Description</label>
+    <textarea id="comment-1"
+              name="comment"
+              class="tempo-comment textarea resetable"></textarea>
+</div>
+
+    
+    <ul id="errors-1" class="error-list">
+    </ul>
+
+  
+</div>
+    </form>
+</div>            <div class="dialog-panel-form" title="Watched">
+<form action="/rest/tempo-rest/1.0/worklogs/{issueKey}"
+      class="aui tempo-form"
+      data-form-type=""
+      name="tempo-panel-form-2"
+      method="post">
+<div class="form-body">
+        <input type="hidden" name="user" value="stephen.hazleton@openbet.com"/>
+    <input type="hidden" name="id" value=""/>
+<input type="hidden" name="type" value=""/>
+<input type="hidden" name="selected-panel" value="2"/>
+        <input type="hidden" name="startTimeEnabled" value="false"/>
+
+    
+    <input type="hidden" name="tracker"  value="false"/>
+
+                    <input type="hidden" name="planning" value="false"/>
+
+    <div class="field-group">
+        <label for="user-picker-2">User</label>
+        <div class="tempo-pickers">
+                            <span class="field-value">Stephen Hazleton</span>
+                    </div>
+    </div>
+
+    
+        <div class="field-group tempo-issue-container select" >
+        <label for="tempo-issue-picker-2">Issue
+        </label>
+        <select id="tempo-issue-picker-2" class="tempo-issue-picker tempo-picker-watched" name="old-issue"> </select>
+    </div>
+    
+    
+    
+    
+            
+
+    
+    
+    
+    
+        <div class="field-group hidden tempo-subtask-container" id="tempoSubTask_container-2">
+        <label for="tempo-subtask-picker-2">Sub-Task</label>
+        <select id="tempo-subtask-picker-2" class="tempo-subtask-picker sub-issue-select trigger " name="issue" data-counter="2"> </select>
+    </div>
+    
+<div class="tempo-datepicker">
+    <div class="field-group tempo-show-period">
+        <label for="showPeriod-2">Period</label>
+        <div >
+            <input id="showPeriod-2" name="showperiod" type="checkbox" value="showperiod"
+                 checked="checked"                    class="showperiod tempo-show-period"/>
+        </div>
+    </div>
+            <div class="field-group datepicker  ">
+        <label for="datefield-2">Date</label>
+        <input type="text" id="datefield-2" name="date" size="7" value="02/Nov/13"  class=" "  style="min-width: 65px;" />
+        <a href="#" title="Select a date">
+          <span id="datefield-trigger-2" class="aui-icon icon-date">Select a date</span>
+        </a>
+    </div>
+
+    <div class="field-group enddate datepicker "  >
+        <label for="enddate-2">End date</label>
+        <input type="text" id="enddate-2" name="enddate" size="7" value="02/Nov/13"  style="min-width: 65px;" />
+        <a href="#" title="Select a date">
+          <span id="enddate-trigger-2" class="aui-icon icon-date">Select a date</span>
+        </a>
+    </div>
+</div>
+
+<div class="tempo-timepicker resetable">
+    
+            <div class="field-group " style="clear: left; margin-bottom: 10px;">
+
+            <label class="timepicker-label" tmp="Work per day"
+                   for="time-2">Worked
+            </label>
+            <input autocomplete="off" type="text" id="time-2" name="time" size="3" value="" class="tempo-time "/>
+        </div>
+    
+    <div class="remaining-and-billed-hours-container">
+                                    <div class="field-group ">
+                    <label for="totalSpent-2">Logged</label>
+                    <span class="totalSpent" id="totalSpent-2"></span>
+                </div>
+                                    <div class="field-group " style="clear: left;">
+                <label for="remainingEstimate-2">Remaining estimate
+                </label>
+                                    <input type="hidden" id="remainingEstimateHidden-2" size="3" maxlength="6" value=""/>
+                    <input type="text" id="remainingEstimate-2" name="remainingEstimate" size="3" maxlength="6"
+                           value="" class="validate remaining resetable "/>
+                            </div>
+            <div class="field-group ">
+                <label for="originalEstimate-2">Original estimate</label>
+                <span class="originalEstimate" id="originalEstimate-2"></span>
+            </div>
+            </div>
+
+    </div>
+
+<div class="field-group resetable">
+
+    <label for="comment-2">Description</label>
+    <textarea id="comment-2"
+              name="comment"
+              class="tempo-comment textarea resetable"></textarea>
+</div>
+
+    
+    <ul id="errors-2" class="error-list">
+    </ul>
+
+  
+</div>
+    </form>
+</div>            <div class="dialog-panel-form" title="Filter">
+<form action="/rest/tempo-rest/1.0/worklogs/{issueKey}"
+      class="aui tempo-form"
+      data-form-type=""
+      name="tempo-panel-form-3"
+      method="post">
+<div class="form-body">
+        <input type="hidden" name="user" value="stephen.hazleton@openbet.com"/>
+    <input type="hidden" name="id" value=""/>
+<input type="hidden" name="type" value=""/>
+<input type="hidden" name="selected-panel" value="3"/>
+        <input type="hidden" name="startTimeEnabled" value="false"/>
+
+    
+    <input type="hidden" name="tracker"  value="false"/>
+
+                    <input type="hidden" name="planning" value="false"/>
+
+    <div class="field-group">
+        <label for="user-picker-3">User</label>
+        <div class="tempo-pickers">
+                            <span class="field-value">Stephen Hazleton</span>
+                    </div>
+    </div>
+
+        <div class="field-group test tempo-filter-container select">
+        <label for="tempo-filter-dropdown-3">Filter</label>
+        <select id="tempo-filter-dropdown-3" class="tempo-filter-dropdown" name="selected-filter">
+                    </select>
+    </div>
+
+    <div class="field-group tempo-issue-container select">
+        <label for="tempo-issue-picker-3">Issue
+        </label>
+        <select id="tempo-issue-picker-3" class="tempo-issue-picker tempo-issue-picker-filter" name="issue"> </select>
+    </div>
+    
+    
+    
+    
+    
+            
+
+    
+    
+    
+    
+    
+<div class="tempo-datepicker">
+    <div class="field-group tempo-show-period">
+        <label for="showPeriod-3">Period</label>
+        <div >
+            <input id="showPeriod-3" name="showperiod" type="checkbox" value="showperiod"
+                 checked="checked"                    class="showperiod tempo-show-period"/>
+        </div>
+    </div>
+            <div class="field-group datepicker  ">
+        <label for="datefield-3">Date</label>
+        <input type="text" id="datefield-3" name="date" size="7" value="02/Nov/13"  class=" "  style="min-width: 65px;" />
+        <a href="#" title="Select a date">
+          <span id="datefield-trigger-3" class="aui-icon icon-date">Select a date</span>
+        </a>
+    </div>
+
+    <div class="field-group enddate datepicker "  >
+        <label for="enddate-3">End date</label>
+        <input type="text" id="enddate-3" name="enddate" size="7" value="02/Nov/13"  style="min-width: 65px;" />
+        <a href="#" title="Select a date">
+          <span id="enddate-trigger-3" class="aui-icon icon-date">Select a date</span>
+        </a>
+    </div>
+</div>
+
+<div class="tempo-timepicker resetable">
+    
+            <div class="field-group " style="clear: left; margin-bottom: 10px;">
+
+            <label class="timepicker-label" tmp="Work per day"
+                   for="time-3">Worked
+            </label>
+            <input autocomplete="off" type="text" id="time-3" name="time" size="3" value="" class="tempo-time "/>
+        </div>
+    
+    <div class="remaining-and-billed-hours-container">
+                                    <div class="field-group ">
+                    <label for="totalSpent-3">Logged</label>
+                    <span class="totalSpent" id="totalSpent-3"></span>
+                </div>
+                                    <div class="field-group " style="clear: left;">
+                <label for="remainingEstimate-3">Remaining estimate
+                </label>
+                                    <input type="hidden" id="remainingEstimateHidden-3" size="3" maxlength="6" value=""/>
+                    <input type="text" id="remainingEstimate-3" name="remainingEstimate" size="3" maxlength="6"
+                           value="" class="validate remaining resetable "/>
+                            </div>
+            <div class="field-group ">
+                <label for="originalEstimate-3">Original estimate</label>
+                <span class="originalEstimate" id="originalEstimate-3"></span>
+            </div>
+            </div>
+
+    </div>
+
+<div class="field-group resetable">
+
+    <label for="comment-3">Description</label>
+    <textarea id="comment-3"
+              name="comment"
+              class="tempo-comment textarea resetable"></textarea>
+</div>
+
+    
+    <ul id="errors-3" class="error-list">
+    </ul>
+
+  
+</div>
+    </form>
+</div>    </div>
+
+
+
+
+  
+    </section>
+    <footer id="footer" role="contentinfo">
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="footer-body">
+    <ul>
+        <li>
+                            <a class="seo-link" href="http://www.atlassian.com/software/jira/bug-tracking.jsp">Bug tracking</a> and
+                <a class="seo-link" href="http://www.atlassian.com/software/jira/tour/project-tracking.jsp">project tracking</a> for
+                <a class="seo-link" href="http://www.atlassian.com/software/jira/tour/software-development.jsp">software development</a> powered by
+                        <a href="http://www.atlassian.com/software/jira">Atlassian JIRA</a>
+
+                                                    
+                        
+            <span id="footer-build-information">(v5.2.11#854-<span title='ef00d61167c699f0d87337863e0e6af1bc04b04e' data-commit-id='ef00d61167c699f0d87337863e0e6af1bc04b04e}'>sha1:ef00d61</span>)</span>
+        </li>
+        <li>
+                                    <a id="footer-report-problem-link" href="/secure/ContactAdministrators!default.jspa">Report a problem</a>
+        </li>
+    </ul>
+    </div>
+
+
+<form id="jira_request_timing_info" class="dont-default-focus" >
+	<fieldset class="parameters hidden">
+		<input type="hidden" title="jira.request.start.millis" value="1383431346416" />
+		<input type="hidden" title="jira.request.server.time" value="247" />
+		<input type="hidden" title="jira.request.id" value="1349x32635x1" />
+		<input type="hidden" title="jira.session.expiry.time" value="1383431944710" />
+		<input type="hidden" title="jira.session.expiry.in.mins" value="9" />
+		<input id="jiraConcurrentRequests" type="hidden" name="jira.request.concurrent.requests" value="1" />
+	</fieldset>
+</form>
+<!--
+	                 REQUEST ID : 1349x32635x1
+	          REQUEST TIMESTAMP : [02/Nov/2013:22:29:06 +0000]
+	               REQUEST TIME : 0.2470
+	                 ASESSIONID : 1mgfaue
+	        CONCURRENT REQUESTS : 1
+
+	                      db.reads : name=db.reads; inv=37; ms=44; cpu=0; rss=0;
+	                      db.conns : name=db.conns; inv=46; ms=62; cpu=0; rss=0;
+	                     db.writes : name=db.writes; inv=1; ms=4; cpu=0; rss=0;
+	             issue.index.reads : name=issue.index.reads; inv=1; ms=52; cpu=0; rss=0;
+-->
+
+
+
+
+
+
+
+
+
+
+<fieldset class="hidden parameters">
+    <input type="hidden" title="loggedInUser" value="stephen.hazleton@openbet.com">
+    <input type="hidden" title="ajaxTimeout" value="The call to the JIRA server did not complete within the timeout period.  We are unsure of the result of this operation.">
+    <input type="hidden" title="JiraVersion" value="5.2.11" />
+    <input type="hidden" title="ajaxUnauthorised" value="You are not authorised to perform this operation.  Please log in.">
+    <input type="hidden" title="baseURL" value="https://jira.openbet.com:443">
+    <input type="hidden" title="ajaxCommsError" value="The JIRA server could not be contacted.  This may be a temporary glitch or the server may be down.">
+    <input type="hidden" title="ajaxServerError" value="The JIRA server was contacted but has returned an error response. We are unsure of the result of this operation.">
+    <input type="hidden" title="ajaxErrorCloseDialog" value="Close this dialog and press refresh in your browser">
+    <input type="hidden" title="ajaxErrorDialogHeading" value="Communications Breakdown">
+
+    <input type="hidden" title="dirtyMessage" value="You have entered new data on this page. If you navigate away from this page without first saving your data, the changes will be lost.">
+    <input type="hidden" title="dirtyDialogMessage" value="You have entered new data in this dialog. If you navigate away from this dialog without first saving your data, the changes will be lost. Click cancel to return to the dialog.">
+    <input type="hidden" title="keyType" value="Type">
+    <input type="hidden" title="keyThen" value="then">
+    <input type="hidden" title="dblClickToExpand" value="Double click to expand">
+    <input type="hidden" title="actions" value="Actions">
+    <input type="hidden" title="removeItem" value="Remove">
+    <input type="hidden" title="workflow" value="Workflow">
+    <input type="hidden" title="labelNew" value="New Label">
+    <input type="hidden" title="issueActionsHint" value="Begin typing for available operations or press down to see all">
+    <input type="hidden" title="closelink" value="Close">
+    <input type="hidden" title="dotOperations" value="Operations">
+    <input type="hidden" title="dotLoading" value="Loading...">
+    <input type="hidden" title="frotherSuggestions" value="Suggestions">
+    <input type="hidden" title="frotherNomatches" value="No Matches">
+    <input type="hidden" title="multiselectVersionsError" value="{0} is not a valid version.">
+    <input type="hidden" title="multiselectComponentsError" value="{0} is not a valid component.">
+    <input type="hidden" title="multiselectGenericError" value="The value {0} is invalid.">
+</fieldset>
+
+    </footer>
+</div>
+</body>
+</html>
