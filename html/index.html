@@ -8,15 +8,15 @@ $def with (elevenrox_url,msg)
 		<link rel="stylesheet" type="text/css" href="/static/jTime/css/jTime.css" />
 		<script type="text/javascript" language="Javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script type="text/javascript" language="Javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
-		<script type="text/javascript" language="Javascript" src="/static/jTime/js/jTime.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/jTime/js/index.js"></script>
 		<script type="text/javascript" language="Javascript" src="/static/jTime/elevenrox_js/elevenrox.js"></script>
 		<script type="text/javascript" language="Javascript" src="/static/jTime/js/zebra_datepicker.js"></script>
 		<script type="text/javascript" language="Javascript" src="/static/jTime/js/jquery.knob.js"></script>
 
 	</head>
 	<script type="text/javascript">
-
-		var progress = 0;
+		var progress = 0,
+		    elevenrox_url = '$elevenrox_url';
 
 		$$(document).ready(function() {
 
@@ -24,7 +24,6 @@ $def with (elevenrox_url,msg)
 			if (window.location.protocol != "https:") {
 				window.location.href = "https:" + window.location.href.substring(window.location.protocol.length)
 			}
-
 			// sort out the datepicker
 			$$('#date').Zebra_DatePicker({
 				direction: false,
@@ -34,89 +33,6 @@ $def with (elevenrox_url,msg)
 			// set the date to yesterday
 			$$('#date').val(yesterday());
 		 });
-
-		/*
-		 * Returns yesterday in dd/mm/yyyy
-		 */
-		function yesterday() {
-
-			var date = new Date(),
-				d, m, y;
-
-			date.setDate(date.getDate() - 1)
-
-			d = ("00" + date.getDate()).slice (-2);
-			m = ("00" + (date.getMonth()+1)).slice (-2);
-			y = date.getFullYear();
-
-			return d + '/' + m + '/' + y;
-		}
-
-		function do_submit() {
-			var tenrox_user   = $('t_username').value,
-			    tenrox_pass   = $('t_password').value,
-			    elevenrox_url = '$elevenrox_url',
-			    do_submit, er, loc;
-
-			// disable the button
-			$('submit_button').disabled = true;
-
-			// bit of a hack, we should probably do this server side
-			er = new ElevenRox(
-				tenrox_user,
-				tenrox_pass,
-				elevenrox_url
-			);
-
-			do_submit_final = function(_resp) {
-				// if we've logged in successfully, submit
-				if (er.token) {
-					$('tenrox_token').value = er.token;
-					$('frm').submit();
-				} else{
-					// we've got some error, find what it is and report it
-					if (_resp.error.code < 30000) {
-						loc = '/jTime?msg=HTTP_ELEVENROX';
-					}
-
-					if (_resp.error.code == -32001 && _resp.error.data.search('Invalid username or password') > -1) {
-						loc = '/jTime?msg=BAD_T_USER';
-					}
-
-					// dunno what the problem is
-					if (typeof loc === undefined) {
-						loc = '/jTime?msg=UNKNOWN';
-					}
-
-					window.location.href = loc;
-				}
-			};
-
-			er.login(do_submit_final);
-			start_progress();
-		}
-
-		function start_progress() {
-			progress = 0;
-			$$(".dial").knob();
-			$$('#knob').css('display','block');
-			progress_forever();
-		}
-
-		function progress_forever() {
-
-			if (progress == 100) {
-				progress = 0;
-			} else {
-				progress++;
-			}
-
-			$$('.dial')
-				.val(progress)
-				.trigger('change');
-
-			setTimeout(progress_forever, 175);
-		}
 	</script>
 	<body class="pure-skin-ob">
 		<div class="header">
