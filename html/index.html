@@ -12,11 +12,12 @@ $def with (elevenrox_url,msg)
 		<script type="text/javascript" language="Javascript" src="/static/jTime/elevenrox_js/elevenrox.js"></script>
 		<script type="text/javascript" language="Javascript" src="/static/jTime/js/zebra_datepicker.js"></script>
 		<script type="text/javascript" language="Javascript" src="/static/jTime/js/jquery.knob.js"></script>
-
+		<script type="text/javascript" language="Javascript" src="/static/jTime/js/jquery.cookie.js"></script>
 	</head>
 	<script type="text/javascript">
-		var progress = 0,
-		    elevenrox_url = '$elevenrox_url';
+		var progress          = 0,
+		    elevenrox_url     = '$elevenrox_url',
+		    login_cookie_name = 'jTimeLogin';
 
 		$$(document).ready(function() {
 
@@ -29,6 +30,9 @@ $def with (elevenrox_url,msg)
 				direction: false,
 				format: 'd/m/Y'
 			});
+
+			// fill login info if avaulable
+			fill_from_cookie();
 
 			// set the date to yesterday
 			$$('#date').val(yesterday());
@@ -46,10 +50,10 @@ $def with (elevenrox_url,msg)
 					<form class="pure-form pure-form-aligned" id="frm" method="post" action="/jTime/doJTime">
 						<fieldset>
 							<div class="pure-control-group">
-								<input name="j_username" type="text" placeholder="Jira Username" required />
+								<input name="j_username" id="j_username" type="text" placeholder="Jira Username" required />
 							</div>
 							<div class="pure-control-group">
-								<input name="j_password" type="password" placeholder="Jira Password" required />
+								<input name="j_password" id="j_password" type="password" placeholder="Jira Password" required />
 							</div>
 							<div class="pure-control-group">
 								<input name="t_username" id="t_username" type="text" placeholder="Tenrox Username" required />
@@ -60,6 +64,10 @@ $def with (elevenrox_url,msg)
 							<div class="pure-control-group">
 								<input id="date" name="date" type="text" class="datepicker" placeholder="" required />
 							</div>
+							<label for="remember">
+								<input id="remember" type="checkbox" checked="checked">Remember?
+							</label>
+							<p>
 							<div class="pure-controls">
 								<input type="button" id="submit_button" value="Login" class="pure-button pure-button-primary" onclick="javascript:do_submit()"//>
 							</div>
