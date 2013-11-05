@@ -104,15 +104,19 @@ class jTime():
 
 		spl = str(time).rsplit(':')
 
-		hour = int(spl[0])
+		hour   = int(spl[0])
 		minute = int(spl[1])
 		second = int(spl[2])
+		up_from_zero = True
 
 		# first round the minutes up or down as appropriate
 		if second > 30:
 			minute += 1
 
-		minute = self._round_tenrox_minutes(minute)
+		if hour > 0:
+			up_from_zero = False
+
+		minute = self._round_tenrox_minutes(minute,up_from_zero)
 		
 		# round up the hour if necessary
 		if minute == 1.0:
@@ -123,12 +127,16 @@ class jTime():
 
 	# Round (convert) standard clock minutes into tenrox values
 	#
-	# minutes: amount of minutes we're rounding
+	# minutes:      amount of minutes we're rounding
+	# up_from_zero: do we want to round 0.00 to 0.25?
 	#
 	# return: tenrox minutes (15 minutes = 0.25)
-	def _round_tenrox_minutes(self,minutes):
+	def _round_tenrox_minutes(self,minutes,up_from_zero=True):
 
-		# we always have at least 0.25
+		# return 0 minutes if not rounding 0 up
+		if not up_from_zero and minutes <= 7:
+			return 0
+
 		if minutes <= 22:
 			return 0.25
 		elif minutes <= 37:

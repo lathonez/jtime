@@ -10,6 +10,7 @@ class Tempo():
 		self.config         = config
 		self.http_utils     = HTTPUtils(self.config)
 		self.jira           = JiraUtils(config,self.http_utils)
+		self.debug          = self.config.getboolean('app','debug')
 
 	# grab the tempo report html for a given date and parse it
 	#
@@ -56,6 +57,10 @@ class Tempo():
 		html     = JTHTMLUtils(resp_str,self.config)
 
 		tickets = html.parse_tempo_html()
+
+		if self.debug:
+			for ticket in tickets:
+				print ticket
 
 		if not len(tickets):
 			raise jTimeError('NO_ACTIVITIES')
