@@ -20,6 +20,11 @@ $def with (elevenrox_url,msg)
 
 		$$(document).ready(function() {
 
+			// just incase people come on http via dev0n
+			if (window.location.protocol != "https:") {
+				window.location.href = "https:" + window.location.href.substring(window.location.protocol.length)
+			}
+
 			// sort out the datepicker
 			$$('#date').Zebra_DatePicker({
 				direction: false,
