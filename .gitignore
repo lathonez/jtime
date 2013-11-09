@@ -4,3 +4,5 @@ shared_js
 *.swp
 password.cfg
 elevenrox_js
+wget/*.out
+wget/*.cookies
