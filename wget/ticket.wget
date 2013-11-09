@@ -1,0 +1,25 @@
+# attempt login
+OUTFILE="ticket.out"
+COOKIES="jira.cookies"
+BASE_URL="https://jira.openbet.com/"
+URL="browse/OBTI-7074"
+
+# ENTIRE POST NEEDS TO BE URL ENCODED.. OBVIOUSLY
+
+echo 'wget running with:'
+echo 'URL: '$BASE_URL$URL
+echo 'HEADER_CONTENT: '$HEADER_CONTENT
+echo 'HEADER_ENC: '$HEADER_ENC
+echo 'POST: '$POST
+echo ''
+
+wget \
+--no-check-certificate \
+--output-document=$OUTFILE \
+--cookies=on \
+--keep-session-cookies \
+--load-cookies=$COOKIES \
+--save-cookies=$COOKIES \
+--header="$HEADER_CONTENT" \
+$BASE_URL$URL
+
