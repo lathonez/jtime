@@ -32,7 +32,8 @@ class JTHTMLUtils():
 	def __init__(self, html, config):
 
 		self.html   = html
-		self.soup   = BeautifulSoup(html)
+		# we need to use html5 parsing with Jira, as the HTML is not valid
+		self.soup   = BeautifulSoup(self.html,'html5')
 		self.config = config
 		self.jira   = JiraUtils(config)
 
