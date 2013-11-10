@@ -112,7 +112,13 @@ class JTHTMLUtils():
 
 	def get_tenrox_code(self):
 
-		print self.soup.prettify()
+		# think this custom field id is the same for all tickets
+		code_div = self.soup.find(id='customfield_11126-val')
+
+		if code_div is None:
+			return None
+
+		return code_div.get_text().strip()
 
 
 from shared.utils import HTTPUtils
@@ -212,16 +218,14 @@ class JiraUtils():
 			cookies = [sc,xc]
 		)
 
-		resp     = self.http_utils.do_req(url)
 		resp_str = resp['response_string']
 
 		cookies = self._check_session(resp['cookie_jar'])
 
 		html = JTHTMLUtils(resp_str,self.config)
-		html.get_tenrox_code()
 
 		return {
-			'tenrox_code': 'WIL-300',
+			'tenrox_code': html.get_tenrox_code(),
 			'cookies': cookies
 		}
 	
