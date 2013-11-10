@@ -195,8 +195,9 @@ class jTime():
 			cookies = self.jira.login(username, password)
 
 			for ticket in tickets:
-				rtn     = self.jira.get_tenrox_code_from_ticket(ticket['ticket_id'],cookies)
-				cookies = rtn['cookies']
+				rtn = self.jira.get_tenrox_code_from_ticket(ticket['ticket_id'],cookies)
+				ticket['tenrox_code'] = rtn['tenrox_code']
+				cookies               = rtn['cookies']
 
 		projects = self._get_project_summary(tickets)
 		summary  = self._get_total_summary(projects)
