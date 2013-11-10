@@ -176,8 +176,10 @@ class jTime():
 				rtn = self.jira.get_tenrox_code_from_ticket(
 					ticket['ticket_id'],cookies
 				)
-				ticket['assignment_name'] = rtn['tenrox_code']
-				cookies                   = rtn['cookies']
+				# the default for each ticket is already set from config
+				if rtn['tenrox_code'] is not None:
+					ticket['assignment_name'] = rtn['tenrox_code']
+				cookies = rtn['cookies']
 
 		assignments = self._get_assignments(tickets)
 		summary     = self._get_total_summary(assignments)
