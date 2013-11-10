@@ -47,7 +47,7 @@ class jtime:
 		return render.jtime(
 			data.date,
 			rtn['tickets'],
-			rtn['projects'],
+			rtn['assignments'],
 			rtn['summary'],
 			data.t_username,
 			data.t_password,

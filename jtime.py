@@ -4,7 +4,6 @@ from jtime_error     import jTimeError
 from utils           import *
 from shared.utils    import HTTPUtils, HTTPUtilsError
 from datetime        import *
-import ConfigParser
 
 # Class to build a timesheet based on tickets recieved from activity_stream or tempo
 class jTime():
@@ -17,40 +16,41 @@ class jTime():
 		self.utils  = JTUtils()
 		self.jira   = JiraUtils(config,HTTPUtils(config))
 
-	# Build a summary per project from a list of ticket dicts
+	# Build a summary per assignment from a list of ticket dicts
 	#
 	# tickets: ticket dicts
 	#
 	# returns: [{
-	#    'project': 'LBR',
+	#    'assignment': 'LBR300 Investigation',
 	#    'time': '01:30:35'
 	# }]
-	def _get_project_summary(self,tickets):
+	def _get_assignments(self,tickets):
 
-		projects = []
+		assignments = []
 
 		for ticket in tickets:
 
-			exists = self.utils.get_from_dict(projects,'project',ticket['project'])
+			# do we already have this assignment?
+			exists = self.utils.get_from_dict(assignments,'assignment',ticket['assignment_name'])
 
 			if exists is None:
-				p = {
+				a = {
+					'assignment': ticket['assignment_name'],
 					'project': ticket['project'],
 					'time': ticket['time'],
-					'tenrox_project_name': self._get_tenrox_project_name(ticket['project']),
 					'tenrox_comment': self._get_tenrox_comment(ticket)
 				}
-				projects.append(p)
+				assignments.append(a)
 			else:
-				p = exists
-				p['time'] += ticket['time']
-				p['tenrox_comment'] += self._get_tenrox_comment(ticket)
+				a = exists
+				a['time'] += ticket['time']
+				a['tenrox_comment'] += self._get_tenrox_comment(ticket)
 
 		# round up the tenrox time in each project
-		for project in projects:
-			project['tenrox_time'] = self._round_tenrox_time(project['time'])
+		for assignment in assignments:
+			assignment['tenrox_time'] = self._round_tenrox_time(assignment['time'])
 
-		return projects
+		return assignments
 
 	# Sum the total time from a list of projects
 	#
@@ -70,20 +70,6 @@ class jTime():
 			'time': time,
 			'tenrox_time': tenrox_time
 		}
-
-	# derive the tenrox code from a project
-	#
-	# project: Jira project (LBR)
-	#
-	# returns: tenrox project name (LBR300)
-	def _get_tenrox_project_name(self, project):
-
-		try:
-			code = self.config.get('tenrox_project_names',project)
-		except ConfigParser.NoOptionError:
-			code = project + '300 Investigation'
-
-		return code
 
 	# format a tenrox comment based on a ticket dict
 	#
@@ -195,16 +181,18 @@ class jTime():
 			cookies = self.jira.login(username, password)
 
 			for ticket in tickets:
-				rtn = self.jira.get_tenrox_code_from_ticket(ticket['ticket_id'],cookies)
-				ticket['tenrox_code'] = rtn['tenrox_code']
-				cookies               = rtn['cookies']
+				rtn = self.jira.get_tenrox_code_from_ticket(
+					ticket['ticket_id'],cookies
+				)
+				ticket['assignment_name'] = rtn['tenrox_code']
+				cookies                   = rtn['cookies']
 
-		projects = self._get_project_summary(tickets)
-		summary  = self._get_total_summary(projects)
+		assignments = self._get_assignments(tickets)
+		summary     = self._get_total_summary(assignments)
 
 		return {
 			'tickets': tickets,
-			'projects': projects,
+			'assignments': assignments,
 			'summary': summary
 		}
 

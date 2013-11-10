@@ -124,6 +124,7 @@ class JTHTMLUtils():
 
 from shared.utils import HTTPUtils
 from jtime_error  import jTimeError
+import ConfigParser
 
 # Jira specific utilities that apply to both tempo and activity stream
 class JiraUtils():
@@ -155,6 +156,21 @@ class JiraUtils():
 			'session': session,
 			'csrf': csrf
 		}
+
+	# derive the tenrox assignment for a given customer from config
+	# generally applicable only to support
+	#
+	# project: Jira project (LBR)
+	#
+	# returns: tenrox project name (LBR300)
+	def _get_assignment_name(self, project):
+
+		try:
+			assignment = self.config.get('tenrox_assignments',project)
+		except ConfigParser.NoOptionError:
+			assignment = project + '300 Investigation'
+
+		return assignment
 
 	#
 	# Public Functions
@@ -235,17 +251,18 @@ class JiraUtils():
 	# ticket_detail: return value of _parse_ticket_id
 	#
 	# returns: {
-	#     'project': LBR,
+	#     'assignment_name': LBR300 Investigation,
 	#     'ticket_id': LBR-12345,
 	#     'time': None
 	# }
 	def build_ticket_dict(self, ticket_detail):
 
-		project     = ticket_detail['project']
-		ticket_id   = project + '-' + ticket_detail['ticket_id']
+		assignment_name = self._get_assignment_name(ticket_detail['project'])
+		ticket_id       = '{0}-{1}'.format(ticket_detail['project'],ticket_detail['ticket_id'])
 
 		return {
-			'project': project,
+			'assignment_name': assignment_name,
+			'project': ticket_detail['project'],
 			'ticket_id': ticket_id,
 			'time': timedelta()
 		}

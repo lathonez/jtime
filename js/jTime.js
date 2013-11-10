@@ -181,15 +181,15 @@ jTime.prototype._get_timeentries = function() {
 jTime.prototype._get_timeentry_for_project = function(_project) {
 
 	var fn = 'jTime._get_timeentry_for_project: ',
-	    as = this.er.get_assignment_by_name(_project.tenrox_code);
+	    as = this.er.get_assignment_by_name(_project.assignment_name);
 
 	if (!as) {
-		console.log(fn + 'assignment not found for ' + _project.tenrox_code);
+		console.log(fn + 'assignment not found for ' + _project.assignment_name);
 		return null;
 	}
 
 	if (as.length > 1) {
-		console.log(fn + 'multiple assignments found for ' + _project.tenrox_code + ' not adding.');
+		console.log(fn + 'multiple assignments found for ' + _project.assignment_name + ' not adding.');
 		return null;
 	}
 

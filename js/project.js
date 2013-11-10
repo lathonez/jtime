@@ -4,37 +4,37 @@
 
 // constructor
 function Project(
+	assignment_name,
 	project,
 	time,
-	tenrox_code,
 	tenrox_comment,
 	tenrox_time
 ) {
 	this._init(
+		assignment_name,
 		project,
 		time,
-		tenrox_code,
 		tenrox_comment,
 		tenrox_time
 	);
 }
 
 Project.prototype._init = function(
+	assignment_name,
 	project,
 	time,
-	tenrox_code,
 	tenrox_comment,
 	tenrox_time
 ) {
-	this.project        = project;
-	this.time           = time;
-	this.tenrox_code    = tenrox_code;
-	this.tenrox_comment = tenrox_comment;
-	this.tenrox_time    = tenrox_time;
-	this.assignment     = null;
-	this.timeentry      = null;
-	this.request_failed = false;
-	this.synced         = false;
+	this.assignment_name = assignment_name;
+	this.project         = project;
+	this.time            = time;
+	this.tenrox_comment  = tenrox_comment;
+	this.tenrox_time     = tenrox_time;
+	this.assignment      = null;
+	this.timeentry       = null;
+	this.request_failed  = false;
+	this.synced          = false;
 
 	// we've already got the amount of time we're looking for
 	// for this project in the timesheet
