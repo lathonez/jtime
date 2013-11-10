@@ -90,22 +90,22 @@ $def with (date,tickets,assignments,summary,tenrox_username,tenrox_password,tenr
 					</tr>
 				</tbody>
 			</table>
-			<h3>Summary per Assignment</h3>
+			<h3>Assignments</h3>
 			<table class="pure-table pure-table-striped">
 				<thead>
 					<tr>
 						<th>Assignment</th>
 						<th>Project</th>
-						<th>Real Time</th>
-						<th>Tenrox Time</th>
-						<th>Recorded Time</th>
+						<th>Real</th>
+						<th>Tenrox</th>
+						<th>Recorded</th>
 					</tr>
 				</thead>
 				<tbody>
 				$for assignment in assignments
 					<tr>
 						<td>$assignment['assignment']</td>
-						<td>$assignment['project']</td>
+						<td><a href="$jira_url/browse/$assignment['project']">$assignment['project']</a></td>
 						<td>$assignment['time']</td>
 						<td>$assignment['tenrox_time']</td>
 						<td>
