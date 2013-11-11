@@ -41,16 +41,16 @@ function do_submit() {
 		} else{
 			// we've got some error, find what it is and report it
 			if (_resp.error.code < 30000) {
-				loc = '/jTime?msg=HTTP_ELEVENROX';
+				loc = '/' + url + 'msg=HTTP_ELEVENROX';
 			}
 
 			if (_resp.error.code == -32001 && _resp.error.data.search('Invalid username or password') > -1) {
-				loc = '/jTime?msg=BAD_T_USER';
+				loc = '/' + url + 'msg=BAD_T_USER';
 			}
 
 			// dunno what the problem is
 			if (typeof loc === undefined) {
-				loc = '/jTime?msg=UNKNOWN';
+				loc = '/' + url + 'msg=UNKNOWN';
 			}
 
 			window.location.href = loc;
@@ -99,7 +99,7 @@ function fill_from_cookie() {
 
 	spl = raw.split("|");
 
-	if (spl.length != 4) {
+	if (spl.length != 5) {
 		console.log(fn + 'invalid cookie format');
 	}
 
@@ -107,6 +107,12 @@ function fill_from_cookie() {
 	$('#j_password').val(spl[1]);
 	$('#t_username').val(spl[2]);
 	$('#t_password').val(spl[3]);
+
+	if (spl[4] == "true") {
+		$('#find_codes').attr('checked',true);
+	} else {
+		$('#find_codes').attr('checked',false);
+	}
 }
 
 function set_cookie() {
@@ -116,7 +122,8 @@ function set_cookie() {
 	cookie_val += $('#j_username').val() + '|';
 	cookie_val += $('#j_password').val() + '|';
 	cookie_val += $('#t_username').val() + '|';
-	cookie_val += $('#t_password').val();
+	cookie_val += $('#t_password').val() + '|';
+	cookie_val += $('#find_codes').is(':checked');
 
 	$.cookie(login_cookie_name, cookie_val, {
 		expires: 365,
