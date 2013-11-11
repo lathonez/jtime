@@ -1,21 +1,21 @@
-$def with (date,tickets,assignments,summary,tenrox_username,tenrox_password,tenrox_token,elevenrox_url,jira_url)
+$def with (date,tickets,assignments,summary,tenrox_username,tenrox_password,tenrox_token,url,elevenrox_url,jira_url)
 <html>
 	<head>
 		<title>jTime</title>
-		<link rel="stylesheet" type="text/css" href="/static/jTime/css/pure-min.css" />
-		<link rel="stylesheet" type="text/css" href="/static/jTime/css/pure-ob.css" />
-		<link rel="stylesheet" type="text/css" href="/static/jTime/css/bootstrap.css" />
-		<link rel="stylesheet" type="text/css" href="/static/jTime/css/jTime.css" />
+		<link rel="stylesheet" type="text/css" href="/static/$url/css/pure-min.css" />
+		<link rel="stylesheet" type="text/css" href="/static/$url/css/pure-ob.css" />
+		<link rel="stylesheet" type="text/css" href="/static/$url/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="/static/$url/css/jTime.css" />
 		<script type="text/javascript" language="Javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script type="text/javascript" language="Javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
-		<script type="text/javascript" language="Javascript" src="/static/jTime/js/jTime.js"></script>
-		<script type="text/javascript" language="Javascript" src="/static/jTime/js/project.js"></script>
-		<script type="text/javascript" language="Javascript" src="/static/jTime/js/zebra_datepicker.js"></script>
-		<script type="text/javascript" language="Javascript" src="/static/jTime/js/jquery.knob.js"></script>
-		<script type="text/javascript" language="Javascript" src="/static/jTime/elevenrox_js/elevenrox.js"></script>
-		<script type="text/javascript" language="Javascript" src="/static/jTime/elevenrox_js/timesheet.js"></script>
-		<script type="text/javascript" language="Javascript" src="/static/jTime/elevenrox_js/assignment.js"></script>
-		<script type="text/javascript" language="Javascript" src="/static/jTime/elevenrox_js/timeentry.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/$url/js/jTime.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/$url/js/project.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/$url/js/zebra_datepicker.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/$url/js/jquery.knob.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/$url/elevenrox_js/elevenrox.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/$url/elevenrox_js/timesheet.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/$url/elevenrox_js/assignment.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/$url/elevenrox_js/timeentry.js"></script>
 		<script type="text/javascript" language="Javascript">
 
 			var projects      = [],
@@ -65,7 +65,7 @@ $def with (date,tickets,assignments,summary,tenrox_username,tenrox_password,tenr
 			<h2>Jira timesheet generator</h2>
 			<h3>$date</h3>
 			<div class="pure-controls">
-				<input type="submit" class="pure-button pure-button-primary" value="Back" onclick="document.location='/jTime'"/>
+				<input type="submit" class="pure-button pure-button-primary" value="Back" onclick="document.location='/$url'"/>
 				<input id="upload_button" type="submit" class="pure-button pure-button-primary" value="Upload" onclick="upload()" disabled/>
 			</div>
 		</div>

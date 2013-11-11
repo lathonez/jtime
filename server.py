@@ -25,6 +25,7 @@ class index:
 			msg = jTimeError.ERROR_CODES[msg]
 
 		return render.index(
+			config.get('app','url'),
 			config.get('app','elevenrox_url'),
 			msg
 		)
@@ -52,6 +53,7 @@ class jtime:
 			data.t_username,
 			data.t_password,
 			data.tenrox_token,
+			config.get('app','url'),
 			config.get('app','elevenrox_url'),
 			config.get('jira','jira_url')
 		)
