@@ -1,17 +1,17 @@
-$def with (elevenrox_url,msg)
+$def with (url,elevenrox_url,msg)
 <html>
 	<head>
 		<title>jTime</title>
-		<link rel="stylesheet" type="text/css" href="/static/jTime/css/pure-min.css" />
-		<link rel="stylesheet" type="text/css" href="/static/jTime/css/pure-ob.css" />
-		<link rel="stylesheet" type="text/css" href="/static/jTime/css/bootstrap.css" />
-		<link rel="stylesheet" type="text/css" href="/static/jTime/css/jTime.css" />
+		<link rel="stylesheet" type="text/css" href="/static/$url/css/pure-min.css" />
+		<link rel="stylesheet" type="text/css" href="/static/$url/css/pure-ob.css" />
+		<link rel="stylesheet" type="text/css" href="/static/$url/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="/static/$url/css/jTime.css" />
 		<script type="text/javascript" language="Javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script type="text/javascript" language="Javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
-		<script type="text/javascript" language="Javascript" src="/static/jTime/js/jTime.js"></script>
-		<script type="text/javascript" language="Javascript" src="/static/jTime/elevenrox_js/elevenrox.js"></script>
-		<script type="text/javascript" language="Javascript" src="/static/jTime/js/zebra_datepicker.js"></script>
-		<script type="text/javascript" language="Javascript" src="/static/jTime/js/jquery.knob.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/$url/js/jTime.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/$url/elevenrox_js/elevenrox.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/$url/js/zebra_datepicker.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/$url/js/jquery.knob.js"></script>
 
 	</head>
 	<script type="text/javascript">
@@ -71,16 +71,16 @@ $def with (elevenrox_url,msg)
 				} else{
 					// we've got some error, find what it is and report it
 					if (_resp.error.code < 30000) {
-						loc = '/jTime?msg=HTTP_ELEVENROX';
+						loc = '/$url?msg=HTTP_ELEVENROX';
 					}
 
 					if (_resp.error.code == -32001 && _resp.error.data.search('Invalid username or password') > -1) {
-						loc = '/jTime?msg=BAD_T_USER';
+						loc = '/$url?msg=BAD_T_USER';
 					}
 
 					// dunno what the problem is
 					if (typeof loc === undefined) {
-						loc = '/jTime?msg=UNKNOWN';
+						loc = '/$url?msg=UNKNOWN';
 					}
 
 					window.location.href = loc;
@@ -122,7 +122,7 @@ $def with (elevenrox_url,msg)
 			<div class="pure-g-r">
 				<div class="pure-u-1-3"></div>
 				<div class="pure-u-1-3">
-					<form class="pure-form pure-form-aligned" id="frm" method="post" action="/jTime/doJTime">
+					<form class="pure-form pure-form-aligned" id="frm" method="post" action="/$url/doJTime">
 						<fieldset>
 							<div class="pure-control-group">
 								<input name="j_username" type="text" placeholder="Jira Username" required />
