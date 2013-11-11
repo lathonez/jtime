@@ -1,4 +1,4 @@
-$def with (elevenrox_url,msg)
+$def with (url,elevenrox_url,msg)
 <html>
 	<head>
 		<title>jTime</title>
@@ -12,7 +12,7 @@ $def with (elevenrox_url,msg)
 		<script type="text/javascript" language="Javascript" src="/static/$url/elevenrox_js/elevenrox.js"></script>
 		<script type="text/javascript" language="Javascript" src="/static/$url/js/zebra_datepicker.js"></script>
 		<script type="text/javascript" language="Javascript" src="/static/$url/js/jquery.knob.js"></script>
-		<script type="text/javascript" language="Javascript" src="/static/jTime/js/jquery.cookie.js"></script>
+		<script type="text/javascript" language="Javascript" src="/static/$url/js/jquery.cookie.js"></script>
 	</head>
 	<script type="text/javascript">
 		var progress          = 0,
@@ -48,13 +48,13 @@ $def with (elevenrox_url,msg)
 			<div class="pure-g-r">
 				<div class="pure-u-1-3"></div>
 				<div class="pure-u-1-3">
-					<form class="pure-form pure-form-aligned" id="frm" method="post" action="/jTime/doJTime">
+					<form class="pure-form pure-form-aligned" id="frm" method="post" action="/$url/doJTime">
 						<fieldset>
 							<div class="pure-control-group">
-								<input name="j_username" type="text" placeholder="Jira Username" required />
+								<input name="j_username" id="j_username" type="text" placeholder="Jira Username" required />
 							</div>
 							<div class="pure-control-group">
-								<input name="j_password" type="password" placeholder="Jira Password" required />
+								<input name="j_password" id="j_password" type="password" placeholder="Jira Password" required />
 							</div>
 							<div class="pure-control-group">
 								<input name="t_username" id="t_username" type="text" placeholder="Tenrox Username" required />
