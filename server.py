@@ -41,7 +41,7 @@ class jtime:
 			rtn = self.do_jtime(data)
 		except jTimeError as e:
 			print e.message
-			web.seeother('/?msg=' + e.code)
+			web.seeother('/jTime?msg=' + e.code)
 			return
 
 		return render.jtime(
