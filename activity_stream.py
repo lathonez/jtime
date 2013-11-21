@@ -99,18 +99,12 @@ class ActivityStream():
 
 		for entry in entries:
 
-			if self.debug_stream:
-				print entry
+			# issue #33 - skips need to be done before setting first or last entries
 
 			# only process stuff we care about
-			if not self._check_entry_relevant(entry):
-				continue
-
-			# we use relevant placeholders only to check the total time
-			if first_entry is None:
-				first_entry = entry
-
-			last_entry = entry
+			if entry != entries[0] and entry != entries[-1]:
+				if not self._check_entry_relevant(entry):
+					continue
 
 			try:
 				# temp ticket to test with
@@ -124,6 +118,12 @@ class ActivityStream():
 					continue
 				else:
 					raise e
+
+			# we use relevant placeholders only to check the total time
+			if first_entry is None:
+				first_entry = entry
+
+			last_entry = entry
 
 			exists = self.utils.get_from_dict(tickets,'ticket_id',t['ticket_id'])
 

@@ -92,6 +92,7 @@ class Server():
 
 		self.urls = (
 			'/', 'index',
+			'/jTime', 'index',
 			'/doJTime', 'jtime'
 		)
 
