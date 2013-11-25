@@ -41,16 +41,16 @@ function do_submit() {
 		} else{
 			// we've got some error, find what it is and report it
 			if (_resp.error.code < 30000) {
-				loc = '/' + url + 'msg=HTTP_ELEVENROX';
+				loc = '/' + url + '?msg=HTTP_ELEVENROX';
 			}
 
 			if (_resp.error.code == -32001 && _resp.error.data.search('Invalid username or password') > -1) {
-				loc = '/' + url + 'msg=BAD_T_USER';
+				loc = '/' + url + '?msg=BAD_T_USER';
 			}
 
 			// dunno what the problem is
 			if (typeof loc === undefined) {
-				loc = '/' + url + 'msg=UNKNOWN';
+				loc = '/' + url + '?msg=UNKNOWN';
 			}
 
 			window.location.href = loc;

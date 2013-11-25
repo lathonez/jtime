@@ -84,9 +84,9 @@ class JTHTMLUtils():
 		for row in rows:
 
 			# iterate columns
-			cols        = row.find_all("td")
-			col_idx     = 0
-			ticket      = None
+			cols    = row.find_all("td")
+			col_idx = 0
+			ticket  = None
 
 			for col in cols:
 
@@ -277,22 +277,19 @@ class JiraUtils():
 	# }
 	def parse_ticket_id(self, string):
 
-		rexp      = self.config.get('jira','ticket_regexp')
-		match     = re.search(rexp,string)
+		rexp   = self.config.get('jira','ticket_regexp')
+		res    = re.findall(rexp,string)
+		ticket = {}
 
-		if match is None:
+		# currently we just want the last match on the line
+		for r in res:
+			ticket['project']   = r[0]
+			ticket['ticket_id'] = r[1]
+
+		if ticket == {}:
 			raise jTimeError('NO_TICKET_ID', string)
 
-		try:
-			project   = match.group(1)
-			ticket_id = match.group(2)
-		except Exception as e:
-			raise jTimeError('BAD_TITLE', title_detail)
-
-		return {
-			'project': project,
-			'ticket_id': ticket_id
-		}
+		return ticket
 
 	# convert a tempo time (0.40) to a python timedelta
 	#
