@@ -109,7 +109,7 @@ jTime.prototype._set_time_cb = function(_resp,_project) {
 		// reset the timeentry we've updated from 10rx
 		_project.response = _resp;
 		_project.set_timeentry(this._get_timeentry_for_project(_project));
-		this._update_recorded_time_for_project(_project,true);
+		this._update_recorded_time_for_assignment(_project,true);
 		this._do_progress();
 
 		if (_resp.error) {
@@ -212,7 +212,7 @@ jTime.prototype._update_recorded_time = function() {
 
 	for (var i = 0; i < this.projects.length; i++) {
 
-		if (!this._update_recorded_time_for_project(this.projects[i])) {
+		if (!this._update_recorded_time_for_assignment(this.projects[i])) {
 			sync = false;
 		}
 	}
@@ -223,40 +223,40 @@ jTime.prototype._update_recorded_time = function() {
 /*
  * Apply the recorded (10rx) time in the model to the view for a given project
  *
- * - _project      - the project to update for
+ * - _assignment   - the assignment to update for
  * - _update_total - do we want to update the total as part of this?
  * Returns true if we're in sync with 10rx, else false
  */
-jTime.prototype._update_recorded_time_for_project = function(_project,_update_total) {
+jTime.prototype._update_recorded_time_for_assignment = function(_assignment,_update_total) {
 
 	var sync = true,
 	    update_total = (typeof _update_total === undefined ? false : _update_total),
 	    overall = 0.0,
-	    pt, pn;
+	    at, an;
 
 	if (update_total) {
 		overall = er.convert_to_tenrox_time(er.get_total_time_for_date(this.date)),
 		$('#overall_recorded').html(overall);
 	}
 
-	pt = 0;
-	pn = '#' + _project.project + '_recorded';
+	at = 0;
+	an = '#' + _assignment.assignment_name + '_recorded';
 
 	// don't display 0 if we've got no assignment
-	if (!_project.assignment) {
-		pt = 'N/A';
+	if (!_assignment.assignment) {
+		at = 'N/A';
 	}
 
-	if (_project.timeentry) {
-		pt = er.convert_to_tenrox_time(_project.timeentry.time);
+	if (_assignment.timeentry) {
+		pt = er.convert_to_tenrox_time(_assignment.timeentry.time);
 	}
 
 	// we only count synchronisation for assignments that exist
-	if (_project.assignment && !_project.synced) {
+	if (_assignment.assignment && !_assignment.synced) {
 		sync = false;
 	}
 
-	$(pn).html(pt);
+	$(an).html(at);
 
 	return sync;
 };
