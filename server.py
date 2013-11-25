@@ -37,12 +37,13 @@ class jtime:
 		global config, act
 
 		data = web.input()
+		url  = config.get('app','url')
 
 		try:
 			rtn = self.do_jtime(data)
 		except jTimeError as e:
 			print e.message
-			web.seeother('/?msg=' + e.code)
+			web.seeother('/{0}?msg={1}'.format(url,e.code))
 			return
 
 		return render.jtime(
@@ -53,7 +54,7 @@ class jtime:
 			data.t_username,
 			data.t_password,
 			data.tenrox_token,
-			config.get('app','url'),
+			url,
 			config.get('app','elevenrox_url'),
 			config.get('jira','jira_url')
 		)
