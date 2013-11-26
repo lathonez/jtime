@@ -8,14 +8,16 @@ function Project(
 	project,
 	time,
 	tenrox_comment,
-	tenrox_time
+	tenrox_time,
+	assignment_hash
 ) {
 	this._init(
 		assignment_name,
 		project,
 		time,
 		tenrox_comment,
-		tenrox_time
+		tenrox_time,
+		assignment_hash
 	);
 }
 
@@ -24,13 +26,15 @@ Project.prototype._init = function(
 	project,
 	time,
 	tenrox_comment,
-	tenrox_time
+	tenrox_time,
+	assignment_hash
 ) {
 	this.assignment_name = assignment_name;
 	this.project         = project;
 	this.time            = time;
 	this.tenrox_comment  = tenrox_comment;
 	this.tenrox_time     = tenrox_time;
+	this.assignment_hash = assignment_hash;
 	this.assignment      = null;
 	this.timeentry       = null;
 	this.request_failed  = false;

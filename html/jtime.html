@@ -34,7 +34,8 @@ $def with (date,tickets,assignments,summary,tenrox_username,tenrox_password,tenr
 							'$assignment['project']',
 							'$assignment['time']',
 							'$assignment['tenrox_comment']',
-							'$assignment['tenrox_time']'
+							'$assignment['tenrox_time']',
+							'$assignment['assignment_hash']'
 						)
 					);
 
@@ -109,8 +110,8 @@ $def with (date,tickets,assignments,summary,tenrox_username,tenrox_password,tenr
 						<td>$assignment['time']</td>
 						<td>$assignment['tenrox_time']</td>
 						<td>
-							<div id="$assignment['assignment']_recorded">?</div>
-							<div id="$assignment['assignment']_tenrox_comment" class="hidden">$assignment['tenrox_comment']</div>
+							<div id="$assignment['assignment_hash']_recorded">?</div>
+							<div id="$assignment['assignment_hash']_tenrox_comment" class="hidden">$assignment['tenrox_comment']</div>
 						</td>
 					</tr>
 				</tbody>

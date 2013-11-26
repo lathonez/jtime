@@ -4,6 +4,7 @@ from jtime_error     import jTimeError
 from utils           import *
 from shared.utils    import HTTPUtils, HTTPUtilsError
 from datetime        import *
+import hashlib
 
 # Class to build a timesheet based on tickets recieved from activity_stream or tempo
 class jTime():
@@ -38,7 +39,8 @@ class jTime():
 					'assignment': ticket['assignment_name'],
 					'project': ticket['project'],
 					'time': ticket['time'],
-					'tenrox_comment': self._get_tenrox_comment(ticket)
+					'tenrox_comment': self._get_tenrox_comment(ticket),
+					'assignment_hash': hashlib.md5(ticket['assignment_name']).hexdigest()
 				}
 				assignments.append(a)
 			else:

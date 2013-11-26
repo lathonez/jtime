@@ -232,7 +232,7 @@ jTime.prototype._update_recorded_time_for_assignment = function(_assignment,_upd
 	var sync = true,
 	    update_total = (typeof _update_total === undefined ? false : _update_total),
 	    overall = 0.0,
-	    at, an;
+	    at, ah;
 
 	if (update_total) {
 		overall = er.convert_to_tenrox_time(er.get_total_time_for_date(this.date)),
@@ -240,7 +240,7 @@ jTime.prototype._update_recorded_time_for_assignment = function(_assignment,_upd
 	}
 
 	at = 0;
-	an = '#' + _assignment.assignment_name + '_recorded';
+	ah = '#' + _assignment.assignment_hash + '_recorded';
 
 	// don't display 0 if we've got no assignment
 	if (!_assignment.assignment) {
@@ -256,7 +256,7 @@ jTime.prototype._update_recorded_time_for_assignment = function(_assignment,_upd
 		sync = false;
 	}
 
-	$(an).html(at);
+	$(ah).html(at);
 
 	return sync;
 };
