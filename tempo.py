@@ -82,5 +82,9 @@ class Tempo():
 	def get_tickets(self, username, password, date):
 
 		cookies = self.jira.login(username, password)
+
+		# since the Jira upgrade tempo is broken, returning nothing until we've integrated properly with the API
+		return None
+
 		return self._get_tickets(date, cookies)
 
